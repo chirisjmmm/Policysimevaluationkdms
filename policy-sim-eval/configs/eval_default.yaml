@@ -1,0 +1,50 @@
+seed: 20260810
+retriever:
+  # embedding = multilingual sentence-transformers (paraphrase-multilingual-MiniLM-L12-v2),
+  # local + free, needed for BK21 where the KG/agent text is English but the source
+  # document is Korean -- TF-IDF is purely lexical and cannot match across scripts at
+  # all (verified: cosine(ko sentence, matching en translation) ~0.70 vs ~0.04 for an
+  # unrelated pair, using this model). Falls back to tfidf automatically if
+  # sentence-transformers or the model download is unavailable. TF-IDF is always
+  # computed and reported alongside (see kg_index stats *_tfidf / *_embedding fields).
+  backend: embedding
+  embedding_model: paraphrase-multilingual-MiniLM-L12-v2
+  # Calibrated, not guessed: measured via an 800-sentence cross-policy null
+  # distribution (100E narratives queried against BK21's KG corpus and vice
+  # versa -- guaranteed topically-adjacent-but-unrelated text). That null
+  # distribution's median similarity was 0.43 and p95 was 0.557 -- far above
+  # the naive 0.35 that was calibrated for TF-IDF's much sparser similarity
+  # scale. 0.35 caused near-universal false "grounding" once the backend
+  # switched to embeddings (GroundedTotal inflated to ~0.99 across ALL
+  # cells, including 100E which never had a language-mismatch problem).
+  # 0.55 ~= that null distribution's p95, i.e. only ~5% of definitely
+  # unrelated text would spuriously clear the bar.
+  tau_grounding: 0.55
+threshold_calibration:
+  null_median: 0.43
+  null_p95: 0.557
+  method: "cross-policy null distribution (100E narratives vs BK21 KG corpus, and reverse; 800 sentences)"
+normalize:
+  rel_tol: 0.005
+  approx_tol_multiplier: 4
+kg:
+  use_tiers_for_facts: [T1_explicit]
+  use_tiers_for_grounding: [T1_explicit, T2_weak]
+  # Same null-distribution calibration as retriever.tau_grounding above.
+  align_confidence_t2_min: 0.55
+meso:
+  # beta_star (M3 anchoring coefficient) removed -- metric deleted in v4
+  w_uptake: 0.5
+  w_citation: 0.2
+  w_shrink: 0.3
+  theta_disconnected: 0.15
+  theta_complete: 0.5
+diversity:
+  kmeans_k_range: [2, 8]
+  cv_ref: 0.5
+bootstrap:
+  n_resamples: 500
+stability_curve:
+  n_points: [10, 20, 30, 40, 50]
+# expected_grounding (A2.ProfileFit bands) removed -- metric deleted in v4:
+# arbitrary expected-band definitions, redundant with A2's main score.

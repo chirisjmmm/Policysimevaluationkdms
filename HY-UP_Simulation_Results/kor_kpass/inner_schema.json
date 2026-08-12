@@ -1,0 +1,32 @@
+{
+  "phases": [
+    {
+      "phase": "Inputs",
+      "prediction_fields": [
+        {
+          "name": "national_local_refund_budget_krw",
+          "unit": "KRW",
+          "type": "float",
+          "description": "Total national and participating local-government funding available for K-Pass refunds and program administration during the first 10 months after launch."
+        },
+        {
+          "name": "participating_local_governments_count",
+          "unit": "local_governments",
+          "type": "int",
+          "description": "Number of local governments that have signed agreements to participate in the K-Pass program and contribute local funding."
+        },
+        {
+          "name": "card_issuer_partners_count",
+          "unit": "card_issuers",
+          "type": "int",
+          "description": "Number of card issuers that have integrated K-Pass refund processing into their systems."
+        }
+      ],
+      "discussion_points": [
+        "How does the sufficiency of combined national and local funding relative to projected demand affect the program's ability to sustain refunds without payment delays?",
+        "What constraints arise from the number of participating local governments, such as uneven geographic coverage or administrative capacity, that could limit program reach?",
+        "How does the number of card issuer partners and their infrastructure capacity affect the ease of enrollment, refund delivery, and processing speed for users?"
+      ]
+    }
+  ]
+}

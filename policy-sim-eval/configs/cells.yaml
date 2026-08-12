@@ -1,0 +1,72 @@
+# Cell design (EVAL_GUIDELINE.md sec 6.1) -- CORRECTED from the guideline's
+# original table. The guideline's reference cell table names the third cell
+# `bk21_gemini`, but the actual BK21 scenario data on disk was generated with
+# DeepSeek (verified via run_log.json: "model": "deepseek-chat", not Gemini).
+# There is no bk21_gemini data in this dataset. Cells below match what was
+# actually found under HY-UP_Simulation_Results/.
+#
+# This flips which contrasts are estimable relative to the guideline's
+# original framing: the policy effect (100E vs BK21) can only be measured
+# on DeepSeek, not Gemini. See design/contrasts.py.
+cells:
+  - id: 100e_gemini
+    policy: 100e
+    policy_type: distributive
+    model: gemini
+    runs_dir: data/policies/100e/runs/gemini
+    n: 50
+  - id: 100e_deepseek
+    policy: 100e
+    policy_type: distributive
+    model: deepseek
+    runs_dir: data/policies/100e/runs/deepseek
+    n: 50
+  - id: bk21_deepseek
+    policy: bk21
+    policy_type: distributive
+    model: deepseek
+    runs_dir: data/policies/bk21/runs/deepseek
+    n: 50
+
+branch_cells:
+  - id: nsa_deepseek
+    policy: nsa
+    policy_type: regulatory
+    model: deepseek
+    tree_path: data/policies/nsa/branches/tree.json
+    trees: 1
+  - id: kpass_deepseek
+    policy: kpass
+    policy_type: distributive
+    model: deepseek
+    tree_path: data/policies/kpass/branches/tree.json
+    trees: 1
+
+contrasts:
+  model_effect_100e:
+    a: 100e_gemini
+    b: 100e_deepseek
+    holds: policy
+  policy_effect_deepseek:
+    a: 100e_deepseek
+    b: bk21_deepseek
+    holds: model
+    confound_note: >-
+      BK21's KG has 1/4 the nodes of 100E's (49 vs 218) and 0 T1-tier facts
+      (vs 293 for 100E) -- a KG-quality confound, not necessarily a policy-type
+      effect. Do not interpret an A1/A2 gap here as "distributive Korean
+      policy vs distributive Singaporean policy" without controlling for this.
+  interaction: null   # bk21_gemini absent (guideline assumed bk21_deepseek absent instead) -> not estimable either way
+
+branch_contrasts:
+  branch_policy_type:
+    nsa_vs_kpass:
+      a: nsa_deepseek
+      b: kpass_deepseek
+      holds: [model, path_structure]
+      note: >-
+        Path structure and model are controlled between these two cells (both
+        single DeepSeek-generated 121-node trees), so a difference here is
+        attributable to policy TYPE (regulatory vs distributive), not design
+        or model. Preliminary interpretive-framework validation only (n=1
+        tree per policy) -- primary comparison metrics: M1, D1, DM1.

@@ -1,0 +1,36 @@
+{
+  "policy": "K-Pass Public Transit Subsidy Program",
+  "source": {
+    "title": "K-Pass surpasses 3 million users within 10 months of launch",
+    "publisher": "Metropolitan Area Transport Commission, Ministry of Land, Infrastructure and Transport",
+    "release_date": "2025-03-04",
+    "local_file": "/Users/jhyunee/Downloads/250304%28%EC%A1%B0%EA%B0%84%29_%E2%80%98K-%ED%8C%A8%EC%8A%A4%E2%80%99_%EC%B6%9C%EC%8B%9C_10%EA%B0%9C%EC%9B%94_%EB%A7%8C%EC%97%90_%EC%9D%B4%EC%9A%A9%EC%9E%90_300%EB%A7%8C%EB%AA%85_%EB%8F%8C%ED%8C%8C%28%EA%B4%91%EC%97%AD%EA%B5%90%ED%86%B5%EA%B2%BD%….hwpx"
+  },
+  "ground_truth": {
+    "cumulative_registered_kpass_users_count": {
+      "value": 3000000,
+      "unit": "users",
+      "measurement_period": "2024-05-01 through approximately 2025-03-01",
+      "note": "The release states that users surpassed 3 million; 3,000,000 is therefore a reported threshold rather than an exact terminal count."
+    },
+    "avg_monthly_refund_per_user_krw": {
+      "value": 18000,
+      "unit": "KRW_per_user_month",
+      "measurement_period": "2024 K-Pass operating period",
+      "note": "Reported average among K-Pass users."
+    },
+    "avg_refund_share_of_transit_spending_pct": {
+      "value": 26.6,
+      "unit": "%",
+      "measurement_period": "2024 K-Pass operating period",
+      "note": "Reported refund share of average monthly public-transit spending among K-Pass users."
+    },
+    "low_income_avg_monthly_refund_per_user_krw": {
+      "value": 37000,
+      "unit": "KRW_per_low_income_user_month",
+      "measurement_period": "2024 K-Pass operating period",
+      "note": "Reported average among low-income K-Pass users."
+    }
+  },
+  "prompt_leakage_policy": "Ground-truth values in this file must not be included in Stage 2 simulation prompts."
+}

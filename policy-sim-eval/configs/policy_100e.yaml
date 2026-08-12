@@ -1,0 +1,157 @@
+policy_id: 100e
+policy_type: distributive
+doc_path: data/policies/100e/doc.md
+graph_path: data/policies/100e/graph.json
+run_source: single
+
+phases: [Inputs, Activities, Outputs, Outcomes, Impact]
+eval_terminal_phase: Outcomes
+post_target_phases: [Impact]
+
+# X1 ground truth: provided directly by the user (Policy A/B comparison
+# table, reporting period 2023). Web search alone could not confirm these
+# (only case-study anecdotes and cumulative "300+ projects since 2018"
+# figures surfaced) -- these are cumulative counts as of the 2023 reporting
+# period per the user-supplied reference table.
+targets:
+  - name: number_of_100e_projects_approved_in_2023
+    phase: Outcomes
+    true_value: 115
+    source: "User-supplied Policy A/B ground-truth table: 'Approved 100E projects (cumulative)', reporting period 2023"
+  - name: deployed_100e_projects
+    phase: Outcomes
+    true_value: 73
+    source: "User-supplied Policy A/B ground-truth table: 'Deployed 100E projects (cumulative)', reporting period 2023"
+
+concept_duplicates:
+  - group: approved_projects_2023
+    members: ["Outputs.approved_100e_projects", "Outcomes.number_of_100e_projects_approved_in_2023"]
+    ground_truth_from: "Outcomes.number_of_100e_projects_approved_in_2023"
+
+variable_anchors:
+  Inputs.max_co_funding_per_project_sgd:
+    type: anchored_constant
+    ref: {value: 330000, kind: currency, currency: SGD, bound: at_most}
+    evidence: "provides co-funding of up to S$330,000 per project"
+  Inputs.total_funding_sgd:
+    type: anchored_constant
+    ref: {value: 5.0e8, kind: currency, currency: SGD, bound: at_least}
+    evidence: "committed more than S$500 million through AI Singapore (AISG) under the RIE 2020 and 2025 plans"
+  Inputs.available_gpu_hours: {type: unanchored_constant}     # no document basis -- consensus hallucination candidate
+  Inputs.trainer_personnel_count: {type: unanchored_constant} # no document basis -- consensus hallucination candidate
+  Outputs.approved_100e_projects: {type: predicted}
+  Outputs.ai_prototypes_developed: {type: predicted}
+  Outputs.enterprises_with_solution: {type: predicted}
+  Outputs.trainees_completed_programme: {type: predicted}
+  Outcomes.number_of_100e_projects_approved_in_2023: {type: predicted}
+  Outcomes.deployed_100e_projects: {type: predicted}
+  Outcomes.ai_practitioner_pool: {type: predicted}
+  Outcomes.generative_ai_use_cases: {type: predicted}
+  Outcomes.enterprise_ai_adoption_rate: {type: predicted}
+  Impact.global_ai_readiness_rank: {type: predicted}
+  Impact.ai_sector_gdp_share: {type: predicted}
+  Impact.public_ai_trust_score: {type: predicted}
+  Impact.ai_talent_retention_rate: {type: predicted}
+
+fact_table:
+  - id: co_funding_cap
+    value: 330000
+    kind: currency
+    currency: SGD
+    bound: at_most
+    aliases: ["co-funding", "co funding", "cofunding", "per project", "S$330,000", "330,000",
+              "funding cap", "co-funding cap", "up to S$330"]
+    evidence: "provides co-funding of up to S$330,000 per project"
+    page: 30
+  - id: total_rd_commitment
+    value: 5.0e8
+    kind: currency
+    currency: SGD
+    bound: at_least
+    aliases: ["R&D funding", "R&D investment", "total funding", "national AI funding",
+              "committed", "S$500 million", "500 million", "AISG funding"]
+    evidence: "committed more than S$500 million through AI Singapore (AISG) under the RIE 2020 and 2025 plans"
+    page: 15
+  - id: 100e_project_duration
+    value: 6
+    range_hi: 12
+    kind: months
+    bound: range
+    aliases: ["6-12 months", "project duration", "typically 6-12 months", "6 to 12 months"]
+    evidence: "typically 6-12 months to complete"
+    page: 30
+  - id: existing_ai_research_faculty
+    value: 80
+    kind: count
+    bound: at_least
+    aliases: ["active AI research faculty", "research faculty", "80 active"]
+    evidence: "Over 80 active AI research faculty, 150 AI R&D and product teams, and 1,100 AI start-ups call Singapore home"
+    page: 12
+  - id: existing_ai_rd_teams
+    value: 150
+    kind: count
+    bound: at_least
+    aliases: ["AI R&D and product teams", "R&D teams", "150 AI"]
+    evidence: "150 AI R&D and product teams"
+    page: 12
+  - id: existing_ai_startups
+    value: 1100
+    kind: count
+    bound: at_least
+    aliases: ["AI start-ups", "AI startups", "1,100 AI start-ups"]
+    evidence: "1,100 AI start-ups call Singapore home"
+    page: 12
+  - id: global_ai_index_top10
+    value: 10
+    kind: rank
+    bound: at_most
+    aliases: ["top 10", "ranking among the top 10"]
+    evidence: "Singapore is well-regarded, ranking among the top 10 in the world by several international metrics"
+    page: 12
+  - id: stanford_ai_vibrancy_rank
+    value: 1
+    kind: rank
+    bound: exact
+    aliases: ["Stanford Global AI Vibrancy Index", "1st in per capita"]
+    evidence: "Singapore ranks 1st in per capita terms in the Stanford Global AI Vibrancy Index (2021)"
+    page: 12
+  - id: oxford_govt_ai_rank
+    value: 2
+    kind: rank
+    bound: exact
+    aliases: ["Oxford Insights Government AI Index", "2nd in the Oxford"]
+    evidence: "2nd in the Oxford Insights Government AI Index (2021)"
+    page: 12
+  - id: tortoise_ai_index_rank
+    value: 3
+    kind: rank
+    bound: exact
+    aliases: ["Tortoise Media Global AI Index", "3rd in the Tortoise"]
+    evidence: "3rd in the Tortoise Media Global AI Index (2022)"
+    page: 12
+  - id: pet_sandbox_launch_year
+    value: 2022
+    kind: count
+    bound: exact
+    aliases: ["PET Sandbox", "first PET Sandbox", "launched in July 2022"]
+    evidence: "IMDA launched Singapore's first PET Sandbox in July 2022"
+    page: 63
+  - id: ai_verify_foundation_launch_year
+    value: 2023
+    kind: count
+    bound: exact
+    aliases: ["AI Verify Foundation", "set up the AI Verify Foundation"]
+    evidence: "In June 2023, IMDA also set up the AI Verify Foundation"
+    page: 68
+
+chain_constraints:
+  - "Outputs.ai_prototypes_developed <= Outputs.approved_100e_projects"
+  - "Outputs.enterprises_with_solution <= Outputs.approved_100e_projects"
+  - "Outcomes.deployed_100e_projects <= Outputs.approved_100e_projects"
+
+value_ranges:
+  Impact.global_ai_readiness_rank: {min: 1, max: 200, integer: true}
+  Impact.ai_sector_gdp_share: {min: 0, max: 100}
+  Impact.public_ai_trust_score: {min: 0, max: 100}
+  Impact.ai_talent_retention_rate: {min: 0, max: 100}
+  Outcomes.enterprise_ai_adoption_rate: {min: 0, max: 100}

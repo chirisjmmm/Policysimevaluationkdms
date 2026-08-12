@@ -1,0 +1,141 @@
+policy_id: kpass
+policy_type: distributive
+doc_path: data/policies/kpass/doc.md
+graph_path: data/policies/kpass/graph.json   # does not exist -- no KG shipped for NSA/K-pass; cli.py handles this (kg_index=None)
+run_source: branch
+
+phases: [Inputs, Activities, Outputs, Outcomes, Impact]
+eval_terminal_phase: Outcomes
+post_target_phases: [Impact]
+
+# X1 ground truth: outcome_ground_truth_kpass.json (provided directly with
+# the branch tree data), sourced from an official Ministry of Land,
+# Infrastructure & Transport / Metropolitan Area Transport Commission press
+# release ("K-Pass surpasses 3 million users within 10 months of launch",
+# 2025-03-04). Unlike BK21/NSA, these 4 variable names match the tree's
+# Outcomes-phase prediction_values names EXACTLY -- no concept-duplicate or
+# unit-mismatch translation needed (verified by direct enumeration of all 5
+# phases' prediction_values field names against the ground-truth file's keys).
+targets:
+  - name: cumulative_registered_kpass_users_count
+    phase: Outcomes
+    true_value: 3000000
+    source: "outcome_ground_truth_kpass.json: 'K-Pass surpasses 3 million users within 10 months of launch', MOLIT/Metropolitan Area Transport Commission, 2025-03-04. Reported as a threshold ('surpassed 3 million'), not an exact terminal count."
+  - name: avg_monthly_refund_per_user_krw
+    phase: Outcomes
+    true_value: 18000
+    source: "outcome_ground_truth_kpass.json, same press release, 2024 K-Pass operating period average."
+  - name: avg_refund_share_of_transit_spending_pct
+    phase: Outcomes
+    true_value: 26.6
+    source: "outcome_ground_truth_kpass.json, same press release, 2024 K-Pass operating period average."
+  - name: low_income_avg_monthly_refund_per_user_krw
+    phase: Outcomes
+    true_value: 37000
+    source: "outcome_ground_truth_kpass.json, same press release, 2024 K-Pass operating period average among low-income users."
+
+concept_duplicates: []
+
+variable_anchors:
+  Inputs.national_local_refund_budget_krw: {type: predicted}
+  Inputs.participating_local_governments_count: {type: predicted}   # doc gives 17 provinces / 189 municipalities at launch -- ambiguous which this variable name refers to, not force-anchored (kept as fact_table entries for A1 instead)
+  Inputs.card_issuer_partners_count: {type: predicted}               # doc states 10 at launch; simulation covers a 10-month window during which more could onboard, so not anchored to a fixed terminal value
+  Activities.membership_applications_processed_count: {type: predicted}
+  Activities.refund_transactions_processed_count: {type: predicted}
+  Activities.transit_usage_records_processed_count: {type: predicted}
+  Outputs.active_members_monthly_count: {type: predicted}
+  Outputs.average_rides_per_eligible_user_per_month: {type: predicted}
+  Outputs.total_refund_disbursement_krw: {type: predicted}
+  Outcomes.cumulative_registered_kpass_users_count: {type: predicted}
+  Outcomes.avg_monthly_refund_per_user_krw: {type: predicted}
+  Outcomes.avg_refund_share_of_transit_spending_pct: {type: predicted}
+  Outcomes.low_income_avg_monthly_refund_per_user_krw: {type: predicted}
+  Impact.public_transit_trip_frequency_change_3yr_pct: {type: predicted}
+  Impact.low_income_essential_mobility_access_change_3yr_pp: {type: predicted}
+  Impact.transport_co2_emissions_change_3yr_pct: {type: predicted}
+
+# Fact table from chi_kpass_core_p1-4.md (Korean-language MOLIT press release,
+# 2024-04-30). Unlike BK21, K-pass agent narratives ARE in Korean (matching
+# the source document -- confirmed by direct inspection of sample tree
+# nodes), so aliases are primarily Korean with a light English backup, not
+# the bilingual-by-necessity list BK21 needed.
+fact_table:
+  - id: min_monthly_usage_threshold
+    value: 15
+    kind: count
+    bound: at_least
+    aliases: ["월 15회", "15회 이상", "월15회", "15 times per month", "at least 15 times"]
+    evidence: "월 15회 이상 정기적으로 대중교통을 이용할 경우 지출금액의 일정비율을 환급"
+    page: 1
+  - id: max_eligible_uses_per_month
+    value: 60
+    kind: count
+    bound: at_most
+    aliases: ["최대 60회", "60회까지", "월 최대 60회", "up to 60 times", "60 rides"]
+    evidence: "월(매월 1일~말일) 최대 60회분에 해당하는 대중교통비"
+    page: 2
+  - id: refund_rate_general
+    value: 20
+    kind: percent
+    bound: exact
+    aliases: ["일반인 20%", "일반 20%", "일반(만35세", "general 20%"]
+    evidence: "일반(만35세↑) 20%"
+    page: 2
+  - id: refund_rate_youth
+    value: 30
+    kind: percent
+    bound: exact
+    aliases: ["청년층 30%", "청년 30%", "청년(만19~34세)", "youth 30%"]
+    evidence: "청년(만19~34세) 30%"
+    page: 2
+  - id: refund_rate_low_income
+    value: 53.3
+    kind: percent
+    bound: exact
+    aliases: ["저소득층 53.3%", "저소득 53.3%", "저소득(기초생활수급자", "low-income 53.3%", "53.3%"]
+    evidence: "저소득(기초생활수급자·차상위) 53.3%"
+    page: 2
+  - id: card_issuer_count_at_launch
+    value: 10
+    kind: count
+    bound: exact
+    aliases: ["10개 카드사", "10 card issuers", "카드사*의 누리집"]
+    evidence: "10개 카드사*의 누리집을 통해 K-패스 전용 카드를 발급받는다 (신한, 하나, 우리, 현대, 삼성, BC, KB국민, NH농협, 이동의즐거움, DGB유페이)"
+    page: 1
+  - id: participating_metro_provinces
+    value: 17
+    kind: count
+    bound: exact
+    aliases: ["17개 시·도", "17개 시도", "17 metropolitan"]
+    evidence: "현재 참여하는 지역은 17개 시·도 및 189개 시·군·구"
+    page: 3
+  - id: participating_municipalities
+    value: 189
+    kind: count
+    bound: exact
+    aliases: ["189개 시·군·구", "189개 시군구", "189 municipalities"]
+    evidence: "현재 참여하는 지역은 17개 시·도 및 189개 시·군·구"
+    page: 3
+  - id: full_refund_spending_cap_krw
+    value: 200000
+    kind: currency
+    currency: KRW
+    bound: at_most
+    aliases: ["월 20만원", "20만원까지", "200,000원", "월 20만원까지는 전액"]
+    evidence: "지출금액 월 20만원까지는 전액, 20만원 초과분은 50%만 환급률 적용"
+    page: 3
+  - id: minimum_age
+    value: 19
+    kind: count
+    bound: at_least
+    aliases: ["만19세 이상", "만 19세", "19세 이상", "age 19"]
+    evidence: "월15회 이상 이용하는 만19세 이상 성인이라면"
+    page: 2
+
+chain_constraints:
+  - "Outputs.active_members_monthly_count <= Outcomes.cumulative_registered_kpass_users_count"
+
+value_ranges:
+  Outcomes.avg_refund_share_of_transit_spending_pct: {min: 0, max: 100}
+  # public_transit_trip_frequency_change_3yr_pct / transport_co2_emissions_change_3yr_pct
+  # are signed deltas (could be negative), left unbounded rather than guessing a range.

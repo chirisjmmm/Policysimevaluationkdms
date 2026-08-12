@@ -1,0 +1,399 @@
+﻿395 outlier observations across 47 distinct scenarios
+scenario numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 47, 48, 49, 50]
+
+scenario# run_id                                          persona       stakeholder_type        variable                                        value
+1         S1_화학공학_한양대학교_서울_서울-(uud38w)_한양대학교-(byupv       서울 (uud38w)   PolicyRole              graduate_employment_rate_of_bk21_participants_  160
+1         S1_화학공학_한양대학교_서울_서울-(uud38w)_한양대학교-(byupv       서울 (uud38w)   PolicyRole              international_research_collaboration_rate_of_b  270
+1         S1_화학공학_한양대학교_서울_서울-(uud38w)_한양대학교-(byupv       한양대학교         EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  160
+1         S1_화학공학_한양대학교_서울_서울-(uud38w)_한양대학교-(byupv       한양대학교         EducationResearchGroup  international_research_collaboration_rate_of_b  270
+1         S1_화학공학_한양대학교_서울_서울-(uud38w)_한양대학교-(byupv       한양대학교 (byupv  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  160
+1         S1_화학공학_한양대학교_서울_서울-(uud38w)_한양대학교-(byupv       한양대학교 (byupv  EducationResearchGroup  international_research_collaboration_rate_of_b  270
+1         S1_화학공학_한양대학교_서울_서울-(uud38w)_한양대학교-(byupv       서울            GraduateStudent         graduate_employment_rate_of_bk21_participants_  160
+1         S1_화학공학_한양대학교_서울_서울-(uud38w)_한양대학교-(byupv       서울            GraduateStudent         international_research_collaboration_rate_of_b  270
+1         S1_화학공학_한양대학교_서울_서울-(uud38w)_한양대학교-(byupv       화학공학          EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  160
+1         S1_화학공학_한양대학교_서울_서울-(uud38w)_한양대학교-(byupv       화학공학          EarlyCareerResearcher   international_research_collaboration_rate_of_b  270
+2         S2_한양대학교-(jduob_부산에서_부산_서울대학교_전남대학교             부산에서          GraduateStudent         graduate_employment_rate_of_bk21_participants_  160
+2         S2_한양대학교-(jduob_부산에서_부산_서울대학교_전남대학교             서울대학교         EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  160
+2         S2_한양대학교-(jduob_부산에서_부산_서울대학교_전남대학교             부산            PolicyRole              graduate_employment_rate_of_bk21_participants_  160
+2         S2_한양대학교-(jduob_부산에서_부산_서울대학교_전남대학교             전남대학교         EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  160
+2         S2_한양대학교-(jduob_부산에서_부산_서울대학교_전남대학교             한양대학교 (jduob  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  160
+3         S3_경상북도_대전의_연세대학교_한양대학교-(jj3mg_서울-(uify15)      대전의           PolicyRole              graduate_employment_rate_of_bk21_participants_  160
+3         S3_경상북도_대전의_연세대학교_한양대학교-(jj3mg_서울-(uify15)      서울 (uify15)   GraduateStudent         graduate_employment_rate_of_bk21_participants_  160
+3         S3_경상북도_대전의_연세대학교_한양대학교-(jj3mg_서울-(uify15)      연세대학교         EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  160
+3         S3_경상북도_대전의_연세대학교_한양대학교-(jj3mg_서울-(uify15)      한양대학교 (jj3mg  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  160
+3         S3_경상북도_대전의_연세대학교_한양대학교-(jj3mg_서울-(uify15)      경상북도          GraduateStudent         graduate_employment_rate_of_bk21_participants_  160
+4         S4_광주_박사_한양대학교-(nbivd_대전에_경북                    한양대학교 (nbivd  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  16000
+4         S4_광주_박사_한양대학교-(nbivd_대전에_경북                    한양대학교 (nbivd  EducationResearchGroup  international_research_collaboration_rate_of_b  3800
+4         S4_광주_박사_한양대학교-(nbivd_대전에_경북                    경북            PolicyRole              graduate_employment_rate_of_bk21_participants_  16000
+4         S4_광주_박사_한양대학교-(nbivd_대전에_경북                    경북            PolicyRole              international_research_collaboration_rate_of_b  3800
+4         S4_광주_박사_한양대학교-(nbivd_대전에_경북                    대전에           GraduateStudent         graduate_employment_rate_of_bk21_participants_  16000
+4         S4_광주_박사_한양대학교-(nbivd_대전에_경북                    대전에           GraduateStudent         international_research_collaboration_rate_of_b  3800
+4         S4_광주_박사_한양대학교-(nbivd_대전에_경북                    박사            EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  16000
+4         S4_광주_박사_한양대학교-(nbivd_대전에_경북                    박사            EarlyCareerResearcher   international_research_collaboration_rate_of_b  3800
+4         S4_광주_박사_한양대학교-(nbivd_대전에_경북                    광주            PolicyRole              graduate_employment_rate_of_bk21_participants_  16000
+4         S4_광주_박사_한양대학교-(nbivd_대전에_경북                    광주            PolicyRole              international_research_collaboration_rate_of_b  3800
+5         S5_인문사회계열_한양대학교-(8sfo2_강원도_전북_한양대학교-(rh1fz      한양대학교 (8sfo2  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  16150
+5         S5_인문사회계열_한양대학교-(8sfo2_강원도_전북_한양대학교-(rh1fz      한양대학교 (8sfo2  EducationResearchGroup  international_research_collaboration_rate_of_b  2850
+5         S5_인문사회계열_한양대학교-(8sfo2_강원도_전북_한양대학교-(rh1fz      강원도           GraduateStudent         graduate_employment_rate_of_bk21_participants_  16150
+5         S5_인문사회계열_한양대학교-(8sfo2_강원도_전북_한양대학교-(rh1fz      강원도           GraduateStudent         international_research_collaboration_rate_of_b  2850
+5         S5_인문사회계열_한양대학교-(8sfo2_강원도_전북_한양대학교-(rh1fz      전북            PolicyRole              graduate_employment_rate_of_bk21_participants_  16150
+5         S5_인문사회계열_한양대학교-(8sfo2_강원도_전북_한양대학교-(rh1fz      전북            PolicyRole              international_research_collaboration_rate_of_b  2850
+5         S5_인문사회계열_한양대학교-(8sfo2_강원도_전북_한양대학교-(rh1fz      인문사회계열        EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  16150
+5         S5_인문사회계열_한양대학교-(8sfo2_강원도_전북_한양대학교-(rh1fz      인문사회계열        EarlyCareerResearcher   international_research_collaboration_rate_of_b  2850
+5         S5_인문사회계열_한양대학교-(8sfo2_강원도_전북_한양대학교-(rh1fz      한양대학교 (rh1fz  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  16150
+5         S5_인문사회계열_한양대학교-(8sfo2_강원도_전북_한양대학교-(rh1fz      한양대학교 (rh1fz  EducationResearchGroup  international_research_collaboration_rate_of_b  2850
+6         S6_한양대학교-(2y5sk_광주광역시_충남_생명과학_강원도-(ta771z)      한양대학교 (2y5sk  EducationResearchGroup  international_research_collaboration_rate_of_b  7600
+6         S6_한양대학교-(2y5sk_광주광역시_충남_생명과학_강원도-(ta771z)      생명과학          EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  16150
+6         S6_한양대학교-(2y5sk_광주광역시_충남_생명과학_강원도-(ta771z)      생명과학          EarlyCareerResearcher   international_research_collaboration_rate_of_b  7600
+6         S6_한양대학교-(2y5sk_광주광역시_충남_생명과학_강원도-(ta771z)      광주광역시         GraduateStudent         graduate_employment_rate_of_bk21_participants_  16150
+6         S6_한양대학교-(2y5sk_광주광역시_충남_생명과학_강원도-(ta771z)      광주광역시         GraduateStudent         international_research_collaboration_rate_of_b  7600
+6         S6_한양대학교-(2y5sk_광주광역시_충남_생명과학_강원도-(ta771z)      충남            PolicyRole              graduate_employment_rate_of_bk21_participants_  16150
+6         S6_한양대학교-(2y5sk_광주광역시_충남_생명과학_강원도-(ta771z)      충남            PolicyRole              international_research_collaboration_rate_of_b  7600
+6         S6_한양대학교-(2y5sk_광주광역시_충남_생명과학_강원도-(ta771z)      강원도 (ta771z)  PolicyRole              graduate_employment_rate_of_bk21_participants_  16150
+6         S6_한양대학교-(2y5sk_광주광역시_충남_생명과학_강원도-(ta771z)      강원도 (ta771z)  PolicyRole              international_research_collaboration_rate_of_b  7600
+7         S7_인천_경기_전기전자공학_한양대학교-(2gif3_화학공학-(3mjnhh       전기전자공학        EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  17000
+7         S7_인천_경기_전기전자공학_한양대학교-(2gif3_화학공학-(3mjnhh       전기전자공학        EarlyCareerResearcher   international_research_collaboration_rate_of_b  9500
+7         S7_인천_경기_전기전자공학_한양대학교-(2gif3_화학공학-(3mjnhh       경기            PolicyRole              graduate_employment_rate_of_bk21_participants_  17000
+7         S7_인천_경기_전기전자공학_한양대학교-(2gif3_화학공학-(3mjnhh       경기            PolicyRole              international_research_collaboration_rate_of_b  9500
+7         S7_인천_경기_전기전자공학_한양대학교-(2gif3_화학공학-(3mjnhh       화학공학 (3mjnhh  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  17000
+7         S7_인천_경기_전기전자공학_한양대학교-(2gif3_화학공학-(3mjnhh       화학공학 (3mjnhh  EarlyCareerResearcher   international_research_collaboration_rate_of_b  9500
+7         S7_인천_경기_전기전자공학_한양대학교-(2gif3_화학공학-(3mjnhh       한양대학교 (2gif3  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  17000
+7         S7_인천_경기_전기전자공학_한양대학교-(2gif3_화학공학-(3mjnhh       한양대학교 (2gif3  EducationResearchGroup  international_research_collaboration_rate_of_b  9500
+7         S7_인천_경기_전기전자공학_한양대학교-(2gif3_화학공학-(3mjnhh       인천            GraduateStudent         graduate_employment_rate_of_bk21_participants_  17000
+7         S7_인천_경기_전기전자공학_한양대학교-(2gif3_화학공학-(3mjnhh       인천            GraduateStudent         international_research_collaboration_rate_of_b  9500
+8         S8_제주_경제학_한양대학교-(nnyh9_충청남도_서울-(7uq0jk)         한양대학교 (nnyh9  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  720
+8         S8_제주_경제학_한양대학교-(nnyh9_충청남도_서울-(7uq0jk)         한양대학교 (nnyh9  EducationResearchGroup  international_research_collaboration_rate_of_b  320
+8         S8_제주_경제학_한양대학교-(nnyh9_충청남도_서울-(7uq0jk)         충청남도          GraduateStudent         graduate_employment_rate_of_bk21_participants_  720
+8         S8_제주_경제학_한양대학교-(nnyh9_충청남도_서울-(7uq0jk)         충청남도          GraduateStudent         international_research_collaboration_rate_of_b  320
+8         S8_제주_경제학_한양대학교-(nnyh9_충청남도_서울-(7uq0jk)         서울 (7uq0jk)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  720
+8         S8_제주_경제학_한양대학교-(nnyh9_충청남도_서울-(7uq0jk)         서울 (7uq0jk)   EducationResearchGroup  international_research_collaboration_rate_of_b  320
+8         S8_제주_경제학_한양대학교-(nnyh9_충청남도_서울-(7uq0jk)         경제학           EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  720
+8         S8_제주_경제학_한양대학교-(nnyh9_충청남도_서울-(7uq0jk)         경제학           EarlyCareerResearcher   international_research_collaboration_rate_of_b  320
+8         S8_제주_경제학_한양대학교-(nnyh9_충청남도_서울-(7uq0jk)         제주            PolicyRole              graduate_employment_rate_of_bk21_participants_  720
+8         S8_제주_경제학_한양대학교-(nnyh9_충청남도_서울-(7uq0jk)         제주            PolicyRole              international_research_collaboration_rate_of_b  320
+9         S9_컴퓨터공학_부산-(5o4ebr)_전라북도_서울-(rcmddk)_부산-(fjen  전라북도          GraduateStudent         graduate_employment_rate_of_bk21_participants_  750
+9         S9_컴퓨터공학_부산-(5o4ebr)_전라북도_서울-(rcmddk)_부산-(fjen  전라북도          GraduateStudent         international_research_collaboration_rate_of_b  330
+9         S9_컴퓨터공학_부산-(5o4ebr)_전라북도_서울-(rcmddk)_부산-(fjen  부산 (5o4ebr)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  750
+9         S9_컴퓨터공학_부산-(5o4ebr)_전라북도_서울-(rcmddk)_부산-(fjen  부산 (5o4ebr)   EducationResearchGroup  international_research_collaboration_rate_of_b  330
+9         S9_컴퓨터공학_부산-(5o4ebr)_전라북도_서울-(rcmddk)_부산-(fjen  컴퓨터공학         EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  750
+9         S9_컴퓨터공학_부산-(5o4ebr)_전라북도_서울-(rcmddk)_부산-(fjen  컴퓨터공학         EarlyCareerResearcher   international_research_collaboration_rate_of_b  330
+9         S9_컴퓨터공학_부산-(5o4ebr)_전라북도_서울-(rcmddk)_부산-(fjen  부산 (fjenok)   PolicyRole              graduate_employment_rate_of_bk21_participants_  750
+9         S9_컴퓨터공학_부산-(5o4ebr)_전라북도_서울-(rcmddk)_부산-(fjen  부산 (fjenok)   PolicyRole              international_research_collaboration_rate_of_b  330
+9         S9_컴퓨터공학_부산-(5o4ebr)_전라북도_서울-(rcmddk)_부산-(fjen  서울 (rcmddk)   PolicyRole              graduate_employment_rate_of_bk21_participants_  750
+9         S9_컴퓨터공학_부산-(5o4ebr)_전라북도_서울-(rcmddk)_부산-(fjen  서울 (rcmddk)   PolicyRole              international_research_collaboration_rate_of_b  330
+10        S10_대전의-(b8weln)_서울-(6msvq9)_서울-(wv4yxl)_기계공학_  서울 (6msvq9)   GraduateStudent         graduate_employment_rate_of_bk21_participants_  190
+10        S10_대전의-(b8weln)_서울-(6msvq9)_서울-(wv4yxl)_기계공학_  서울 (6msvq9)   GraduateStudent         international_research_collaboration_rate_of_b  175
+10        S10_대전의-(b8weln)_서울-(6msvq9)_서울-(wv4yxl)_기계공학_  심리학           EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  190
+10        S10_대전의-(b8weln)_서울-(6msvq9)_서울-(wv4yxl)_기계공학_  심리학           EarlyCareerResearcher   international_research_collaboration_rate_of_b  175
+10        S10_대전의-(b8weln)_서울-(6msvq9)_서울-(wv4yxl)_기계공학_  서울 (wv4yxl)   PolicyRole              graduate_employment_rate_of_bk21_participants_  190
+10        S10_대전의-(b8weln)_서울-(6msvq9)_서울-(wv4yxl)_기계공학_  서울 (wv4yxl)   PolicyRole              international_research_collaboration_rate_of_b  175
+10        S10_대전의-(b8weln)_서울-(6msvq9)_서울-(wv4yxl)_기계공학_  기계공학          EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  190
+10        S10_대전의-(b8weln)_서울-(6msvq9)_서울-(wv4yxl)_기계공학_  기계공학          EarlyCareerResearcher   international_research_collaboration_rate_of_b  175
+10        S10_대전의-(b8weln)_서울-(6msvq9)_서울-(wv4yxl)_기계공학_  대전의 (b8weln)  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  190
+10        S10_대전의-(b8weln)_서울-(6msvq9)_서울-(wv4yxl)_기계공학_  대전의 (b8weln)  EducationResearchGroup  international_research_collaboration_rate_of_b  175
+11        S11_부산대학교_부산대학교-(qqww9_환경공학_광주-(uttjvx)_서울대학교-  부산대학교 (qqww9  PolicyRole              graduate_employment_rate_of_bk21_participants_  16000
+11        S11_부산대학교_부산대학교-(qqww9_환경공학_광주-(uttjvx)_서울대학교-  부산대학교 (qqww9  PolicyRole              international_research_collaboration_rate_of_b  19000
+11        S11_부산대학교_부산대학교-(qqww9_환경공학_광주-(uttjvx)_서울대학교-  광주 (uttjvx)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  16000
+11        S11_부산대학교_부산대학교-(qqww9_환경공학_광주-(uttjvx)_서울대학교-  광주 (uttjvx)   EducationResearchGroup  international_research_collaboration_rate_of_b  19000
+11        S11_부산대학교_부산대학교-(qqww9_환경공학_광주-(uttjvx)_서울대학교-  서울대학교 (fnham  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  16000
+11        S11_부산대학교_부산대학교-(qqww9_환경공학_광주-(uttjvx)_서울대학교-  서울대학교 (fnham  EarlyCareerResearcher   international_research_collaboration_rate_of_b  19000
+11        S11_부산대학교_부산대학교-(qqww9_환경공학_광주-(uttjvx)_서울대학교-  부산대학교         GraduateStudent         graduate_employment_rate_of_bk21_participants_  16000
+11        S11_부산대학교_부산대학교-(qqww9_환경공학_광주-(uttjvx)_서울대학교-  부산대학교         GraduateStudent         international_research_collaboration_rate_of_b  19000
+11        S11_부산대학교_부산대학교-(qqww9_환경공학_광주-(uttjvx)_서울대학교-  환경공학          EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  16000
+11        S11_부산대학교_부산대학교-(qqww9_환경공학_광주-(uttjvx)_서울대학교-  환경공학          EarlyCareerResearcher   international_research_collaboration_rate_of_b  19000
+12        S12_대전_부산대학교-(4lfy5_경기도_전남대학교에서_한양대학교-(xzmu7    경기도           EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  17100
+12        S12_대전_부산대학교-(4lfy5_경기도_전남대학교에서_한양대학교-(xzmu7    경기도           EducationResearchGroup  international_research_collaboration_rate_of_b  5700
+12        S12_대전_부산대학교-(4lfy5_경기도_전남대학교에서_한양대학교-(xzmu7    부산대학교 (4lfy5  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  17100
+12        S12_대전_부산대학교-(4lfy5_경기도_전남대학교에서_한양대학교-(xzmu7    부산대학교 (4lfy5  EarlyCareerResearcher   international_research_collaboration_rate_of_b  5700
+12        S12_대전_부산대학교-(4lfy5_경기도_전남대학교에서_한양대학교-(xzmu7    대전            PolicyRole              graduate_employment_rate_of_bk21_participants_  17100
+12        S12_대전_부산대학교-(4lfy5_경기도_전남대학교에서_한양대학교-(xzmu7    대전            PolicyRole              international_research_collaboration_rate_of_b  5700
+12        S12_대전_부산대학교-(4lfy5_경기도_전남대학교에서_한양대학교-(xzmu7    한양대학교 (xzmu7  GraduateStudent         graduate_employment_rate_of_bk21_participants_  17100
+12        S12_대전_부산대학교-(4lfy5_경기도_전남대학교에서_한양대학교-(xzmu7    한양대학교 (xzmu7  GraduateStudent         international_research_collaboration_rate_of_b  5700
+12        S12_대전_부산대학교-(4lfy5_경기도_전남대학교에서_한양대학교-(xzmu7    전남대학교에서       GraduateStudent         graduate_employment_rate_of_bk21_participants_  17100
+12        S12_대전_부산대학교-(4lfy5_경기도_전남대학교에서_한양대학교-(xzmu7    전남대학교에서       GraduateStudent         international_research_collaboration_rate_of_b  5700
+13        S13_전북대학교_충청북도_충남대학교_전북대학교-(qyiff_경북대학교         전북대학교 (qyiff  PolicyRole              international_research_collaboration_rate_of_b  9500
+13        S13_전북대학교_충청북도_충남대학교_전북대학교-(qyiff_경북대학교         전북대학교         EarlyCareerResearcher   international_research_collaboration_rate_of_b  9500
+13        S13_전북대학교_충청북도_충남대학교_전북대학교-(qyiff_경북대학교         충남대학교         GraduateStudent         international_research_collaboration_rate_of_b  9500
+13        S13_전북대학교_충청북도_충남대학교_전북대학교-(qyiff_경북대학교         경북대학교         EarlyCareerResearcher   international_research_collaboration_rate_of_b  9500
+13        S13_전북대학교_충청북도_충남대학교_전북대학교-(qyiff_경북대학교         충청북도          EducationResearchGroup  international_research_collaboration_rate_of_b  9500
+15        S15_인하대학교_한양대학교-(a9uu3_강원대학교_부산-(oqg3qt)_대전-(7  대전 (7qc9g7)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  16500
+15        S15_인하대학교_한양대학교-(a9uu3_강원대학교_부산-(oqg3qt)_대전-(7  대전 (7qc9g7)   EducationResearchGroup  international_research_collaboration_rate_of_b  5700
+15        S15_인하대학교_한양대학교-(a9uu3_강원대학교_부산-(oqg3qt)_대전-(7  인하대학교         GraduateStudent         graduate_employment_rate_of_bk21_participants_  16500
+15        S15_인하대학교_한양대학교-(a9uu3_강원대학교_부산-(oqg3qt)_대전-(7  인하대학교         GraduateStudent         international_research_collaboration_rate_of_b  5700
+15        S15_인하대학교_한양대학교-(a9uu3_강원대학교_부산-(oqg3qt)_대전-(7  부산 (oqg3qt)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  16500
+15        S15_인하대학교_한양대학교-(a9uu3_강원대학교_부산-(oqg3qt)_대전-(7  부산 (oqg3qt)   EducationResearchGroup  international_research_collaboration_rate_of_b  5700
+15        S15_인하대학교_한양대학교-(a9uu3_강원대학교_부산-(oqg3qt)_대전-(7  한양대학교 (a9uu3  PolicyRole              graduate_employment_rate_of_bk21_participants_  16500
+15        S15_인하대학교_한양대학교-(a9uu3_강원대학교_부산-(oqg3qt)_대전-(7  한양대학교 (a9uu3  PolicyRole              international_research_collaboration_rate_of_b  5700
+15        S15_인하대학교_한양대학교-(a9uu3_강원대학교_부산-(oqg3qt)_대전-(7  강원대학교         EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  16500
+15        S15_인하대학교_한양대학교-(a9uu3_강원대학교_부산-(oqg3qt)_대전-(7  강원대학교         EarlyCareerResearcher   international_research_collaboration_rate_of_b  5700
+16        S16_전남대학교-(t9hx6_울산과학기술원(UNIS_경북-(1xzwbp)_전북대학  전북대학교 (05m6d  GraduateStudent         graduate_employment_rate_of_bk21_participants_  13600
+16        S16_전남대학교-(t9hx6_울산과학기술원(UNIS_경북-(1xzwbp)_전북대학  전북대학교 (05m6d  GraduateStudent         international_research_collaboration_rate_of_b  3400
+16        S16_전남대학교-(t9hx6_울산과학기술원(UNIS_경북-(1xzwbp)_전북대학  경북 (1xzwbp)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  13600
+16        S16_전남대학교-(t9hx6_울산과학기술원(UNIS_경북-(1xzwbp)_전북대학  경북 (1xzwbp)   EducationResearchGroup  international_research_collaboration_rate_of_b  3400
+16        S16_전남대학교-(t9hx6_울산과학기술원(UNIS_경북-(1xzwbp)_전북대학  울산과학기술원(UNIS  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  13600
+16        S16_전남대학교-(t9hx6_울산과학기술원(UNIS_경북-(1xzwbp)_전북대학  울산과학기술원(UNIS  EarlyCareerResearcher   international_research_collaboration_rate_of_b  3400
+16        S16_전남대학교-(t9hx6_울산과학기술원(UNIS_경북-(1xzwbp)_전북대학  전남대학교 (t9hx6  PolicyRole              graduate_employment_rate_of_bk21_participants_  13600
+16        S16_전남대학교-(t9hx6_울산과학기술원(UNIS_경북-(1xzwbp)_전북대학  전남대학교 (t9hx6  PolicyRole              international_research_collaboration_rate_of_b  3400
+16        S16_전남대학교-(t9hx6_울산과학기술원(UNIS_경북-(1xzwbp)_전북대학  강원대학교 (duikj  GraduateStudent         graduate_employment_rate_of_bk21_participants_  13600
+16        S16_전남대학교-(t9hx6_울산과학기술원(UNIS_경북-(1xzwbp)_전북대학  강원대학교 (duikj  GraduateStudent         international_research_collaboration_rate_of_b  3400
+18        S18_충남-(0ek5jc)_이공계열_충남대학교-(q6d9e_한국외국어대학교_경기-  이공계열          GraduateStudent         graduate_employment_rate_of_bk21_participants_  350
+18        S18_충남-(0ek5jc)_이공계열_충남대학교-(q6d9e_한국외국어대학교_경기-  경기 (nd6aw6)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  350
+18        S18_충남-(0ek5jc)_이공계열_충남대학교-(q6d9e_한국외국어대학교_경기-  충남대학교 (q6d9e  PolicyRole              graduate_employment_rate_of_bk21_participants_  350
+18        S18_충남-(0ek5jc)_이공계열_충남대학교-(q6d9e_한국외국어대학교_경기-  한국외국어대학교      EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  350
+18        S18_충남-(0ek5jc)_이공계열_충남대학교-(q6d9e_한국외국어대학교_경기-  충남 (0ek5jc)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  350
+19        S19_인문사회계열-(ewv1_서울대학교-(hohvr_화학공학-(c38el1_강원_  강원            EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  920
+19        S19_인문사회계열-(ewv1_서울대학교-(hohvr_화학공학-(c38el1_강원_  강원            EducationResearchGroup  international_research_collaboration_rate_of_b  345
+19        S19_인문사회계열-(ewv1_서울대학교-(hohvr_화학공학-(c38el1_강원_  인문사회계열 (ewv1  GraduateStudent         graduate_employment_rate_of_bk21_participants_  920
+19        S19_인문사회계열-(ewv1_서울대학교-(hohvr_화학공학-(c38el1_강원_  인문사회계열 (ewv1  GraduateStudent         international_research_collaboration_rate_of_b  345
+19        S19_인문사회계열-(ewv1_서울대학교-(hohvr_화학공학-(c38el1_강원_  서울대학교 (hohvr  PolicyRole              graduate_employment_rate_of_bk21_participants_  920
+19        S19_인문사회계열-(ewv1_서울대학교-(hohvr_화학공학-(c38el1_강원_  서울대학교 (hohvr  PolicyRole              international_research_collaboration_rate_of_b  345
+19        S19_인문사회계열-(ewv1_서울대학교-(hohvr_화학공학-(c38el1_강원_  화학공학 (c38el1  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  1035
+19        S19_인문사회계열-(ewv1_서울대학교-(hohvr_화학공학-(c38el1_강원_  화학공학 (c38el1  EarlyCareerResearcher   international_research_collaboration_rate_of_b  460
+19        S19_인문사회계열-(ewv1_서울대학교-(hohvr_화학공학-(c38el1_강원_  서울 (zxpc63)   PolicyRole              graduate_employment_rate_of_bk21_participants_  1035
+19        S19_인문사회계열-(ewv1_서울대학교-(hohvr_화학공학-(c38el1_강원_  서울 (zxpc63)   PolicyRole              international_research_collaboration_rate_of_b  460
+20        S20_부산-(uikzet)_한국어문학_전북-(4clrad)_화학공학-(ow90co  화학공학 (ow90co  GraduateStudent         graduate_employment_rate_of_bk21_participants_  340
+20        S20_부산-(uikzet)_한국어문학_전북-(4clrad)_화학공학-(ow90co  화학공학 (ow90co  GraduateStudent         international_research_collaboration_rate_of_b  160
+20        S20_부산-(uikzet)_한국어문학_전북-(4clrad)_화학공학-(ow90co  부산 (uikzet)   PolicyRole              graduate_employment_rate_of_bk21_participants_  340
+20        S20_부산-(uikzet)_한국어문학_전북-(4clrad)_화학공학-(ow90co  부산 (uikzet)   PolicyRole              international_research_collaboration_rate_of_b  160
+20        S20_부산-(uikzet)_한국어문학_전북-(4clrad)_화학공학-(ow90co  기계공학 (cwx42i  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  340
+20        S20_부산-(uikzet)_한국어문학_전북-(4clrad)_화학공학-(ow90co  기계공학 (cwx42i  EarlyCareerResearcher   international_research_collaboration_rate_of_b  160
+20        S20_부산-(uikzet)_한국어문학_전북-(4clrad)_화학공학-(ow90co  전북 (4clrad)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  340
+20        S20_부산-(uikzet)_한국어문학_전북-(4clrad)_화학공학-(ow90co  전북 (4clrad)   EducationResearchGroup  international_research_collaboration_rate_of_b  160
+20        S20_부산-(uikzet)_한국어문학_전북-(4clrad)_화학공학-(ow90co  한국어문학         EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  320
+21        S21_사회복지학_한양대학교-(og6bc_의학_대전-(kmyoft)_기계공학-(of  사회복지학         EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  16000
+21        S21_사회복지학_한양대학교-(og6bc_의학_대전-(kmyoft)_기계공학-(of  사회복지학         EarlyCareerResearcher   international_research_collaboration_rate_of_b  7600
+21        S21_사회복지학_한양대학교-(og6bc_의학_대전-(kmyoft)_기계공학-(of  기계공학 (ofw1ln  GraduateStudent         graduate_employment_rate_of_bk21_participants_  16000
+21        S21_사회복지학_한양대학교-(og6bc_의학_대전-(kmyoft)_기계공학-(of  기계공학 (ofw1ln  GraduateStudent         international_research_collaboration_rate_of_b  7600
+21        S21_사회복지학_한양대학교-(og6bc_의학_대전-(kmyoft)_기계공학-(of  한양대학교 (og6bc  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  16000
+21        S21_사회복지학_한양대학교-(og6bc_의학_대전-(kmyoft)_기계공학-(of  한양대학교 (og6bc  EducationResearchGroup  international_research_collaboration_rate_of_b  7600
+21        S21_사회복지학_한양대학교-(og6bc_의학_대전-(kmyoft)_기계공학-(of  의학            GraduateStudent         graduate_employment_rate_of_bk21_participants_  16000
+21        S21_사회복지학_한양대학교-(og6bc_의학_대전-(kmyoft)_기계공학-(of  의학            GraduateStudent         international_research_collaboration_rate_of_b  7600
+21        S21_사회복지학_한양대학교-(og6bc_의학_대전-(kmyoft)_기계공학-(of  대전 (kmyoft)   PolicyRole              graduate_employment_rate_of_bk21_participants_  16000
+21        S21_사회복지학_한양대학교-(og6bc_의학_대전-(kmyoft)_기계공학-(of  대전 (kmyoft)   PolicyRole              international_research_collaboration_rate_of_b  7600
+22        S22_부산대학교-(3fj78_경제학-(pbtsix)_경북-(ynd157)_생명과학  부산대학교 (3fj78  EducationResearchGroup  international_research_collaboration_rate_of_b  660
+22        S22_부산대학교-(3fj78_경제학-(pbtsix)_경북-(ynd157)_생명과학  경제학 (0qvt7a)  EarlyCareerResearcher   international_research_collaboration_rate_of_b  660
+22        S22_부산대학교-(3fj78_경제학-(pbtsix)_경북-(ynd157)_생명과학  경북 (ynd157)   PolicyRole              international_research_collaboration_rate_of_b  660
+22        S22_부산대학교-(3fj78_경제학-(pbtsix)_경북-(ynd157)_생명과학  경제학 (pbtsix)  GraduateStudent         international_research_collaboration_rate_of_b  660
+22        S22_부산대학교-(3fj78_경제학-(pbtsix)_경북-(ynd157)_생명과학  생명과학 (lmhk8h  EarlyCareerResearcher   international_research_collaboration_rate_of_b  660
+23        S23_생명과학-(5rx5kz_경기-(d3n2nn)_전자전기공학_전북대학교-(iue  경기 (d3n2nn)   PolicyRole              graduate_employment_rate_of_bk21_participants_  15200
+23        S23_생명과학-(5rx5kz_경기-(d3n2nn)_전자전기공학_전북대학교-(iue  경기 (d3n2nn)   PolicyRole              international_research_collaboration_rate_of_b  4560
+23        S23_생명과학-(5rx5kz_경기-(d3n2nn)_전자전기공학_전북대학교-(iue  충남 (qzpd0v)   PolicyRole              graduate_employment_rate_of_bk21_participants_  15200
+23        S23_생명과학-(5rx5kz_경기-(d3n2nn)_전자전기공학_전북대학교-(iue  충남 (qzpd0v)   PolicyRole              international_research_collaboration_rate_of_b  4560
+23        S23_생명과학-(5rx5kz_경기-(d3n2nn)_전자전기공학_전북대학교-(iue  생명과학 (5rx5kz  GraduateStudent         graduate_employment_rate_of_bk21_participants_  15200
+23        S23_생명과학-(5rx5kz_경기-(d3n2nn)_전자전기공학_전북대학교-(iue  생명과학 (5rx5kz  GraduateStudent         international_research_collaboration_rate_of_b  4560
+23        S23_생명과학-(5rx5kz_경기-(d3n2nn)_전자전기공학_전북대학교-(iue  전자전기공학        EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  15200
+23        S23_생명과학-(5rx5kz_경기-(d3n2nn)_전자전기공학_전북대학교-(iue  전자전기공학        EarlyCareerResearcher   international_research_collaboration_rate_of_b  4560
+23        S23_생명과학-(5rx5kz_경기-(d3n2nn)_전자전기공학_전북대학교-(iue  전북대학교 (iueu9  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  15200
+23        S23_생명과학-(5rx5kz_경기-(d3n2nn)_전자전기공학_전북대학교-(iue  전북대학교 (iueu9  EducationResearchGroup  international_research_collaboration_rate_of_b  4560
+24        S24_전북-(p3vbow)_영어영문학_한양대학교-(dkjyw_국어국문학_컴퓨터공학  영어영문학         EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  700
+24        S24_전북-(p3vbow)_영어영문학_한양대학교-(dkjyw_국어국문학_컴퓨터공학  한양대학교 (dkjyw  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  750
+24        S24_전북-(p3vbow)_영어영문학_한양대학교-(dkjyw_국어국문학_컴퓨터공학  한양대학교 (dkjyw  EducationResearchGroup  international_research_collaboration_rate_of_b  200
+24        S24_전북-(p3vbow)_영어영문학_한양대학교-(dkjyw_국어국문학_컴퓨터공학  컴퓨터공학 (r7dry  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  750
+24        S24_전북-(p3vbow)_영어영문학_한양대학교-(dkjyw_국어국문학_컴퓨터공학  컴퓨터공학 (r7dry  EarlyCareerResearcher   international_research_collaboration_rate_of_b  200
+24        S24_전북-(p3vbow)_영어영문학_한양대학교-(dkjyw_국어국문학_컴퓨터공학  전북 (p3vbow)   PolicyRole              graduate_employment_rate_of_bk21_participants_  700
+24        S24_전북-(p3vbow)_영어영문학_한양대학교-(dkjyw_국어국문학_컴퓨터공학  국어국문학         GraduateStudent         graduate_employment_rate_of_bk21_participants_  700
+25        S25_교육학_충남대학교-(gin6p_서울-(7mo2ts)_강원-(hjnil4)_서  서울대학교 (0crlq  EarlyCareerResearcher   international_research_collaboration_rate_of_b  5700
+25        S25_교육학_충남대학교-(gin6p_서울-(7mo2ts)_강원-(hjnil4)_서  서울 (7mo2ts)   GraduateStudent         international_research_collaboration_rate_of_b  5700
+25        S25_교육학_충남대학교-(gin6p_서울-(7mo2ts)_강원-(hjnil4)_서  교육학           EarlyCareerResearcher   international_research_collaboration_rate_of_b  5700
+25        S25_교육학_충남대학교-(gin6p_서울-(7mo2ts)_강원-(hjnil4)_서  강원 (hjnil4)   PolicyRole              international_research_collaboration_rate_of_b  5700
+25        S25_교육학_충남대학교-(gin6p_서울-(7mo2ts)_강원-(hjnil4)_서  충남대학교 (gin6p  EducationResearchGroup  international_research_collaboration_rate_of_b  5700
+26        S26_경북대학교-(udifq_부산-(6klnhr)_인천-(6v0g4w)_부산대학교  인천 (6v0g4w)   PolicyRole              graduate_employment_rate_of_bk21_participants_  5500
+26        S26_경북대학교-(udifq_부산-(6klnhr)_인천-(6v0g4w)_부산대학교  인천 (6v0g4w)   PolicyRole              international_research_collaboration_rate_of_b  640
+26        S26_경북대학교-(udifq_부산-(6klnhr)_인천-(6v0g4w)_부산대학교  경북대학교 (udifq  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  5500
+26        S26_경북대학교-(udifq_부산-(6klnhr)_인천-(6v0g4w)_부산대학교  경북대학교 (udifq  EducationResearchGroup  international_research_collaboration_rate_of_b  640
+26        S26_경북대학교-(udifq_부산-(6klnhr)_인천-(6v0g4w)_부산대학교  경북대학교 (hu0th  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  5500
+26        S26_경북대학교-(udifq_부산-(6klnhr)_인천-(6v0g4w)_부산대학교  경북대학교 (hu0th  EarlyCareerResearcher   international_research_collaboration_rate_of_b  640
+26        S26_경북대학교-(udifq_부산-(6klnhr)_인천-(6v0g4w)_부산대학교  부산 (6klnhr)   GraduateStudent         graduate_employment_rate_of_bk21_participants_  5500
+26        S26_경북대학교-(udifq_부산-(6klnhr)_인천-(6v0g4w)_부산대학교  부산 (6klnhr)   GraduateStudent         international_research_collaboration_rate_of_b  640
+26        S26_경북대학교-(udifq_부산-(6klnhr)_인천-(6v0g4w)_부산대학교  부산대학교 (1e1hh  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  5500
+26        S26_경북대학교-(udifq_부산-(6klnhr)_인천-(6v0g4w)_부산대학교  부산대학교 (1e1hh  EarlyCareerResearcher   international_research_collaboration_rate_of_b  640
+27        S27_대전-(xau1uq)_광주-(ug61u0)_광주과학기술원(GIST_한양대학교  대전 (xau1uq)   GraduateStudent         graduate_employment_rate_of_bk21_participants_  16000
+27        S27_대전-(xau1uq)_광주-(ug61u0)_광주과학기술원(GIST_한양대학교  대전 (xau1uq)   GraduateStudent         international_research_collaboration_rate_of_b  9500
+27        S27_대전-(xau1uq)_광주-(ug61u0)_광주과학기술원(GIST_한양대학교  광주 (ug61u0)   PolicyRole              graduate_employment_rate_of_bk21_participants_  16000
+27        S27_대전-(xau1uq)_광주-(ug61u0)_광주과학기술원(GIST_한양대학교  광주 (ug61u0)   PolicyRole              international_research_collaboration_rate_of_b  9500
+27        S27_대전-(xau1uq)_광주-(ug61u0)_광주과학기술원(GIST_한양대학교  서울 (hucyp0)   PolicyRole              graduate_employment_rate_of_bk21_participants_  16000
+27        S27_대전-(xau1uq)_광주-(ug61u0)_광주과학기술원(GIST_한양대학교  서울 (hucyp0)   PolicyRole              international_research_collaboration_rate_of_b  9500
+27        S27_대전-(xau1uq)_광주-(ug61u0)_광주과학기술원(GIST_한양대학교  광주과학기술원(GIST  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  16000
+27        S27_대전-(xau1uq)_광주-(ug61u0)_광주과학기술원(GIST_한양대학교  광주과학기술원(GIST  EarlyCareerResearcher   international_research_collaboration_rate_of_b  9500
+27        S27_대전-(xau1uq)_광주-(ug61u0)_광주과학기술원(GIST_한양대학교  한양대학교 (uilca  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  16000
+27        S27_대전-(xau1uq)_광주-(ug61u0)_광주과학기술원(GIST_한양대학교  한양대학교 (uilca  EducationResearchGroup  international_research_collaboration_rate_of_b  9500
+28        S28_부산-(00fytg)_충남대학교-(wjxwe_부산대학교-(c0la6_광주-(  부산 (00fytg)   PolicyRole              graduate_employment_rate_of_bk21_participants_  5500
+28        S28_부산-(00fytg)_충남대학교-(wjxwe_부산대학교-(c0la6_광주-(  부산 (00fytg)   PolicyRole              international_research_collaboration_rate_of_b  1280
+28        S28_부산-(00fytg)_충남대학교-(wjxwe_부산대학교-(c0la6_광주-(  부산대학교 (c0la6  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  5500
+28        S28_부산-(00fytg)_충남대학교-(wjxwe_부산대학교-(c0la6_광주-(  부산대학교 (c0la6  EducationResearchGroup  international_research_collaboration_rate_of_b  1280
+28        S28_부산-(00fytg)_충남대학교-(wjxwe_부산대학교-(c0la6_광주-(  충남대학교 (wjxwe  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  5500
+28        S28_부산-(00fytg)_충남대학교-(wjxwe_부산대학교-(c0la6_광주-(  충남대학교 (wjxwe  EarlyCareerResearcher   international_research_collaboration_rate_of_b  1280
+28        S28_부산-(00fytg)_충남대학교-(wjxwe_부산대학교-(c0la6_광주-(  광주 (eluia3)   GraduateStudent         graduate_employment_rate_of_bk21_participants_  5500
+28        S28_부산-(00fytg)_충남대학교-(wjxwe_부산대학교-(c0la6_광주-(  광주 (eluia3)   GraduateStudent         international_research_collaboration_rate_of_b  1280
+28        S28_부산-(00fytg)_충남대학교-(wjxwe_부산대학교-(c0la6_광주-(  전북대학교 (ain5w  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  5500
+28        S28_부산-(00fytg)_충남대학교-(wjxwe_부산대학교-(c0la6_광주-(  전북대학교 (ain5w  EarlyCareerResearcher   international_research_collaboration_rate_of_b  1280
+29        S29_한양대학교-(0o5lq_전남대학교-(7oxo5_경기도-(n663na)_대전에  경기도 (n663na)  GraduateStudent         graduate_employment_rate_of_bk21_participants_  16150
+29        S29_한양대학교-(0o5lq_전남대학교-(7oxo5_경기도-(n663na)_대전에  경기도 (n663na)  GraduateStudent         international_research_collaboration_rate_of_b  5700
+29        S29_한양대학교-(0o5lq_전남대학교-(7oxo5_경기도-(n663na)_대전에  충북대학교         EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  16150
+29        S29_한양대학교-(0o5lq_전남대학교-(7oxo5_경기도-(n663na)_대전에  충북대학교         EducationResearchGroup  international_research_collaboration_rate_of_b  5700
+29        S29_한양대학교-(0o5lq_전남대학교-(7oxo5_경기도-(n663na)_대전에  한양대학교 (0o5lq  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  15200
+29        S29_한양대학교-(0o5lq_전남대학교-(7oxo5_경기도-(n663na)_대전에  한양대학교 (0o5lq  EarlyCareerResearcher   international_research_collaboration_rate_of_b  3800
+29        S29_한양대학교-(0o5lq_전남대학교-(7oxo5_경기도-(n663na)_대전에  전남대학교 (7oxo5  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  16150
+29        S29_한양대학교-(0o5lq_전남대학교-(7oxo5_경기도-(n663na)_대전에  전남대학교 (7oxo5  EducationResearchGroup  international_research_collaboration_rate_of_b  5700
+29        S29_한양대학교-(0o5lq_전남대학교-(7oxo5_경기도-(n663na)_대전에  대전에 (4jz5bd)  PolicyRole              graduate_employment_rate_of_bk21_participants_  16150
+29        S29_한양대학교-(0o5lq_전남대학교-(7oxo5_경기도-(n663na)_대전에  대전에 (4jz5bd)  PolicyRole              international_research_collaboration_rate_of_b  5700
+30        S30_서울-(6pjwqc)_서울-(adglji)_광주-(ddpq5o)_포항공과대학  포항공과대학교(POST  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  16150
+30        S30_서울-(6pjwqc)_서울-(adglji)_광주-(ddpq5o)_포항공과대학  포항공과대학교(POST  EarlyCareerResearcher   international_research_collaboration_rate_of_b  570
+30        S30_서울-(6pjwqc)_서울-(adglji)_광주-(ddpq5o)_포항공과대학  충북            GraduateStudent         graduate_employment_rate_of_bk21_participants_  16150
+30        S30_서울-(6pjwqc)_서울-(adglji)_광주-(ddpq5o)_포항공과대학  충북            GraduateStudent         international_research_collaboration_rate_of_b  570
+30        S30_서울-(6pjwqc)_서울-(adglji)_광주-(ddpq5o)_포항공과대학  서울 (adglji)   GraduateStudent         graduate_employment_rate_of_bk21_participants_  16150
+30        S30_서울-(6pjwqc)_서울-(adglji)_광주-(ddpq5o)_포항공과대학  서울 (adglji)   GraduateStudent         international_research_collaboration_rate_of_b  570
+30        S30_서울-(6pjwqc)_서울-(adglji)_광주-(ddpq5o)_포항공과대학  광주 (ddpq5o)   PolicyRole              graduate_employment_rate_of_bk21_participants_  16150
+30        S30_서울-(6pjwqc)_서울-(adglji)_광주-(ddpq5o)_포항공과대학  광주 (ddpq5o)   PolicyRole              international_research_collaboration_rate_of_b  570
+30        S30_서울-(6pjwqc)_서울-(adglji)_광주-(ddpq5o)_포항공과대학  서울 (6pjwqc)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  16150
+30        S30_서울-(6pjwqc)_서울-(adglji)_광주-(ddpq5o)_포항공과대학  서울 (6pjwqc)   EducationResearchGroup  international_research_collaboration_rate_of_b  570
+31        S31_경남_경기-(2iu81o)_강원대학교-(us1yn_부산-(g9knz1)_인천  부산 (g9knz1)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  15500
+31        S31_경남_경기-(2iu81o)_강원대학교-(us1yn_부산-(g9knz1)_인천  부산 (g9knz1)   EducationResearchGroup  international_research_collaboration_rate_of_b  5700
+31        S31_경남_경기-(2iu81o)_강원대학교-(us1yn_부산-(g9knz1)_인천  강원대학교 (us1yn  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  15500
+31        S31_경남_경기-(2iu81o)_강원대학교-(us1yn_부산-(g9knz1)_인천  강원대학교 (us1yn  EarlyCareerResearcher   international_research_collaboration_rate_of_b  5700
+31        S31_경남_경기-(2iu81o)_강원대학교-(us1yn_부산-(g9knz1)_인천  경기 (2iu81o)   PolicyRole              graduate_employment_rate_of_bk21_participants_  15500
+31        S31_경남_경기-(2iu81o)_강원대학교-(us1yn_부산-(g9knz1)_인천  경기 (2iu81o)   PolicyRole              international_research_collaboration_rate_of_b  5700
+31        S31_경남_경기-(2iu81o)_강원대학교-(us1yn_부산-(g9knz1)_인천  경남            GraduateStudent         graduate_employment_rate_of_bk21_participants_  15500
+31        S31_경남_경기-(2iu81o)_강원대학교-(us1yn_부산-(g9knz1)_인천  경남            GraduateStudent         international_research_collaboration_rate_of_b  5700
+31        S31_경남_경기-(2iu81o)_강원대학교-(us1yn_부산-(g9knz1)_인천  인천 (zdbxdb)   GraduateStudent         graduate_employment_rate_of_bk21_participants_  15500
+31        S31_경남_경기-(2iu81o)_강원대학교-(us1yn_부산-(g9knz1)_인천  인천 (zdbxdb)   GraduateStudent         international_research_collaboration_rate_of_b  5700
+32        S32_대구_제주대학교-(0lovw_대전의-(672uft)_강원도-(ddf5u5)_  광주 (vqwzli)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  1440
+32        S32_대구_제주대학교-(0lovw_대전의-(672uft)_강원도-(ddf5u5)_  광주 (vqwzli)   EducationResearchGroup  international_research_collaboration_rate_of_b  540
+32        S32_대구_제주대학교-(0lovw_대전의-(672uft)_강원도-(ddf5u5)_  제주대학교 (0lovw  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  1440
+32        S32_대구_제주대학교-(0lovw_대전의-(672uft)_강원도-(ddf5u5)_  제주대학교 (0lovw  EarlyCareerResearcher   international_research_collaboration_rate_of_b  540
+32        S32_대구_제주대학교-(0lovw_대전의-(672uft)_강원도-(ddf5u5)_  대구            PolicyRole              graduate_employment_rate_of_bk21_participants_  1440
+32        S32_대구_제주대학교-(0lovw_대전의-(672uft)_강원도-(ddf5u5)_  대구            PolicyRole              international_research_collaboration_rate_of_b  540
+32        S32_대구_제주대학교-(0lovw_대전의-(672uft)_강원도-(ddf5u5)_  강원도 (ddf5u5)  GraduateStudent         graduate_employment_rate_of_bk21_participants_  1440
+32        S32_대구_제주대학교-(0lovw_대전의-(672uft)_강원도-(ddf5u5)_  강원도 (ddf5u5)  GraduateStudent         international_research_collaboration_rate_of_b  540
+32        S32_대구_제주대학교-(0lovw_대전의-(672uft)_강원도-(ddf5u5)_  대전의 (672uft)  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  1440
+32        S32_대구_제주대학교-(0lovw_대전의-(672uft)_강원도-(ddf5u5)_  대전의 (672uft)  EducationResearchGroup  international_research_collaboration_rate_of_b  540
+33        S33_서울대학교-(gokjj_경북-(mkzjwc)_서울-(g1asts)_충북-(2  충북 (2h83vt)   PolicyRole              international_research_collaboration_rate_of_b  360
+33        S33_서울대학교-(gokjj_경북-(mkzjwc)_서울-(g1asts)_충북-(2  서울 (g1asts)   GraduateStudent         international_research_collaboration_rate_of_b  360
+33        S33_서울대학교-(gokjj_경북-(mkzjwc)_서울-(g1asts)_충북-(2  서울대학교 (gokjj  EarlyCareerResearcher   international_research_collaboration_rate_of_b  360
+33        S33_서울대학교-(gokjj_경북-(mkzjwc)_서울-(g1asts)_충북-(2  경북 (mkzjwc)   EducationResearchGroup  international_research_collaboration_rate_of_b  360
+33        S33_서울대학교-(gokjj_경북-(mkzjwc)_서울-(g1asts)_충북-(2  전북 (l8t867)   PolicyRole              international_research_collaboration_rate_of_b  360
+34        S34_인천-(fidfbh)_부산대학교-(cucdp_강원-(f5w7gt)_부산대학교  인천 (fidfbh)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  800
+34        S34_인천-(fidfbh)_부산대학교-(cucdp_강원-(f5w7gt)_부산대학교  인천 (fidfbh)   EducationResearchGroup  international_research_collaboration_rate_of_b  350
+34        S34_인천-(fidfbh)_부산대학교-(cucdp_강원-(f5w7gt)_부산대학교  부산대학교 (cucdp  GraduateStudent         graduate_employment_rate_of_bk21_participants_  800
+34        S34_인천-(fidfbh)_부산대학교-(cucdp_강원-(f5w7gt)_부산대학교  부산대학교 (cucdp  GraduateStudent         international_research_collaboration_rate_of_b  350
+34        S34_인천-(fidfbh)_부산대학교-(cucdp_강원-(f5w7gt)_부산대학교  강원도 (jra5z7)  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  800
+34        S34_인천-(fidfbh)_부산대학교-(cucdp_강원-(f5w7gt)_부산대학교  강원도 (jra5z7)  EducationResearchGroup  international_research_collaboration_rate_of_b  350
+34        S34_인천-(fidfbh)_부산대학교-(cucdp_강원-(f5w7gt)_부산대학교  강원 (f5w7gt)   PolicyRole              graduate_employment_rate_of_bk21_participants_  800
+34        S34_인천-(fidfbh)_부산대학교-(cucdp_강원-(f5w7gt)_부산대학교  강원 (f5w7gt)   PolicyRole              international_research_collaboration_rate_of_b  350
+34        S34_인천-(fidfbh)_부산대학교-(cucdp_강원-(f5w7gt)_부산대학교  부산대학교에서       EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  800
+34        S34_인천-(fidfbh)_부산대학교-(cucdp_강원-(f5w7gt)_부산대학교  부산대학교에서       EarlyCareerResearcher   international_research_collaboration_rate_of_b  350
+35        S35_전남대학교에서-(srx_경남-(jldms5)_전남대학교에서-(l1l_충남-(  전남대학교에서 (l1l  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  450
+35        S35_전남대학교에서-(srx_경남-(jldms5)_전남대학교에서-(l1l_충남-(  전남대학교에서 (l1l  EarlyCareerResearcher   international_research_collaboration_rate_of_b  330
+35        S35_전남대학교에서-(srx_경남-(jldms5)_전남대학교에서-(l1l_충남-(  전남대학교에서 (srx  GraduateStudent         graduate_employment_rate_of_bk21_participants_  450
+35        S35_전남대학교에서-(srx_경남-(jldms5)_전남대학교에서-(l1l_충남-(  전남대학교에서 (srx  GraduateStudent         international_research_collaboration_rate_of_b  330
+35        S35_전남대학교에서-(srx_경남-(jldms5)_전남대학교에서-(l1l_충남-(  연세대학교에서       EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  450
+35        S35_전남대학교에서-(srx_경남-(jldms5)_전남대학교에서-(l1l_충남-(  연세대학교에서       EarlyCareerResearcher   international_research_collaboration_rate_of_b  330
+35        S35_전남대학교에서-(srx_경남-(jldms5)_전남대학교에서-(l1l_충남-(  충남 (mhe7ww)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  450
+35        S35_전남대학교에서-(srx_경남-(jldms5)_전남대학교에서-(l1l_충남-(  충남 (mhe7ww)   EducationResearchGroup  international_research_collaboration_rate_of_b  330
+35        S35_전남대학교에서-(srx_경남-(jldms5)_전남대학교에서-(l1l_충남-(  경남 (jldms5)   PolicyRole              graduate_employment_rate_of_bk21_participants_  450
+35        S35_전남대학교에서-(srx_경남-(jldms5)_전남대학교에서-(l1l_충남-(  경남 (jldms5)   PolicyRole              international_research_collaboration_rate_of_b  330
+36        S36_공과대학_KAIST에서_전남_연세대학교에서-(ij8_경북대학교에서        연세대학교에서 (ij8  GraduateStudent         graduate_employment_rate_of_bk21_participants_  15200
+36        S36_공과대학_KAIST에서_전남_연세대학교에서-(ij8_경북대학교에서        연세대학교에서 (ij8  GraduateStudent         international_research_collaboration_rate_of_b  1900
+36        S36_공과대학_KAIST에서_전남_연세대학교에서-(ij8_경북대학교에서        경북대학교에서       EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  15200
+36        S36_공과대학_KAIST에서_전남_연세대학교에서-(ij8_경북대학교에서        경북대학교에서       EarlyCareerResearcher   international_research_collaboration_rate_of_b  1900
+36        S36_공과대학_KAIST에서_전남_연세대학교에서-(ij8_경북대학교에서        공과대학          PolicyRole              graduate_employment_rate_of_bk21_participants_  15200
+36        S36_공과대학_KAIST에서_전남_연세대학교에서-(ij8_경북대학교에서        공과대학          PolicyRole              international_research_collaboration_rate_of_b  3800
+36        S36_공과대학_KAIST에서_전남_연세대학교에서-(ij8_경북대학교에서        전남            EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  15200
+36        S36_공과대학_KAIST에서_전남_연세대학교에서-(ij8_경북대학교에서        전남            EducationResearchGroup  international_research_collaboration_rate_of_b  1900
+36        S36_공과대학_KAIST에서_전남_연세대학교에서-(ij8_경북대학교에서        KAIST에서       EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  15200
+36        S36_공과대학_KAIST에서_전남_연세대학교에서-(ij8_경북대학교에서        KAIST에서       EarlyCareerResearcher   international_research_collaboration_rate_of_b  1900
+37        S37_한양대학교에서_제주-(s74e5g)_경북대학교-(ne8ku_인문사회계열-(7  충남대학교에서       EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  15000
+37        S37_한양대학교에서_제주-(s74e5g)_경북대학교-(ne8ku_인문사회계열-(7  충남대학교에서       EarlyCareerResearcher   international_research_collaboration_rate_of_b  6600
+37        S37_한양대학교에서_제주-(s74e5g)_경북대학교-(ne8ku_인문사회계열-(7  제주 (s74e5g)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  15000
+37        S37_한양대학교에서_제주-(s74e5g)_경북대학교-(ne8ku_인문사회계열-(7  제주 (s74e5g)   EducationResearchGroup  international_research_collaboration_rate_of_b  6600
+37        S37_한양대학교에서_제주-(s74e5g)_경북대학교-(ne8ku_인문사회계열-(7  경북대학교 (ne8ku  GraduateStudent         graduate_employment_rate_of_bk21_participants_  15000
+37        S37_한양대학교에서_제주-(s74e5g)_경북대학교-(ne8ku_인문사회계열-(7  경북대학교 (ne8ku  GraduateStudent         international_research_collaboration_rate_of_b  6600
+37        S37_한양대학교에서_제주-(s74e5g)_경북대학교-(ne8ku_인문사회계열-(7  한양대학교에서       EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  15000
+37        S37_한양대학교에서_제주-(s74e5g)_경북대학교-(ne8ku_인문사회계열-(7  한양대학교에서       EarlyCareerResearcher   international_research_collaboration_rate_of_b  6600
+37        S37_한양대학교에서_제주-(s74e5g)_경북대학교-(ne8ku_인문사회계열-(7  인문사회계열 (73x7  PolicyRole              graduate_employment_rate_of_bk21_participants_  15000
+37        S37_한양대학교에서_제주-(s74e5g)_경북대학교-(ne8ku_인문사회계열-(7  인문사회계열 (73x7  PolicyRole              international_research_collaboration_rate_of_b  6600
+38        S38_김영준_충남대학교에서-(nvj_지방_고려대학교에서_이미경             고려대학교에서       EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  16000
+38        S38_김영준_충남대학교에서-(nvj_지방_고려대학교에서_이미경             고려대학교에서       EarlyCareerResearcher   international_research_collaboration_rate_of_b  3800
+38        S38_김영준_충남대학교에서-(nvj_지방_고려대학교에서_이미경             이미경           EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  16000
+38        S38_김영준_충남대학교에서-(nvj_지방_고려대학교에서_이미경             이미경           EducationResearchGroup  international_research_collaboration_rate_of_b  3800
+38        S38_김영준_충남대학교에서-(nvj_지방_고려대학교에서_이미경             지방            PolicyRole              graduate_employment_rate_of_bk21_participants_  16000
+38        S38_김영준_충남대학교에서-(nvj_지방_고려대학교에서_이미경             지방            PolicyRole              international_research_collaboration_rate_of_b  3800
+38        S38_김영준_충남대학교에서-(nvj_지방_고려대학교에서_이미경             충남대학교에서 (nvj  GraduateStudent         graduate_employment_rate_of_bk21_participants_  16000
+38        S38_김영준_충남대학교에서-(nvj_지방_고려대학교에서_이미경             충남대학교에서 (nvj  GraduateStudent         international_research_collaboration_rate_of_b  3800
+38        S38_김영준_충남대학교에서-(nvj_지방_고려대학교에서_이미경             김영준           EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  16000
+38        S38_김영준_충남대학교에서-(nvj_지방_고려대학교에서_이미경             김영준           EducationResearchGroup  international_research_collaboration_rate_of_b  3800
+39        S39_고려대학교에서-(s9d_생명과학-(0kz7bb_인하대학교에서_박준호_생명공학  인하대학교에서       EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  760
+39        S39_고려대학교에서-(s9d_생명과학-(0kz7bb_인하대학교에서_박준호_생명공학  인하대학교에서       EarlyCareerResearcher   international_research_collaboration_rate_of_b  456
+39        S39_고려대학교에서-(s9d_생명과학-(0kz7bb_인하대학교에서_박준호_생명공학  생명과학 (0kz7bb  PolicyRole              graduate_employment_rate_of_bk21_participants_  760
+39        S39_고려대학교에서-(s9d_생명과학-(0kz7bb_인하대학교에서_박준호_생명공학  생명과학 (0kz7bb  PolicyRole              international_research_collaboration_rate_of_b  456
+39        S39_고려대학교에서-(s9d_생명과학-(0kz7bb_인하대학교에서_박준호_생명공학  고려대학교에서 (s9d  GraduateStudent         graduate_employment_rate_of_bk21_participants_  760
+39        S39_고려대학교에서-(s9d_생명과학-(0kz7bb_인하대학교에서_박준호_생명공학  고려대학교에서 (s9d  GraduateStudent         international_research_collaboration_rate_of_b  456
+39        S39_고려대학교에서-(s9d_생명과학-(0kz7bb_인하대학교에서_박준호_생명공학  박준호           EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  760
+39        S39_고려대학교에서-(s9d_생명과학-(0kz7bb_인하대학교에서_박준호_생명공학  박준호           EducationResearchGroup  international_research_collaboration_rate_of_b  456
+39        S39_고려대학교에서-(s9d_생명과학-(0kz7bb_인하대학교에서_박준호_생명공학  생명공학          EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  760
+39        S39_고려대학교에서-(s9d_생명과학-(0kz7bb_인하대학교에서_박준호_생명공학  생명공학          EarlyCareerResearcher   international_research_collaboration_rate_of_b  456
+40        S40_경영학_인공지능_최은영_인하대학교에서-(jna_정민수               인하대학교에서 (jna  GraduateStudent         graduate_employment_rate_of_bk21_participants_  238
+40        S40_경영학_인공지능_최은영_인하대학교에서-(jna_정민수               인공지능          EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  238
+40        S40_경영학_인공지능_최은영_인하대학교에서-(jna_정민수               경영학           PolicyRole              graduate_employment_rate_of_bk21_participants_  238
+40        S40_경영학_인공지능_최은영_인하대학교에서-(jna_정민수               최은영           EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  224
+40        S40_경영학_인공지능_최은영_인하대학교에서-(jna_정민수               정민수           EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  238
+41        S41_화학공학-(0s74vp_김혜진_전북대학교에서_기계공학-(h7j171_국어국문  기계공학 (h7j171  PolicyRole              graduate_employment_rate_of_bk21_participants_  170
+41        S41_화학공학-(0s74vp_김혜진_전북대학교에서_기계공학-(h7j171_국어국문  화학공학 (0s74vp  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  170
+41        S41_화학공학-(0s74vp_김혜진_전북대학교에서_기계공학-(h7j171_국어국문  국어국문학 (pzybe  PolicyRole              graduate_employment_rate_of_bk21_participants_  170
+41        S41_화학공학-(0s74vp_김혜진_전북대학교에서_기계공학-(h7j171_국어국문  김혜진           EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  170
+41        S41_화학공학-(0s74vp_김혜진_전북대학교에서_기계공학-(h7j171_국어국문  전북대학교에서       GraduateStudent         graduate_employment_rate_of_bk21_participants_  170
+42        S42_이상호_강원대학교에서_의학과_사회학_기계공학-(q5q1n8            의학과           PolicyRole              graduate_employment_rate_of_bk21_participants_  170
+42        S42_이상호_강원대학교에서_의학과_사회학_기계공학-(q5q1n8            기계공학 (q5q1n8  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  170
+42        S42_이상호_강원대학교에서_의학과_사회학_기계공학-(q5q1n8            이상호           EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  170
+42        S42_이상호_강원대학교에서_의학과_사회학_기계공학-(q5q1n8            강원대학교에서       GraduateStudent         graduate_employment_rate_of_bk21_participants_  170
+42        S42_이상호_강원대학교에서_의학과_사회학_기계공학-(q5q1n8            사회학           EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  170
+43        S43_서울-(myzvh9)_도시공학_경제학-(j07xjg)_박지영_교육학-(3ka  도시공학          PolicyRole              international_research_collaboration_rate_of_b  11400
+43        S43_서울-(myzvh9)_도시공학_경제학-(j07xjg)_박지영_교육학-(3ka  교육학 (3kaul4)  PolicyRole              international_research_collaboration_rate_of_b  11400
+43        S43_서울-(myzvh9)_도시공학_경제학-(j07xjg)_박지영_교육학-(3ka  서울 (myzvh9)   GraduateStudent         international_research_collaboration_rate_of_b  11400
+43        S43_서울-(myzvh9)_도시공학_경제학-(j07xjg)_박지영_교육학-(3ka  박지영           EducationResearchGroup  international_research_collaboration_rate_of_b  11400
+43        S43_서울-(myzvh9)_도시공학_경제학-(j07xjg)_박지영_교육학-(3ka  경제학 (j07xjg)  EarlyCareerResearcher   international_research_collaboration_rate_of_b  11400
+44        S44_서울-(597x5b)_의생명과학_조현수_부산대학교에서-(6tx_건축공학     부산대학교에서 (6tx  GraduateStudent         graduate_employment_rate_of_bk21_participants_  16000
+44        S44_서울-(597x5b)_의생명과학_조현수_부산대학교에서-(6tx_건축공학     부산대학교에서 (6tx  GraduateStudent         international_research_collaboration_rate_of_b  9500
+44        S44_서울-(597x5b)_의생명과학_조현수_부산대학교에서-(6tx_건축공학     건축공학          EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  16000
+44        S44_서울-(597x5b)_의생명과학_조현수_부산대학교에서-(6tx_건축공학     건축공학          EarlyCareerResearcher   international_research_collaboration_rate_of_b  9500
+44        S44_서울-(597x5b)_의생명과학_조현수_부산대학교에서-(6tx_건축공학     서울 (597x5b)   PolicyRole              graduate_employment_rate_of_bk21_participants_  16000
+44        S44_서울-(597x5b)_의생명과학_조현수_부산대학교에서-(6tx_건축공학     서울 (597x5b)   PolicyRole              international_research_collaboration_rate_of_b  9500
+44        S44_서울-(597x5b)_의생명과학_조현수_부산대학교에서-(6tx_건축공학     조현수           EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  16000
+44        S44_서울-(597x5b)_의생명과학_조현수_부산대학교에서-(6tx_건축공학     조현수           EducationResearchGroup  international_research_collaboration_rate_of_b  9500
+44        S44_서울-(597x5b)_의생명과학_조현수_부산대학교에서-(6tx_건축공학     의생명과학         EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  16000
+44        S44_서울-(597x5b)_의생명과학_조현수_부산대학교에서-(6tx_건축공학     의생명과학         EarlyCareerResearcher   international_research_collaboration_rate_of_b  9500
+45        S45_물리학_한미영_전남대학교에서-(rge_부산-(bq29xw)_서울-(l5wgq  서울 (l5wgqa)   EducationResearchGroup  international_research_collaboration_rate_of_b  6700
+45        S45_물리학_한미영_전남대학교에서-(rge_부산-(bq29xw)_서울-(l5wgq  한미영           EducationResearchGroup  international_research_collaboration_rate_of_b  6700
+45        S45_물리학_한미영_전남대학교에서-(rge_부산-(bq29xw)_서울-(l5wgq  전남대학교에서 (rge  GraduateStudent         international_research_collaboration_rate_of_b  6700
+45        S45_물리학_한미영_전남대학교에서-(rge_부산-(bq29xw)_서울-(l5wgq  부산 (bq29xw)   PolicyRole              international_research_collaboration_rate_of_b  6700
+45        S45_물리학_한미영_전남대학교에서-(rge_부산-(bq29xw)_서울-(l5wgq  물리학           EarlyCareerResearcher   international_research_collaboration_rate_of_b  6700
+47        S47_서울_광주광역시의_화학공학을_광주-(57wt5t)_사회학-(4ami8g)    사회학 (4ami8g)  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  600
+47        S47_서울_광주광역시의_화학공학을_광주-(57wt5t)_사회학-(4ami8g)    사회학 (4ami8g)  EarlyCareerResearcher   international_research_collaboration_rate_of_b  200
+47        S47_서울_광주광역시의_화학공학을_광주-(57wt5t)_사회학-(4ami8g)    광주 (57wt5t)   EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  600
+47        S47_서울_광주광역시의_화학공학을_광주-(57wt5t)_사회학-(4ami8g)    광주 (57wt5t)   EducationResearchGroup  international_research_collaboration_rate_of_b  200
+47        S47_서울_광주광역시의_화학공학을_광주-(57wt5t)_사회학-(4ami8g)    화학공학을         EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  600
+47        S47_서울_광주광역시의_화학공학을_광주-(57wt5t)_사회학-(4ami8g)    화학공학을         EarlyCareerResearcher   international_research_collaboration_rate_of_b  200
+47        S47_서울_광주광역시의_화학공학을_광주-(57wt5t)_사회학-(4ami8g)    서울            GraduateStudent         graduate_employment_rate_of_bk21_participants_  600
+47        S47_서울_광주광역시의_화학공학을_광주-(57wt5t)_사회학-(4ami8g)    서울            GraduateStudent         international_research_collaboration_rate_of_b  200
+47        S47_서울_광주광역시의_화학공학을_광주-(57wt5t)_사회학-(4ami8g)    광주광역시의        PolicyRole              graduate_employment_rate_of_bk21_participants_  600
+47        S47_서울_광주광역시의_화학공학을_광주-(57wt5t)_사회학-(4ami8g)    광주광역시의        PolicyRole              international_research_collaboration_rate_of_b  200
+48        S48_서울-(uud38w)_기계공학-(vwrplt_한양대학교_부산에서_한양대학교-  기계공학 (vwrplt  EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  170
+48        S48_서울-(uud38w)_기계공학-(vwrplt_한양대학교_부산에서_한양대학교-  한양대학교 (byupv  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  170
+48        S48_서울-(uud38w)_기계공학-(vwrplt_한양대학교_부산에서_한양대학교-  한양대학교         EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  170
+48        S48_서울-(uud38w)_기계공학-(vwrplt_한양대학교_부산에서_한양대학교-  서울 (uud38w)   PolicyRole              graduate_employment_rate_of_bk21_participants_  170
+48        S48_서울-(uud38w)_기계공학-(vwrplt_한양대학교_부산에서_한양대학교-  부산에서          GraduateStudent         graduate_employment_rate_of_bk21_participants_  170
+49        S49_화학공학_한양대학교-(jduob_경상북도_부산_서울대학교             화학공학          EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  15000
+49        S49_화학공학_한양대학교-(jduob_경상북도_부산_서울대학교             화학공학          EarlyCareerResearcher   international_research_collaboration_rate_of_b  3800
+49        S49_화학공학_한양대학교-(jduob_경상북도_부산_서울대학교             한양대학교 (jduob  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  15000
+49        S49_화학공학_한양대학교-(jduob_경상북도_부산_서울대학교             한양대학교 (jduob  EducationResearchGroup  international_research_collaboration_rate_of_b  3800
+49        S49_화학공학_한양대학교-(jduob_경상북도_부산_서울대학교             경상북도          GraduateStudent         graduate_employment_rate_of_bk21_participants_  15000
+49        S49_화학공학_한양대학교-(jduob_경상북도_부산_서울대학교             경상북도          GraduateStudent         international_research_collaboration_rate_of_b  3800
+49        S49_화학공학_한양대학교-(jduob_경상북도_부산_서울대학교             서울대학교         EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  15000
+49        S49_화학공학_한양대학교-(jduob_경상북도_부산_서울대학교             서울대학교         EarlyCareerResearcher   international_research_collaboration_rate_of_b  3800
+49        S49_화학공학_한양대학교-(jduob_경상북도_부산_서울대학교             부산            PolicyRole              graduate_employment_rate_of_bk21_participants_  15000
+49        S49_화학공학_한양대학교-(jduob_경상북도_부산_서울대학교             부산            PolicyRole              international_research_collaboration_rate_of_b  3800
+50        S50_한양대학교-(jj3mg_서울-(uify15)_대전의_전남대학교_대전에      한양대학교 (jj3mg  EducationResearchGroup  graduate_employment_rate_of_bk21_participants_  360
+50        S50_한양대학교-(jj3mg_서울-(uify15)_대전의_전남대학교_대전에      대전에           GraduateStudent         graduate_employment_rate_of_bk21_participants_  360
+50        S50_한양대학교-(jj3mg_서울-(uify15)_대전의_전남대학교_대전에      대전의           PolicyRole              graduate_employment_rate_of_bk21_participants_  360
+50        S50_한양대학교-(jj3mg_서울-(uify15)_대전의_전남대학교_대전에      전남대학교         EarlyCareerResearcher   graduate_employment_rate_of_bk21_participants_  360
+50        S50_한양대학교-(jj3mg_서울-(uify15)_대전의_전남대학교_대전에      서울 (uify15)   GraduateStudent         graduate_employment_rate_of_bk21_participants_  360

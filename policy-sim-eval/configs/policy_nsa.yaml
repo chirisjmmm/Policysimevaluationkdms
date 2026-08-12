@@ -1,0 +1,115 @@
+policy_id: nsa
+policy_type: regulatory
+doc_path: data/policies/nsa/doc.md
+graph_path: data/policies/nsa/graph.json   # does not exist -- no KG shipped for NSA/K-pass; cli.py handles this (kg_index=None)
+run_source: branch
+
+phases: [Inputs, Activities, Outputs, Outcomes, Impact]
+eval_terminal_phase: Outcomes
+post_target_phases: [Impact]
+
+# X1 ground truth: provided directly by the user (matches the ASPE Report
+# Three figures found during automated research -- "declined 15 percent for
+# emergency services and 11 percent for non-emergency services ... relative
+# to 2021" -- confirmed as the intended GT values for these two variables:
+# reduction_emergency_oon_bills_pct=15, reduction_nonemergency_oon_bills_pct=11).
+targets:
+  - name: emergency_oon_bill_prevalence_reduction_pp
+    phase: Outcomes
+    true_value: 15
+    source: "User-confirmed GT (matches ASPE Report Three, HHS: 'prevalence of out-of-network bills declined 15 percent for emergency services ... relative to 2021'). https://aspe.hhs.gov/reports/no-surprises-act-report-three"
+  - name: nonemergency_oon_bill_prevalence_reduction_pp
+    phase: Outcomes
+    true_value: 11
+    source: "User-confirmed GT (matches ASPE Report Three, HHS: '11 percent for non-emergency services furnished at in-network facilities relative to 2021'). https://aspe.hhs.gov/reports/no-surprises-act-report-three"
+
+concept_duplicates: []
+
+variable_anchors:
+  Inputs.federal_enforcement_budget_usd: {type: predicted}
+  Inputs.certified_idr_entity_count: {type: predicted}
+  Inputs.qpa_ready_plan_pct: {type: predicted}
+  Activities.qpa_calculations_completed: {type: predicted}
+  Activities.timely_initial_payment_or_denial_rate: {type: predicted}
+  Activities.idr_cases_initiated: {type: predicted}
+  Outputs.notice_compliance_rate: {type: predicted}
+  Outputs.protected_claims_correctly_processed_rate: {type: predicted}
+  Outputs.timely_idr_determination_rate: {type: predicted}
+  Outcomes.emergency_oon_bill_prevalence_reduction_pp: {type: predicted}
+  Outcomes.nonemergency_oon_bill_prevalence_reduction_pp: {type: predicted}
+  Outcomes.patient_savings_per_protected_claim_usd: {type: predicted}
+  Impact.systemic_oon_billing_prevalence_pct: {type: predicted}
+  Impact.network_adequacy_rate_pct: {type: predicted}
+  Impact.premium_change_attributable_to_nsa_pct: {type: predicted}
+
+# Fact table drawn from the regulatory rule text itself (nsa_core_L56-1771.md,
+# an interim-final-rule preamble). Unlike 100E/BK21's policy-announcement
+# style documents, this is dense legal/procedural prose -- the closest thing
+# to "policy constants" here are statutory PROCEDURAL DEADLINES, not funding
+# figures (this excerpt never states an enforcement budget number, consistent
+# with federal_enforcement_budget_usd having no document anchor and staying
+# `predicted`). Many numbers in the doc are hypothetical worked examples
+# (e.g. "$1,500 deductible... $1,000 recognized amount") -- excluded from
+# the fact table since they illustrate methodology, not fixed policy values.
+fact_table:
+  - id: initial_payment_or_denial_deadline_days
+    value: 30
+    kind: days
+    bound: exact
+    aliases: ["30 calendar days", "30-day", "initial payment or notice of denial",
+              "notice of denial of payment", "30 days after"]
+    evidence: "require plans and issuers to send an initial payment or notice of denial of payment not later than 30 calendar days after a nonparticipating provider or facility submits a bill"
+    page: 29
+  - id: open_negotiation_period_days
+    value: 30
+    kind: days
+    bound: exact
+    aliases: ["30-day open negotiation period", "open negotiation period", "30 days to negotiate"]
+    evidence: "initiate a 30-day open negotiation period for purposes of determining the amount of total payment"
+    page: 24
+  - id: idr_initiation_window_days
+    value: 4
+    kind: days
+    bound: exact
+    aliases: ["initiate the IDR process within 4 days", "4 days after the end of the open negotiation period",
+              "4-day window"]
+    evidence: "the provider or facility may initiate the IDR process within 4 days after the end of the open negotiation period"
+    page: 24
+  - id: hhs_complaint_response_deadline_days
+    value: 60
+    kind: days
+    bound: at_most
+    aliases: ["60 business days", "60 days of receipt", "respond to complaints within 60 days",
+              "no later than 60 business days"]
+    evidence: "HHS to respond to complaints regarding violations of balance billing protections ... within 60 days of receipt"
+    page: 30
+  - id: abd_appeal_window_days
+    value: 180
+    kind: days
+    bound: at_most
+    aliases: ["180 days following receipt", "appealed within 180 days", "adverse benefit determination",
+              "180-day appeal window"]
+    evidence: "Claims that result in an adverse benefit determination (ABD) may be appealed within 180 days following receipt of the notice of the ABD"
+    page: 30
+  - id: erisa_extension_days
+    value: 15
+    kind: days
+    bound: at_most
+    aliases: ["extend this period once for up to 15 days", "15-day extension", "additional 15 days"]
+    evidence: "A plan can generally extend this period once for up to 15 days for matters beyond the control of the plan"
+    page: 30
+
+chain_constraints: []   # no clean numeric-containment relationships identified across NSA's phase variables (mostly independent rates, not counts building on each other)
+
+value_ranges:
+  Inputs.qpa_ready_plan_pct: {min: 0, max: 100}
+  Activities.timely_initial_payment_or_denial_rate: {min: 0, max: 100}
+  Outputs.notice_compliance_rate: {min: 0, max: 100}
+  Outputs.protected_claims_correctly_processed_rate: {min: 0, max: 100}
+  Outputs.timely_idr_determination_rate: {min: 0, max: 100}
+  Impact.systemic_oon_billing_prevalence_pct: {min: 0, max: 100}
+  Impact.network_adequacy_rate_pct: {min: 0, max: 100}
+  # emergency/nonemergency_oon_bill_prevalence_reduction_pp and
+  # premium_change_attributable_to_nsa_pct are signed deltas (could
+  # legitimately be negative, e.g. prevalence *increasing* or premiums
+  # falling) -- no safe [0,100] bound, left unchecked rather than guessing one.

@@ -1,0 +1,236 @@
+policy_id: bk21
+policy_type: distributive
+doc_path: data/policies/bk21/doc.md
+graph_path: data/policies/bk21/graph.json
+run_source: single
+
+phases: [Inputs, Activities, Outputs, Outcomes, Impact]
+eval_terminal_phase: Outcomes
+post_target_phases: [Impact]
+
+# X1 ground truth: provided directly by the user (Policy A/B comparison
+# table, reporting period 2022). Note the document's own 2022 PLAN TARGET
+# for employment rate (붙임3 "2022년도 예산 성과지표 및 목표") was 75.4% -- the
+# user-supplied actual realized rate (82.2%) exceeded that plan target,
+# which is worth surfacing in the report as a standalone finding
+# independent of agent-prediction accuracy.
+#
+# TARGET VARIABLE CORRECTED (2026-08-10, user-confirmed by manual scenario
+# inspection): the *officially-named* simulation-target variables
+# (graduate_employment_rate_of_bk21_participants_in_2022,
+# international_research_collaboration_rate_of_bk21_participants_in_2022)
+# are NOT percentages despite the name -- empirically they are headcounts
+# (observed range 30-17,100 / 8-19,000, median 750 / 605; a 0-100% variable
+# would never look like this). The sibling variables `employment_rate`
+# (observed 72-90, median 84.2) and `international_collaboration_rate`
+# (observed 10-85, median 30) ARE well-behaved percentages sitting right next
+# to the GT (82.2 / 36.0). So the GT comparison targets the sibling
+# variables, not the officially-named ones. The officially-named/headcount
+# variables are kept as `predicted` and reported descriptively (DX1 support
+# width) but are not scored against a % ground truth -- there is no reliable
+# headcount denominator to construct an equivalent GT for them.
+targets:
+  - name: employment_rate
+    phase: Outcomes
+    true_value: 82.2
+    source: "User-supplied Policy A/B ground-truth table: 'Trainee employment rate (%)', reporting period 2022 (cf. document's own 2022 plan target of 75.4%, 붙임3). Compared against `employment_rate`, NOT the officially-named `graduate_employment_rate_of_bk21_participants_in_2022` -- see note above."
+  - name: international_collaboration_rate
+    phase: Outcomes
+    true_value: 36.0
+    source: "User-supplied Policy A/B ground-truth table: 'International collaboration rate (%)', reporting period 2022. Compared against `international_collaboration_rate`, NOT the officially-named `international_research_collaboration_rate_of_bk21_participants_in_2022` -- see note above."
+
+# NOT true concept duplicates (revised understanding) -- confirmed unit
+# mismatch, not two names for the same rate. Kept in this structure only
+# because X3's internal-agreement diagnostic is still a useful way to
+# quantify/track the mismatch; ground_truth_from now points at the variable
+# that is actually a percentage.
+concept_duplicates:
+  - group: employment_rate_2022
+    members: ["Outcomes.employment_rate", "Outcomes.graduate_employment_rate_of_bk21_participants_in_2022"]
+    ground_truth_from: "Outcomes.employment_rate"
+  - group: international_collaboration_rate_2022
+    members: ["Outcomes.international_collaboration_rate",
+              "Outcomes.international_research_collaboration_rate_of_bk21_participants_in_2022"]
+    ground_truth_from: "Outcomes.international_collaboration_rate"
+
+variable_anchors:
+  # NOTE: total_funding_allocated is NOT the national aggregate. Each scenario
+  # is grounded in one specific persona/institution (e.g. "Hanyang University"),
+  # so agents legitimately estimate that institution's slice of the national
+  # budget (observed ~41 billion KRW for a single university in sampled data),
+  # not the national 408,080 million KRW total. Treating it as anchored to the
+  # national figure would flag every reasonable per-institution estimate as a
+  # contradiction. Classified as predicted; the national total is still kept
+  # in fact_table (annual_budget_2022) for narrative-level contradiction
+  # checks when an agent explicitly discusses the *national* program budget.
+  Inputs.total_funding_allocated: {type: predicted}
+  Inputs.graduate_scholarship_slots: {type: predicted}
+  Inputs.postdoc_positions: {type: predicted}
+  Outputs.graduate_students_supported: {type: predicted}
+  Outputs.postdoc_researchers_supported: {type: predicted}
+  Outputs.publications_produced: {type: predicted}
+  Outputs.international_conference_presentations: {type: predicted}
+  Outcomes.employment_rate: {type: predicted}
+  # headcount_mislabeled (v4 sec 3.4 formal type): variable name implies a
+  # percentage but the observed values (median 750, up to 17,100) are
+  # headcounts. Excluded from GT comparison (X1/X4), diversity (D1/D2/DX1 --
+  # all filter on var_type=="predicted", so this exclusion is automatic once
+  # declared here), and G2 range checking. Reported descriptively only.
+  Outcomes.graduate_employment_rate_of_bk21_participants_in_2022: {type: headcount_mislabeled}
+  Outcomes.international_collaboration_rate: {type: predicted}
+  Outcomes.international_research_collaboration_rate_of_bk21_participants_in_2022: {type: headcount_mislabeled}
+  Outcomes.full_time_faculty_lecture_ratio: {type: predicted}
+  Impact.national_st_talent_competitiveness_rank: {type: predicted}
+  Impact.high_impact_publications_per_1000_researchers: {type: predicted}
+
+# NOTE ON LANGUAGE: the source document is Korean but agent narratives in the
+# scenario data are written in ENGLISH (same cross-language issue found in the
+# KG, sec 6 knowledge-graph note). Every alias list below includes English
+# phrasing an agent would plausibly use, not just the Korean original.
+fact_table:
+  - id: annual_budget_2022
+    value: 4.0808e11
+    kind: currency
+    currency: KRW
+    bound: exact
+    aliases: ["408,080백만원", "4,080억", "4080억", "연간 예산", "사업 예산", "408080000000",
+              "national budget", "annual budget", "total 2022 budget", "408,080 million KRW",
+              "408.08 billion KRW", "annual budget of the BK21 program", "national BK21 budget"]
+    evidence: "2022년도 사업 예산 : 408,080백만원"
+    page: 9
+  - id: total_project_duration_years
+    value: 7
+    kind: years
+    bound: exact
+    aliases: ["7년", "사업기간", "총 사업기간", "2020. 9. ~ 2027. 8", "seven years", "7-year",
+              "7 year period", "2020 to 2027"]
+    evidence: "(총 사업기간) 2020. 9. ~ 2027. 8. (7년)"
+    page: 3
+  - id: innovation_support_universities
+    value: 20
+    kind: count
+    bound: exact
+    aliases: ["대학원 혁신지원대학", "20개 대학", "전국 10개, 지역 10개",
+              "graduate school innovation", "innovation-support universities", "20 universities"]
+    evidence: "(대학원 혁신지원대학) 20개 대학 (전국 10개, 지역 10개)"
+    page: 3
+  - id: education_research_groups_future_talent
+    value: 372
+    kind: count
+    bound: exact
+    aliases: ["미래인재 양성사업", "372개 교육연구단", "372 education research groups",
+              "future talent cultivation programme"]
+    evidence: "지원대상 372개 교육연구단(팀) [미래인재양성사업]"
+    page: 3
+  - id: education_research_groups_innovation_talent
+    value: 205
+    kind: count
+    bound: exact
+    aliases: ["혁신인재 양성사업", "205개 교육연구단", "205 education research groups",
+              "innovative talent cultivation programme"]
+    evidence: "지원대상 205개 교육연구단 [혁신인재양성사업]"
+    page: 3
+  - id: participants_future_talent_annual
+    value: 12600
+    kind: count
+    bound: exact
+    approx: true
+    aliases: ["참여대학원생", "매년 12,600여명", "12,600명", "12,600 graduate students",
+              "approximately 12,600 participants"]
+    evidence: "참여대학원생 규모 매년 12,600여명 [미래인재양성사업]"
+    page: 3
+  - id: participants_innovation_talent_annual
+    value: 6400
+    kind: count
+    bound: exact
+    approx: true
+    aliases: ["참여대학원생", "매년 6,400여명", "6,400명", "6,400 graduate students",
+              "approximately 6,400 participants"]
+    evidence: "참여대학원생 규모 매년 6,400여명 [혁신인재양성사업]"
+    page: 3
+  - id: masters_scholarship_min_monthly
+    value: 700000
+    kind: currency
+    currency: KRW
+    bound: at_least
+    aliases: ["석사 월 70만원", "석사월70만원", "연구장학금", "master's scholarship",
+              "700,000 KRW per month", "master's stipend"]
+    evidence: "석사월70만원, 박사수료월100만원, 박사월130만원, 신진연구자월300만원이상"
+    page: 3
+  - id: phd_completion_scholarship_min_monthly
+    value: 1000000
+    kind: currency
+    currency: KRW
+    bound: at_least
+    aliases: ["박사수료 월 100만원", "박사수료월100만원", "PhD completion stipend",
+              "1,000,000 KRW per month", "doctoral completion scholarship"]
+    evidence: "박사수료월100만원"
+    page: 3
+  - id: phd_scholarship_min_monthly
+    value: 1300000
+    kind: currency
+    currency: KRW
+    bound: at_least
+    aliases: ["박사 월 130만원", "박사월130만원", "doctoral scholarship", "PhD stipend",
+              "1,300,000 KRW per month"]
+    evidence: "박사월130만원"
+    page: 3
+  - id: early_career_researcher_salary_min_monthly
+    value: 3000000
+    kind: currency
+    currency: KRW
+    bound: at_least
+    aliases: ["신진연구자 월 300만원", "신진연구자월300만원이상", "신진연구인력 인건비",
+              "early-career researcher salary", "3,000,000 KRW per month", "postdoc salary"]
+    evidence: "신진연구자월300만원이상"
+    page: 3
+  - id: employment_rate_2022_target
+    value: 75.4
+    kind: percent
+    bound: exact
+    aliases: ["취업률", "취업률 목표", "75.4%", "employment rate target", "target employment rate",
+              "government's employment rate target", "75.4 percent"]
+    evidence: "취업률(%) 2022년도 목표: 75.4 (붙임3 2022년도 예산 성과지표 및 목표)"
+    page: 25
+  - id: faculty_lecture_ratio_2022_target
+    value: 90.4
+    kind: percent
+    bound: exact
+    aliases: ["전임교수 강의 비율", "이공계 대학원 전임교수", "90.4%",
+              "full-time faculty lecture ratio target", "90.4 percent"]
+    evidence: "이공계 대학원 전임교수 강의 비율(%) 2022년도 목표: 90.4 (붙임3 2022년도 예산 성과지표 및 목표)"
+    page: 25
+  - id: operating_budget_cap_pct
+    value: 10
+    kind: percent
+    bound: at_most
+    aliases: ["사업단 운영비", "운영비", "10% 이내", "operating budget cap", "operating expenses",
+              "up to 10%", "10 percent of the budget"]
+    evidence: "사업단 운영비(10% 이내)"
+    page: 3
+  - id: indirect_cost_cap_pct
+    value: 5
+    kind: percent
+    bound: at_most
+    aliases: ["간접비", "5% 이내", "indirect cost", "indirect costs cap", "up to 5%"]
+    evidence: "간접비 5% 이내"
+    page: 26
+
+chain_constraints:
+  - "Outputs.graduate_students_supported <= Inputs.graduate_scholarship_slots"
+  - "Outputs.postdoc_researchers_supported <= Inputs.postdoc_positions"
+  - "Activities.total_funds_disbursed <= Inputs.total_funding_allocated"
+
+value_ranges:
+  Impact.national_st_talent_competitiveness_rank: {min: 1, max: 100, integer: true}
+  Impact.high_impact_publications_per_1000_researchers: {min: 0, max: 1000}
+  Outcomes.employment_rate: {min: 0, max: 100}
+  Outcomes.international_collaboration_rate: {min: 0, max: 100}
+  Outcomes.full_time_faculty_lecture_ratio: {min: 0, max: 100}
+  # graduate_employment_rate_of_bk21_participants_in_2022 and
+  # international_research_collaboration_rate_of_bk21_participants_in_2022
+  # intentionally have NO [0,100] range check here -- confirmed to be
+  # headcounts, not percentages (see targets: comment above), so a [0,100]
+  # check would misreport headcount values in the thousands as "violations."
+  # No reliable headcount range is available to check against instead; they
+  # are reported descriptively only (DX1 support width).
