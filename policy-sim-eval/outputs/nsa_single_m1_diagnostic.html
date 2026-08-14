@@ -1,0 +1,293 @@
+<title>nsa_single_deepseek M1 진단</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-1: #fcfcfb;
+    --page: #f9f9f7;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #898781;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+    --border: rgba(11,11,11,0.10);
+    --series-1: #2a78d6;
+    --series-1-soft: #cde2fb;
+    --status-critical: #d03b3b;
+    --status-good: #0ca30c;
+    --status-warning: #fab219;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1: #1a1a19;
+      --page: #0d0d0d;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted: #898781;
+      --grid: #2c2c2a;
+      --axis: #383835;
+      --border: rgba(255,255,255,0.10);
+      --series-1: #3987e5;
+      --series-1-soft: #184f95;
+      --status-critical: #e66767;
+      --status-good: #0ca30c;
+      --status-warning: #fab219;
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1: #1a1a19;
+    --page: #0d0d0d;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255,255,255,0.10);
+    --series-1: #3987e5;
+    --series-1-soft: #184f95;
+    --status-critical: #e66767;
+    --status-good: #0ca30c;
+    --status-warning: #fab219;
+  }
+
+  .viz-root {
+    background: var(--page);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    padding: 28px 20px 48px;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .subtitle { color: var(--text-secondary); font-size: 13px; margin: 0 0 24px; }
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  .card h2 { font-size: 14px; margin: 0 0 2px; }
+  .card .note { color: var(--text-secondary); font-size: 12px; margin: 0 0 16px; line-height: 1.5; }
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .stat-tile {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .stat-tile .label { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
+  .stat-tile .value { font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .stat-tile .sub { font-size: 11px; color: var(--text-secondary); margin-top: 4px; }
+  svg { display: block; overflow: visible; }
+  .axis-label { fill: var(--text-muted); font-size: 10px; }
+  .tick-label { fill: var(--text-muted); font-size: 10px; font-variant-numeric: tabular-nums; }
+  .gridline { stroke: var(--grid); stroke-width: 1; }
+  .axis-line { stroke: var(--axis); stroke-width: 1; }
+  .pt { fill: var(--series-1); stroke: var(--surface-1); stroke-width: 1.5; }
+  .pt-outlier { fill: var(--status-critical); stroke: var(--surface-1); stroke-width: 1.5; }
+  .pt-label { fill: var(--text-secondary); font-size: 10px; }
+  .bar { fill: var(--series-1); }
+  .bar-over { fill: var(--status-critical); }
+  .bar-label { fill: var(--text-primary); font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .bar-cat { fill: var(--text-secondary); font-size: 11px; }
+  .ref-line { stroke: var(--status-critical); stroke-width: 1.5; stroke-dasharray: 4 3; }
+  .ref-label { fill: var(--status-critical); font-size: 10px; font-weight: 600; }
+  .corr-box { font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+  .corr-box b { color: var(--text-primary); }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-top: 4px; }
+  th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+  th { color: var(--text-muted); font-weight: 500; font-size: 11px; }
+  td.num, th.num { text-align: right; }
+  .conclusion {
+    border-left: 3px solid var(--status-good);
+    padding: 4px 0 4px 14px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--text-primary);
+  }
+  .conclusion b { color: var(--status-good); }
+</style>
+
+<div class="viz-root">
+  <h1>nsa_single_deepseek — M1(수렴도) 저하 진단: 결측/파싱 노이즈 vs 실제 의견 분산</h1>
+  <p class="subtitle">M1 = 0.152 (다른 셀 0.85~0.94) · seed 20260810 · cv_ref = 0.5</p>
+
+  <div class="stat-row" style="margin-bottom:20px;">
+    <div class="stat-tile">
+      <div class="label">완전한 실행 (canonical 20필드 기준)</div>
+      <div class="value">49 / 50</div>
+      <div class="sub">결측 1건도 alias로 복구됨 → 사실상 100%</div>
+    </div>
+    <div class="stat-tile">
+      <div class="label">M1 · 전체 50개</div>
+      <div class="value">0.152</div>
+    </div>
+    <div class="stat-tile">
+      <div class="label">M1 · 완전한 실행만 (n=49)</div>
+      <div class="value">0.149</div>
+      <div class="sub">거의 동일 (차이 −0.003)</div>
+    </div>
+    <div class="stat-tile">
+      <div class="label">M1 · 불완전 실행 (n=1)</div>
+      <div class="value">0.269</div>
+      <div class="sub">오히려 더 높음</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>1. 결측은 phase/변수에 집중되지 않음 — 사실상 전무</h2>
+    <p class="note">canonical 20개 필드 × 5개 포스트 × 50개 실행 = 4,250 슬롯 중 결측은 단 1건(0.02%), 그마저 오타 alias(complaint_notice_provision_rate)로 실값이 존재. G3 게이트가 보고한 87.3% 완료율은 pooled var_types에 잡힌 노이즈 변수명(오타·phase 혼선)까지 "기대값"으로 잡아 생긴 착시입니다.</p>
+    <table>
+      <tr><th>Phase</th><th class="num">기대 슬롯</th><th class="num">결측</th><th class="num">결측률</th></tr>
+      <tr><td>Inputs</td><td class="num">750</td><td class="num">0</td><td class="num">0.0%</td></tr>
+      <tr><td>Activities</td><td class="num">1,000</td><td class="num">0</td><td class="num">0.0%</td></tr>
+      <tr><td>Outputs</td><td class="num">1,000</td><td class="num">1</td><td class="num">0.1%</td></tr>
+      <tr><td>Outcomes</td><td class="num">1,500</td><td class="num">0</td><td class="num">0.0%</td></tr>
+      <tr><td>Impact</td><td class="num">750</td><td class="num">0</td><td class="num">0.0%</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>2. 변수명 길이 vs 결측률 — 상관관계 없음</h2>
+    <p class="note">20개 canonical 변수 각각의 이름 글자 수(x) vs 결측률(y, %). 19개는 결측률 0%, 1개(compliant_notice_provision_rate, 31자)만 0.4%지만 alias로 완전 복구되어 실질 결측은 0%. 이름 길이와 결측/파싱 실패 사이에 유의한 관계가 없습니다.</p>
+    <svg id="scatter" width="900" height="320" viewBox="0 0 900 320"></svg>
+    <div class="corr-box" style="margin-top:8px;">
+      Pearson r = <b>−0.048</b> (p = 0.84) · Spearman ρ = <b>0.000</b> (p = 1.00) — 두 방식 모두 상관 없음(사실상 0)
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>3. 완전한 실행 안에서도 phase별 CV가 이미 높음 — 실제 의견 분산</h2>
+    <p class="note">phase별 "median CV(5개 에이전트 예측값)"의 실행 간 중앙값. 점선은 cv_ref=0.5 (M1 공식상 이 값 이상이면 그 phase의 convergence가 0으로 바닥). Activities/Outputs는 실행의 70% 이상이 이미 바닥을 침 — 결측이 아니라 값 자체가 넓게 퍼져 있다는 뜻입니다.</p>
+    <svg id="barchart" width="900" height="280" viewBox="0 0 900 280"></svg>
+  </div>
+
+  <div class="card">
+    <h2>결론</h2>
+    <p class="conclusion">
+      <b>(b) 실제 의견 분산</b>입니다. 결측/파싱 실패는 4,250개 슬롯 중 1건(그마저 오타로 복구 가능)뿐이라 M1 저하의 원인이 될 수 없고, "완전한 실행만" 부분집합(n=49)으로 다시 계산해도 M1=0.149로 전체 값(0.152)과 사실상 동일합니다. 반대로 phase별 median CV를 직접 보면 Activities(0.588)·Outputs(0.544)에서 이미 cv_ref(0.5)를 넘어 실행의 70% 이상이 convergence=0 바닥에 깔려 있습니다 — 즉 5명의 에이전트가 같은 시나리오에서 실제로 큰 폭으로 다른 수치를 예측하고 있다는 뜻입니다. 다른 셀(100e/bk21/기존 nsa 분기) 대비 이례적으로 낮은 M1(0.152)은 데이터 정합성 문제가 아니라, 이 fwd_fwdbwd 단일 pathway 시뮬레이션에서 에이전트 간 수치 합의가 구조적으로 약하다는 실제 신호로 봐야 합니다.
+    </p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var varData = [
+    {name:"enforcement_budget_usd", len:22, rate:0.0},
+    {name:"certified_idr_entity_count", len:26, rate:0.0},
+    {name:"qpa_calculation_system_readiness", len:32, rate:0.0},
+    {name:"qpa_calculations_performed", len:26, rate:0.0},
+    {name:"disclosure_notices_sent", len:23, rate:0.0},
+    {name:"initial_payments_made", len:21, rate:0.0},
+    {name:"idr_cases_initiated", len:19, rate:0.0},
+    {name:"protected_claims_processed", len:26, rate:0.0},
+    {name:"balance_billing_attempts_blocked", len:32, rate:0.0},
+    {name:"idr_determinations_completed", len:28, rate:0.0},
+    {name:"compliant_notice_provision_rate", len:31, rate:0.4},
+    {name:"reduction_in_prevalence...non_emergency...2022", len:107, rate:0.0},
+    {name:"reduction_in_prevalence...emergency_services_in_2022", len:78, rate:0.0},
+    {name:"reduction_emergency_oon_bills_pct", len:33, rate:0.0},
+    {name:"reduction_nonemergency_oon_bills_pct", len:36, rate:0.0},
+    {name:"patient_outofpocket_savings_per_claim_usd", len:41, rate:0.0},
+    {name:"consumer_protection_awareness_pct", len:33, rate:0.0},
+    {name:"systemic_oon_billing_prevalence", len:31, rate:0.0},
+    {name:"network_adequacy_index", len:22, rate:0.0},
+    {name:"average_health_plan_premium_impact_pct", len:38, rate:0.0}
+  ];
+
+  var svg = document.getElementById("scatter");
+  var W = 900, H = 320, M = {top: 16, right: 24, bottom: 40, left: 44};
+  var plotW = W - M.left - M.right, plotH = H - M.top - M.bottom;
+  var xMax = 115, yMax = 1.0;
+  function xs(v){ return M.left + (v / xMax) * plotW; }
+  function ys(v){ return M.top + plotH - (v / yMax) * plotH; }
+  var ns = "http://www.w3.org/2000/svg";
+  function el(tag, attrs){
+    var e = document.createElementNS(ns, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+
+  // gridlines (y)
+  [0, 0.25, 0.5, 0.75, 1.0].forEach(function(v){
+    svg.appendChild(el("line", {x1: M.left, x2: M.left+plotW, y1: ys(v), y2: ys(v), class:"gridline"}));
+    var t = el("text", {x: M.left-8, y: ys(v)+3, class:"tick-label", "text-anchor":"end"});
+    t.textContent = v.toFixed(2) + "%";
+    svg.appendChild(t);
+  });
+  // x ticks
+  [0,20,40,60,80,100].forEach(function(v){
+    var t = el("text", {x: xs(v), y: H-M.bottom+18, class:"tick-label", "text-anchor":"middle"});
+    t.textContent = v;
+    svg.appendChild(t);
+  });
+  svg.appendChild(el("line", {x1:M.left, x2:M.left+plotW, y1:M.top+plotH, y2:M.top+plotH, class:"axis-line"}));
+
+  var xl = el("text", {x: M.left+plotW/2, y: H-6, class:"axis-label", "text-anchor":"middle"});
+  xl.textContent = "변수명 길이 (문자 수)";
+  svg.appendChild(xl);
+  var yl = el("text", {x: 14, y: M.top+plotH/2, class:"axis-label", "text-anchor":"middle", transform: "rotate(-90 14 "+(M.top+plotH/2)+")"});
+  yl.textContent = "결측률 (%)";
+  svg.appendChild(yl);
+
+  varData.forEach(function(d){
+    var cx = xs(d.len), cy = ys(d.rate);
+    var c = el("circle", {cx: cx, cy: cy, r: 6, class: d.rate > 0 ? "pt-outlier" : "pt"});
+    svg.appendChild(c);
+    if (d.rate > 0) {
+      var lbl = el("text", {x: cx+9, y: cy-8, class:"pt-label"});
+      lbl.textContent = "compliant_notice_provision_rate (0.4%, alias로 복구됨)";
+      svg.appendChild(lbl);
+    }
+  });
+
+  // barchart
+  var svg2 = document.getElementById("barchart");
+  var phases = [
+    {name:"Inputs", median:0.402, floor:0.28},
+    {name:"Activities", median:0.588, floor:0.76},
+    {name:"Outputs", median:0.544, floor:0.72},
+    {name:"Outcomes", median:0.453, floor:0.42},
+    {name:"Impact", median:0.344, floor:0.04}
+  ];
+  var W2=900, H2=280, M2={top:16,right:24,bottom:44,left:44};
+  var plotW2=W2-M2.left-M2.right, plotH2=H2-M2.top-M2.bottom;
+  var yMax2=0.7, cvRef=0.5;
+  function ys2(v){ return M2.top + plotH2 - (v/yMax2)*plotH2; }
+  [0,0.2,0.4,0.6].forEach(function(v){
+    svg2.appendChild(el("line",{x1:M2.left,x2:M2.left+plotW2,y1:ys2(v),y2:ys2(v),class:"gridline"}));
+    var t = el("text",{x:M2.left-8,y:ys2(v)+3,class:"tick-label","text-anchor":"end"});
+    t.textContent = v.toFixed(1);
+    svg2.appendChild(t);
+  });
+  svg2.appendChild(el("line",{x1:M2.left,x2:M2.left+plotW2,y1:M2.top+plotH2,y2:M2.top+plotH2,class:"axis-line"}));
+
+  var bw = plotW2/phases.length;
+  phases.forEach(function(d,i){
+    var barW = bw*0.42;
+    var x0 = M2.left + i*bw + bw/2 - barW/2;
+    var y0 = ys2(d.median);
+    svg2.appendChild(el("rect",{x:x0,y:y0,width:barW,height:(M2.top+plotH2-y0),rx:4,class: d.median>=cvRef?"bar-over":"bar"}));
+    var lbl = el("text",{x:x0+barW/2,y:y0-8,class:"bar-label","text-anchor":"middle"});
+    lbl.textContent = d.median.toFixed(3);
+    svg2.appendChild(lbl);
+    var lbl2 = el("text",{x:x0+barW/2,y:y0-22,class:"bar-cat","text-anchor":"middle"});
+    lbl2.textContent = Math.round(d.floor*100)+"% 바닥";
+    svg2.appendChild(lbl2);
+    var cat = el("text",{x:M2.left+i*bw+bw/2,y:H2-M2.bottom+18,class:"bar-cat","text-anchor":"middle"});
+    cat.textContent = d.name;
+    svg2.appendChild(cat);
+  });
+  var refY = ys2(cvRef);
+  svg2.appendChild(el("line",{x1:M2.left,x2:M2.left+plotW2,y1:refY,y2:refY,class:"ref-line"}));
+  var refLbl = el("text",{x:M2.left+plotW2-4,y:refY-6,class:"ref-label","text-anchor":"end"});
+  refLbl.textContent = "cv_ref = 0.5 (이 이상이면 convergence=0)";
+  svg2.appendChild(refLbl);
+
+  var yl2 = el("text",{x:14,y:M2.top+plotH2/2,class:"axis-label","text-anchor":"middle",transform:"rotate(-90 14 "+(M2.top+plotH2/2)+")"});
+  yl2.textContent = "median CV (실행 간 중앙값)";
+  svg2.appendChild(yl2);
+})();
+</script>

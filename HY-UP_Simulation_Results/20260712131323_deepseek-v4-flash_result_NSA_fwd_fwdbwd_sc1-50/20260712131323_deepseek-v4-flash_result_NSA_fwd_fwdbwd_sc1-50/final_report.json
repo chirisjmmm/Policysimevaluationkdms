@@ -1,0 +1,212 @@
+{
+  "simulation_target": "reduction in prevalence of out-of-network bills for emergency services in 2022 (%), reduction in prevalence of out-of-network bills for non-emergency services at in-network facilities in 2022 (%)",
+  "aggregated_final": {
+    "systemic_oon_billing_prevalence": 7.652172762172771,
+    "network_adequacy_index": 65.90133412476833,
+    "average_health_plan_premium_impact_pct": 1.5107510802613564
+  },
+  "implementation_gap_report": [
+    {
+      "phase": "Inputs",
+      "variable": "enforcement_budget_usd",
+      "forward_agg": 94296000.0,
+      "backward_agg": 208220000.0,
+      "gap": 113924000.0,
+      "relative_gap": 0.494411361461936,
+      "consistency": 0.5055886385380641,
+      "aggregated_value": 94296000.0
+    },
+    {
+      "phase": "Inputs",
+      "variable": "certified_idr_entity_count",
+      "forward_agg": 37.832000000000015,
+      "backward_agg": 139.924,
+      "gap": 102.09200000000001,
+      "relative_gap": 0.6794003776765778,
+      "consistency": 0.32059962232342215,
+      "aggregated_value": 37.832000000000015
+    },
+    {
+      "phase": "Inputs",
+      "variable": "qpa_calculation_system_readiness",
+      "forward_agg": 64.7852,
+      "backward_agg": 90.788,
+      "gap": 26.002799999999997,
+      "relative_gap": 0.285756823835807,
+      "consistency": 0.7142431761641932,
+      "aggregated_value": 64.7852
+    },
+    {
+      "phase": "Activities",
+      "variable": "qpa_calculations_performed",
+      "forward_agg": 16078000.0,
+      "backward_agg": 18977380.0,
+      "gap": 2899380.0,
+      "relative_gap": 0.27176775014107774,
+      "consistency": 0.7282322498589224,
+      "aggregated_value": 16078000.0
+    },
+    {
+      "phase": "Activities",
+      "variable": "disclosure_notices_sent",
+      "forward_agg": 59928400.0,
+      "backward_agg": 27323100.0,
+      "gap": -32605300.0,
+      "relative_gap": 0.5669000604200832,
+      "consistency": 0.43309993957991677,
+      "aggregated_value": 59928400.0
+    },
+    {
+      "phase": "Activities",
+      "variable": "initial_payments_made",
+      "forward_agg": 13095200.0,
+      "backward_agg": 18877160.0,
+      "gap": 5781960.0,
+      "relative_gap": 0.31960260430618687,
+      "consistency": 0.6803973956938131,
+      "aggregated_value": 13095200.0
+    },
+    {
+      "phase": "Activities",
+      "variable": "idr_cases_initiated",
+      "forward_agg": 104334.8,
+      "backward_agg": 167720.0,
+      "gap": 63385.2,
+      "relative_gap": 0.42416646087751453,
+      "consistency": 0.5758335391224854,
+      "aggregated_value": 104334.8
+    },
+    {
+      "phase": "Outputs",
+      "variable": "protected_claims_processed",
+      "forward_agg": 12974600.0,
+      "backward_agg": 19813720.0,
+      "gap": 6839120.0,
+      "relative_gap": 0.34158471999254514,
+      "consistency": 0.658415280007455,
+      "aggregated_value": 12974600.0
+    },
+    {
+      "phase": "Outputs",
+      "variable": "balance_billing_attempts_blocked",
+      "forward_agg": 1492640.0,
+      "backward_agg": 7638440.0,
+      "gap": 6145800.0,
+      "relative_gap": 0.757748419918788,
+      "consistency": 0.2422515800812118,
+      "aggregated_value": 1492640.0
+    },
+    {
+      "phase": "Outputs",
+      "variable": "idr_determinations_completed",
+      "forward_agg": 58453.2,
+      "backward_agg": 121110.0,
+      "gap": 62656.8,
+      "relative_gap": 0.4933779266191988,
+      "consistency": 0.5066220733808013,
+      "aggregated_value": 58453.2
+    },
+    {
+      "phase": "Outputs",
+      "variable": "compliant_notice_provision_rate",
+      "forward_agg": 54.229000000000006,
+      "backward_agg": 81.06,
+      "gap": 26.831,
+      "relative_gap": 0.32657991087775917,
+      "consistency": 0.6734200891222406,
+      "aggregated_value": 54.229000000000006
+    },
+    {
+      "phase": "Outcomes",
+      "variable": "reduction_in_prevalence_of_out_of_network_bills_for_non_emergency_services_at_in_network_facilities_in_2022",
+      "forward_agg": 18.5996,
+      "backward_agg": 13.812760000000004,
+      "gap": -4.7868400000000015,
+      "relative_gap": 0.44897871268870687,
+      "consistency": 0.5510212873112932,
+      "aggregated_value": 18.5996
+    },
+    {
+      "phase": "Outcomes",
+      "variable": "reduction_in_prevalence_of_out_of_network_bills_for_emergency_services_in_2022",
+      "forward_agg": 24.484800000000003,
+      "backward_agg": 21.8472,
+      "gap": -2.6376000000000004,
+      "relative_gap": 0.40601868065686497,
+      "consistency": 0.593981319343135,
+      "aggregated_value": 24.484800000000003
+    },
+    {
+      "phase": "Outcomes",
+      "variable": "reduction_emergency_oon_bills_pct",
+      "forward_agg": 15.2728,
+      "backward_agg": 14.931600000000001,
+      "gap": -0.34120000000000034,
+      "relative_gap": 0.3114502552745199,
+      "consistency": 0.6885497447254799,
+      "aggregated_value": 15.2728
+    },
+    {
+      "phase": "Outcomes",
+      "variable": "reduction_nonemergency_oon_bills_pct",
+      "forward_agg": 10.700999999999997,
+      "backward_agg": 8.70096,
+      "gap": -2.0000400000000003,
+      "relative_gap": 0.3812142154959793,
+      "consistency": 0.618785784504021,
+      "aggregated_value": 10.700999999999997
+    },
+    {
+      "phase": "Outcomes",
+      "variable": "patient_outofpocket_savings_per_claim_usd",
+      "forward_agg": 486.56,
+      "backward_agg": 542.04,
+      "gap": 55.48,
+      "relative_gap": 0.17949962225856397,
+      "consistency": 0.8205003777414361,
+      "aggregated_value": 486.56
+    },
+    {
+      "phase": "Outcomes",
+      "variable": "consumer_protection_awareness_pct",
+      "forward_agg": 35.52,
+      "backward_agg": 64.30600000000001,
+      "gap": 28.78600000000001,
+      "relative_gap": 0.4432266188583453,
+      "consistency": 0.5567733811416549,
+      "aggregated_value": 35.52
+    },
+    {
+      "phase": "Impact",
+      "variable": "systemic_oon_billing_prevalence",
+      "forward_agg": 7.690399999999999,
+      "backward_agg": 7.317199999999997,
+      "gap": -0.3732,
+      "relative_gap": 0.044826691387820444,
+      "consistency": 0.9551733086121794,
+      "aggregated_value": 7.690399999999999
+    },
+    {
+      "phase": "Impact",
+      "variable": "network_adequacy_index",
+      "forward_agg": 65.84084000000001,
+      "backward_agg": 67.253176,
+      "gap": 1.4123360000000007,
+      "relative_gap": 0.02153804016104756,
+      "consistency": 0.9784619598389525,
+      "aggregated_value": 65.84084000000001
+    },
+    {
+      "phase": "Impact",
+      "variable": "average_health_plan_premium_impact_pct",
+      "forward_agg": 1.5046000000000002,
+      "backward_agg": 1.55976,
+      "gap": 0.05516,
+      "relative_gap": 0.042933170265819165,
+      "consistency": 0.9570668297341811,
+      "aggregated_value": 1.5046000000000002
+    }
+  ],
+  "narrative_synthesis": "",
+  "phase_stakeholder_summaries": {}
+}

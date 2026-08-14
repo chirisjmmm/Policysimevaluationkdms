@@ -27,6 +27,17 @@ cells:
     model: deepseek
     runs_dir: data/policies/bk21/runs/deepseek
     n: 50
+  - id: nsa_single_deepseek
+    # NEW (2026-08-12): single-pathway NSA run, added alongside the existing
+    # nsa_deepseek BRANCH cell below -- different inner_schema, different
+    # policy config (nsa_single, see configs/policy_nsa_single.yaml header
+    # for why this can't share `nsa`'s config). Evaluated the same way as
+    # 100e_deepseek/bk21_deepseek (single-pathway, cells not branch_cells).
+    policy: nsa_single
+    policy_type: regulatory
+    model: deepseek-v4-flash
+    runs_dir: data/policies/nsa/runs/deepseek_v4flash
+    n: 50
 
 branch_cells:
   - id: nsa_deepseek

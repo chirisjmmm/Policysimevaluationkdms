@@ -1,0 +1,175 @@
+policy_id: nsa_single
+policy_type: regulatory
+doc_path: data/policies/nsa/doc.md            # same source document as `nsa` (nsa_core_L56-1771.md) -- reused, not copied
+graph_path: data/policies/nsa/graph.json       # does not exist -- no KG shipped for NSA; cli.py handles this (kg_index=None)
+run_source: single
+
+phases: [Inputs, Activities, Outputs, Outcomes, Impact]
+eval_terminal_phase: Outcomes
+post_target_phases: [Impact]
+
+# -----------------------------------------------------------------------
+# WHY THIS IS A SEPARATE POLICY CONFIG FROM `nsa` (not just a new cell
+# reusing configs/policy_nsa.yaml):
+#
+# This dataset (HY-UP_Simulation_Results/20260712131323_deepseek-v4-flash_
+# result_NSA_fwd_fwdbwd_sc1-50) is a genuinely different single-pathway run,
+# generated from a DIFFERENT inner_schema.json than the one that produced
+# the existing nsa_deepseek branch-tree cell (compare this dataset's
+# inner_schema.json against data/policies/nsa/inner_schema.json -- almost
+# no prediction_field names match: e.g. `federal_enforcement_budget_usd` vs
+# `enforcement_budget_usd`, `qpa_ready_plan_pct` vs
+# `qpa_calculation_system_readiness`, `emergency_oon_bill_prevalence_
+# reduction_pp` vs `reduction_emergency_oon_bills_pct`). Reusing
+# `policy_nsa.yaml`'s variable_anchors/targets/value_ranges as-is against
+# this data would silently zero out X1/X4/DX1 (target var names never
+# match run.target_values) and leave every schema variable unclassified.
+# Also each scenario here carries a REAL, non-null `backward_pass` (see
+# run_log.json: run_forward=true, run_backward=true) -- the original single
+# cells (100e/bk21) and this dataset's naming (`fwd_fwdbwd`) both reflect a
+# forward+backward simulation design, not the forward-only design the v4
+# guideline's single-pathway loader was validated against. The loader
+# (src/io/loaders.py) only ever reads `forward_pass` + `cross_checks` and
+# treats a non-null `backward_pass` as a logged (non-fatal) violation, so
+# metrics here are computed on the FORWARD pass only, same basis as
+# 100e_deepseek/bk21_deepseek -- backward-pass reasoning is not scored.
+#
+# X1/X4/DX1 target variable choice (Outcomes phase has SIX candidate
+# fields, two pairs of near-duplicates for the same concept):
+#   - reduction_in_prevalence_of_out_of_network_bills_for_emergency_
+#     services_in_2022  / ..._for_non_emergency_services_at_in_network_
+#     facilities_in_2022  (long-form, schema description just says "(%)",
+#     ambiguous relative-% vs percentage-point framing)
+#   - reduction_emergency_oon_bills_pct / reduction_nonemergency_oon_
+#     bills_pct  (short-form, schema description explicitly says
+#     "Percentage point reduction")
+# Direct inspection of scenario_1.json shows these disagree per-agent when
+# the narrative reasons in relative-% terms (e.g. agent "Rupert": long-form
+# emergency=83.0 vs short-form=15.0, where the narrative literally says "a
+# large percentage point drop of 15 points ... yielding an 83% relative
+# reduction" -- so the long-form field sometimes captured the relative-%
+# restatement, not the percentage-point figure). The GT (15pp emergency /
+# 11pp non-emergency, ASPE Report Three) is a percentage-point figure, so
+# the short-form, explicitly-pp-labeled fields are used as the primary X1/
+# X4/DX1 targets; the long-form fields are kept as concept_duplicates (X1
+# supplementary row only, same GT) rather than dropped, so the unit
+# ambiguity itself stays visible in the report instead of being hidden.
+# -----------------------------------------------------------------------
+targets:
+  - name: reduction_emergency_oon_bills_pct
+    phase: Outcomes
+    true_value: 15
+    source: "User-confirmed GT (matches ASPE Report Three, HHS: 'prevalence of out-of-network bills declined 15 percent for emergency services ... relative to 2021'), same GT used for the nsa branch cell. https://aspe.hhs.gov/reports/no-surprises-act-report-three"
+  - name: reduction_nonemergency_oon_bills_pct
+    phase: Outcomes
+    true_value: 11
+    source: "User-confirmed GT (matches ASPE Report Three, HHS: '11 percent for non-emergency services furnished at in-network facilities relative to 2021'), same GT used for the nsa branch cell. https://aspe.hhs.gov/reports/no-surprises-act-report-three"
+
+concept_duplicates:
+  - group: emergency_oon_reduction
+    members: ["Outcomes.reduction_in_prevalence_of_out_of_network_bills_for_emergency_services_in_2022",
+              "Outcomes.reduction_emergency_oon_bills_pct"]
+    ground_truth_from: "Outcomes.reduction_emergency_oon_bills_pct"
+  - group: nonemergency_oon_reduction
+    members: ["Outcomes.reduction_in_prevalence_of_out_of_network_bills_for_non_emergency_services_at_in_network_facilities_in_2022",
+              "Outcomes.reduction_nonemergency_oon_bills_pct"]
+    ground_truth_from: "Outcomes.reduction_nonemergency_oon_bills_pct"
+
+# All schema variables are `predicted` -- as with `nsa`, this is a
+# regulatory rule-text document with no funding/headcount figures that
+# would anchor an Inputs/Activities/Outputs number to a fixed constant.
+variable_anchors:
+  Inputs.enforcement_budget_usd: {type: predicted}
+  Inputs.certified_idr_entity_count: {type: predicted}
+  Inputs.qpa_calculation_system_readiness: {type: predicted}
+  Activities.qpa_calculations_performed: {type: predicted}
+  Activities.disclosure_notices_sent: {type: predicted}
+  Activities.initial_payments_made: {type: predicted}
+  Activities.idr_cases_initiated: {type: predicted}
+  Outputs.protected_claims_processed: {type: predicted}
+  Outputs.balance_billing_attempts_blocked: {type: predicted}
+  Outputs.idr_determinations_completed: {type: predicted}
+  Outputs.compliant_notice_provision_rate: {type: predicted}
+  Outcomes.reduction_in_prevalence_of_out_of_network_bills_for_non_emergency_services_at_in_network_facilities_in_2022: {type: predicted}
+  Outcomes.reduction_in_prevalence_of_out_of_network_bills_for_emergency_services_in_2022: {type: predicted}
+  Outcomes.reduction_emergency_oon_bills_pct: {type: predicted}
+  Outcomes.reduction_nonemergency_oon_bills_pct: {type: predicted}
+  Outcomes.patient_outofpocket_savings_per_claim_usd: {type: predicted}
+  Outcomes.consumer_protection_awareness_pct: {type: predicted}
+  Impact.systemic_oon_billing_prevalence: {type: predicted}
+  Impact.network_adequacy_index: {type: predicted}
+  Impact.average_health_plan_premium_impact_pct: {type: predicted}
+
+# Fact table reused verbatim from configs/policy_nsa.yaml -- these are
+# statutory procedural deadlines drawn from the regulation text itself
+# (nsa_core_L56-1771.md), independent of which inner_schema generated the
+# simulation, so they apply identically here. (A1, which would use this
+# table, is excluded from the report per the same user decision documented
+# in outputs/report.md -- kept for completeness / raw evaluation.json only.)
+fact_table:
+  - id: initial_payment_or_denial_deadline_days
+    value: 30
+    kind: days
+    bound: exact
+    aliases: ["30 calendar days", "30-day", "initial payment or notice of denial",
+              "notice of denial of payment", "30 days after"]
+    evidence: "require plans and issuers to send an initial payment or notice of denial of payment not later than 30 calendar days after a nonparticipating provider or facility submits a bill"
+    page: 29
+  - id: open_negotiation_period_days
+    value: 30
+    kind: days
+    bound: exact
+    aliases: ["30-day open negotiation period", "open negotiation period", "30 days to negotiate"]
+    evidence: "initiate a 30-day open negotiation period for purposes of determining the amount of total payment"
+    page: 24
+  - id: idr_initiation_window_days
+    value: 4
+    kind: days
+    bound: exact
+    aliases: ["initiate the IDR process within 4 days", "4 days after the end of the open negotiation period",
+              "4-day window"]
+    evidence: "the provider or facility may initiate the IDR process within 4 days after the end of the open negotiation period"
+    page: 24
+  - id: hhs_complaint_response_deadline_days
+    value: 60
+    kind: days
+    bound: at_most
+    aliases: ["60 business days", "60 days of receipt", "respond to complaints within 60 days",
+              "no later than 60 business days"]
+    evidence: "HHS to respond to complaints regarding violations of balance billing protections ... within 60 days of receipt"
+    page: 30
+  - id: abd_appeal_window_days
+    value: 180
+    kind: days
+    bound: at_most
+    aliases: ["180 days following receipt", "appealed within 180 days", "adverse benefit determination",
+              "180-day appeal window"]
+    evidence: "Claims that result in an adverse benefit determination (ABD) may be appealed within 180 days following receipt of the notice of the ABD"
+    page: 30
+  - id: erisa_extension_days
+    value: 15
+    kind: days
+    bound: at_most
+    aliases: ["extend this period once for up to 15 days", "15-day extension", "additional 15 days"]
+    evidence: "A plan can generally extend this period once for up to 15 days for matters beyond the control of the plan"
+    page: 30
+
+# No clean numeric-containment relationship identified across this
+# schema's phase variables either (mirrors `nsa`'s original finding) --
+# left empty rather than guessing one (e.g. idr_determinations_completed
+# vs idr_cases_initiated look plausible but aren't guaranteed same-year
+# cohorts in a single-shot simulated scenario, so not asserted as a gate).
+chain_constraints: []
+
+value_ranges:
+  Inputs.qpa_calculation_system_readiness: {min: 0, max: 100}
+  Outputs.compliant_notice_provision_rate: {min: 0, max: 100}
+  Outcomes.consumer_protection_awareness_pct: {min: 0, max: 100}
+  Impact.systemic_oon_billing_prevalence: {min: 0, max: 100}
+  # reduction_*_pct / reduction_in_prevalence_of_... (both forms) are signed
+  # reduction magnitudes, not bounded percentages (could exceed 100 or be
+  # negative if prevalence increased) -- no safe [0,100] bound, same
+  # reasoning as `nsa`'s original config.
+  # network_adequacy_index is an unscaled "score", not a %, so left
+  # unchecked. average_health_plan_premium_impact_pct is a signed delta,
+  # same reasoning as `nsa`'s premium_change_attributable_to_nsa_pct.

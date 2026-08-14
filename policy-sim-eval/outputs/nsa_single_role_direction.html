@@ -1,0 +1,246 @@
+<title>nsa_single_deepseek 역할별 예측 방향</title>
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-1: #fcfcfb;
+    --page: #f9f9f7;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #898781;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+    --border: rgba(11,11,11,0.10);
+    --series-1: #2a78d6;   /* PolicyRole (provider) */
+    --series-2: #eb6834;   /* RegulatoryAgency (regulator) */
+    --status-good: #0ca30c;
+    --status-critical: #d03b3b;
+    --status-warning: #fab219;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1: #1a1a19; --page: #0d0d0d;
+      --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #898781;
+      --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+      --series-1: #3987e5; --series-2: #d95926;
+      --status-good: #0ca30c; --status-critical: #e66767; --status-warning: #fab219;
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1: #1a1a19; --page: #0d0d0d;
+    --text-primary: #ffffff; --text-secondary: #c3c2b7; --text-muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --series-1: #3987e5; --series-2: #d95926;
+    --status-good: #0ca30c; --status-critical: #e66767; --status-warning: #fab219;
+  }
+
+  .viz-root { background: var(--page); color: var(--text-primary); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; padding: 28px 20px 48px; max-width: 1000px; margin: 0 auto; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  .subtitle { color: var(--text-secondary); font-size: 13px; margin: 0 0 8px; line-height:1.6; }
+  .callout { background: var(--surface-1); border: 1px solid var(--border); border-left: 3px solid var(--status-warning); border-radius: 8px; padding: 12px 16px; font-size: 12.5px; color: var(--text-secondary); line-height:1.6; margin-bottom: 24px; }
+  .callout b { color: var(--text-primary); }
+  .card { background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+  .card h2 { font-size: 14px; margin: 0 0 2px; }
+  .card .note { color: var(--text-secondary); font-size: 12px; margin: 0 0 14px; line-height: 1.5; }
+  svg { display:block; overflow: visible; }
+  .legend { display:flex; gap:18px; font-size:12px; color:var(--text-secondary); margin-bottom:10px; }
+  .legend .sw { display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:6px; vertical-align:-1px; }
+  .axis-label { fill: var(--text-muted); font-size: 10px; }
+  .tick-label { fill: var(--text-muted); font-size: 10px; font-variant-numeric: tabular-nums; }
+  .gridline { stroke: var(--grid); stroke-width: 1; }
+  .axis-line { stroke: var(--axis); stroke-width: 1; }
+  .bar-label { fill: var(--text-primary); font-size: 11px; font-weight:600; font-variant-numeric: tabular-nums; }
+  .cat-label { fill: var(--text-secondary); font-size: 11px; }
+  .gt-line { stroke: var(--status-good); stroke-width: 1.5; stroke-dasharray: 4 3; }
+  .gt-label { fill: var(--status-good); font-size: 10px; font-weight:600; }
+  .ns-label { fill: var(--text-muted); font-size: 10.5px; font-style: italic; }
+  .sig-label { fill: var(--status-critical); font-size: 10.5px; font-weight: 600; }
+  .whisker { stroke: var(--text-secondary); stroke-width: 1.3; }
+  table { border-collapse: collapse; width: 100%; font-size: 12px; margin-top: 4px; }
+  th, td { text-align:left; padding: 6px 10px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+  th { color: var(--text-muted); font-weight:500; font-size: 11px; }
+  td.num, th.num { text-align:right; }
+  td.sig { color: var(--status-critical); font-weight:600; }
+  .quote { border-left: 3px solid var(--axis); padding: 6px 0 6px 14px; font-size: 12px; color: var(--text-secondary); margin: 10px 0; line-height:1.6; }
+  .quote .who { color: var(--text-primary); font-weight:600; }
+  .conclusion { border-left: 3px solid var(--status-good); padding: 4px 0 4px 14px; font-size: 13px; line-height: 1.7; }
+  .conclusion b { color: var(--status-good); }
+</style>
+
+<div class="viz-root">
+  <h1>nsa_single_deepseek — 역할(stakeholder_type)별 예측 방향</h1>
+  <p class="subtitle">D1 (역할 설명 분산, ICC_role) = 0.192 · seed 20260810</p>
+
+  <div class="callout">
+    <b>중요:</b> 이 데이터셋의 <code>stakeholder_type</code>은 실제로 <b>PolicyRole</b>(임상 실무자: registered_nurse/physician/LPN·LVN, n=135)와 <b>RegulatoryAgency</b>(규제·행정·법무: management_analyst/compliance_officer/lawyer, n=115) 두 개뿐입니다. payer(지불자)·patient(환자)·mediator(중재자) 타입은 이 데이터에 존재하지 않습니다 — participants 250명 전수 확인 결과입니다. 요청하신 "payer 계열 vs provider 계열" 비교는 이 데이터가 지원하는 가장 가까운 실제 축인 <b>Provider(임상) vs Regulator(규제)</b>로 대체해 진행했습니다. D1의 ICC_role도 정확히 이 두 카테고리(stakeholder_type)를 role factor로 사용합니다.
+  </div>
+
+  <div class="card">
+    <h2>1‑2. X1 타깃 변수: 역할별 평균 (막대그래프)</h2>
+    <p class="note">GT(초록 점선) 대비 두 역할 그룹의 평균은 사실상 같은 위치에 있습니다. 오차 막대는 ±1 표준편차.</p>
+    <div class="legend">
+      <span><span class="sw" style="background:var(--series-1)"></span>PolicyRole (provider, n=135)</span>
+      <span><span class="sw" style="background:var(--series-2)"></span>RegulatoryAgency (regulator, n=115)</span>
+    </div>
+    <svg id="targetBars" width="960" height="320" viewBox="0 0 960 320"></svg>
+  </div>
+
+  <div class="card">
+    <h2>3. Provider vs Regulator 유의성 검정 — X1 타깃 변수</h2>
+    <table>
+      <tr><th>변수</th><th class="num">GT</th><th class="num">PolicyRole 평균(sd)</th><th class="num">RegulatoryAgency 평균(sd)</th><th class="num">Welch t p</th><th class="num">Mann–Whitney p</th><th>방향</th></tr>
+      <tr>
+        <td>reduction_emergency_oon_bills_pct</td><td class="num">15</td>
+        <td class="num">15.15 (17.78)</td><td class="num">15.41 (15.42)</td>
+        <td class="num">0.9027</td><td class="num sig">0.0063</td>
+        <td>regulator 근소 우위, 차이 −0.26pp (거의 무의미)</td>
+      </tr>
+      <tr>
+        <td>reduction_nonemergency_oon_bills_pct</td><td class="num">11</td>
+        <td class="num">10.80 (14.71)</td><td class="num">10.58 (14.06)</td>
+        <td class="num">0.9037</td><td class="num">0.1978</td>
+        <td>둘 다 유의하지 않음, 차이 +0.22pp</td>
+      </tr>
+    </table>
+    <p class="note" style="margin-top:12px;">두 검정 결과가 서로 다른 신호를 줍니다(응급 변수에서 Mann-Whitney만 유의) — 이는 평균이 아니라 분포 형태(꼬리·비대칭)의 차이 때문으로 보이며, 평균 이동(방향성 있는 편향)으로 해석할 근거는 아닙니다. 아래 role-explained variance가 이를 뒷받침합니다.</p>
+  </div>
+
+  <div class="card">
+    <h2>4. 그런데 다른 변수들에서는 역할 차이가 뚜렷합니다</h2>
+    <p class="note">퍼센트 스케일 변수 4개 — 모두 p&lt;0.01. RegulatoryAgency(규제/행정)가 시스템 성숙도·이행률을 일관되게 더 낙관적으로 예측합니다.</p>
+    <div class="legend">
+      <span><span class="sw" style="background:var(--series-1)"></span>PolicyRole (provider)</span>
+      <span><span class="sw" style="background:var(--series-2)"></span>RegulatoryAgency (regulator)</span>
+    </div>
+    <svg id="midBars" width="960" height="320" viewBox="0 0 960 320"></svg>
+    <table style="margin-top:16px;">
+      <tr><th>변수 (건수 단위, 스케일 상이)</th><th class="num">PolicyRole 평균</th><th class="num">RegulatoryAgency 평균</th><th class="num">Welch t p</th></tr>
+      <tr><td>Inputs.certified_idr_entity_count</td><td class="num">45.4</td><td class="num">29.0</td><td class="num sig">0.0026</td></tr>
+      <tr><td>Outputs.protected_claims_processed</td><td class="num">11.76M</td><td class="num">14.40M</td><td class="num sig">0.0083</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>서사(narrative) 인용 — 같은 시나리오, 다른 근거</h2>
+    <div class="quote"><span class="who">Cynthia (PolicyRole · registered_nurse)</span> — "...the 40% QPA readiness I identified earlier means many plans still mishandle cost-sharing, so <b>some patients still get surprise bills</b>. For non-emergency services at in-network facilities, the notice-and-consent loophole and <b>poor provider compliance</b> (only ~55% compliant notices) leave many patients..."</div>
+    <div class="quote"><span class="who">Shenithia (PolicyRole · physician)</span> — "...while QPA calculations and initial payments are happening for most claims, the <b>limited IDR capacity (5 entities)</b> and <b>moderate enforcement budget ($80M)</b> create gaps..."</div>
+    <div class="quote"><span class="who">Wesley (RegulatoryAgency · management_analyst)</span> — "...with an <b>enforcement budget of $100M</b> and 75% QPA system readiness, we processed 20M QPA calculations and initially paid 18M claims, but only 17M (85%) had correct cost-sharing. That 15% error rate...leaves residual out-of-network billing."</div>
+    <div class="quote"><span class="who">Rupert (RegulatoryAgency · management_analyst)</span> — "...a moderate enforcement foundation ($50M budget, 8 IDR entities, 75% QPA readiness) and produced <b>12.5M correctly processed protected claims with 300K balance billing attempts blocked</b>..."</div>
+  </div>
+
+  <div class="card">
+    <h2>결론</h2>
+    <p class="conclusion">
+      D1의 전체 ICC_role=0.192는 <b>최종 X1 타깃 변수에서 나오는 신호가 아닙니다</b> — reduction_emergency/nonemergency_oon_bills_pct 두 변수 모두 role-explained variance(ICC_role)가 <b>0.000</b>으로, provider(PolicyRole)와 regulator(RegulatoryAgency)의 평균이 사실상 같고(15.15 vs 15.41, 10.80 vs 10.58), 방향성 있는 편향의 증거도 없습니다(검정 결과 불일치, 효과 없음). <br><br>
+      역할 신호는 대신 <b>인과사슬 중간 변수들</b>에 몰려 있습니다: RegulatoryAgency는 QPA 시스템 준비도(67.7 vs 62.3, p&lt;.0001), 정확 처리 청구건(14.4M vs 11.8M, p=.008), 통지 준수율(58.3 vs 51.0, p=.002)을 provider보다 일관되게 더 높게, 장기 미결제 청구 잔존율(6.25% vs 8.92%, p&lt;.0001)은 더 낮게 — 즉 <b>전반적으로 더 낙관적으로</b> 예측합니다. 서사를 보면 provider(간호사·의사)는 "환자가 여전히 서프라이즈 빌을 받는다", "IDR 처리 용량이 부족하다"처럼 <b>환자 피해·행정 병목</b> 중심으로, regulator(분석관·법무·컴플라이언스)는 "예산·처리 건수·차단 건수"처럼 <b>집행 실적</b> 중심으로 근거를 든다는 질적 차이가 확인됩니다. 다만 이 낙관/비관 격차는 정책의 최종 성과 숫자(%p 감소)에는 흡수되지 않고 중간 단계에서만 나타납니다 — 역할이 "과정을 보는 시각"은 가르지만 "최종 결과 추정치"는 가르지 않는다는 것이 이 데이터의 구체적 패턴입니다.
+    </p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var ns = "http://www.w3.org/2000/svg";
+  function el(tag, attrs){ var e=document.createElementNS(ns,tag); for(var k in attrs) e.setAttribute(k, attrs[k]); return e; }
+
+  // Panel A: X1 target vars grouped bars with GT lines + error whiskers
+  (function(){
+    var svg = document.getElementById("targetBars");
+    var data = [
+      {name:"reduction_emergency_oon_bills_pct", gt:15,
+        policy:{mean:15.15, sd:17.78}, reg:{mean:15.41, sd:15.42}, sig:"MW p=0.006"},
+      {name:"reduction_nonemergency_oon_bills_pct", gt:11,
+        policy:{mean:10.80, sd:14.71}, reg:{mean:10.58, sd:14.06}, sig:"n.s."}
+    ];
+    var W=960,H=320,M={top:20,right:24,bottom:56,left:48};
+    var plotW=W-M.left-M.right, plotH=H-M.top-M.bottom;
+    var yMax=34;
+    function ys(v){ return M.top+plotH-(v/yMax)*plotH; }
+    [0,10,20,30].forEach(function(v){
+      svg.appendChild(el("line",{x1:M.left,x2:M.left+plotW,y1:ys(v),y2:ys(v),class:"gridline"}));
+      var t=el("text",{x:M.left-8,y:ys(v)+3,class:"tick-label","text-anchor":"end"}); t.textContent=v; svg.appendChild(t);
+    });
+    svg.appendChild(el("line",{x1:M.left,x2:M.left+plotW,y1:M.top+plotH,y2:M.top+plotH,class:"axis-line"}));
+    var groupW = plotW/data.length;
+    var barW = 60;
+    data.forEach(function(d,i){
+      var gx = M.left + i*groupW + groupW/2;
+      var x1 = gx - barW - 8, x2 = gx + 8;
+      [{x:x1,d:d.policy,cls:"series-1",color:"var(--series-1)"},{x:x2,d:d.reg,cls:"series-2",color:"var(--series-2)"}].forEach(function(b){
+        var y0 = ys(b.d.mean);
+        var rect = el("rect",{x:b.x,y:y0,width:barW,height:(M.top+plotH-y0),rx:4,fill:b.color});
+        svg.appendChild(rect);
+        var whY1 = ys(b.d.mean + b.d.sd), whY2 = ys(Math.max(0,b.d.mean - b.d.sd));
+        var cx = b.x+barW/2;
+        svg.appendChild(el("line",{x1:cx,x2:cx,y1:whY1,y2:whY2,class:"whisker"}));
+        svg.appendChild(el("line",{x1:cx-6,x2:cx+6,y1:whY1,y2:whY1,class:"whisker"}));
+        svg.appendChild(el("line",{x1:cx-6,x2:cx+6,y1:whY2,y2:whY2,class:"whisker"}));
+        var lbl = el("text",{x:cx,y:y0-10,class:"bar-label","text-anchor":"middle"});
+        lbl.textContent = b.d.mean.toFixed(1);
+        svg.appendChild(lbl);
+      });
+      // GT reference line spanning this group's cluster
+      var gtY = ys(d.gt);
+      svg.appendChild(el("line",{x1:x1-4,x2:x2+barW+4,y1:gtY,y2:gtY,class:"gt-line"}));
+      var gtLbl = el("text",{x:x2+barW+8,y:gtY+3,class:"gt-label"});
+      gtLbl.textContent = "GT="+d.gt;
+      svg.appendChild(gtLbl);
+      var cat = el("text",{x:gx,y:H-M.bottom+18,class:"cat-label","text-anchor":"middle"});
+      cat.textContent = d.name.length>34? d.name.slice(0,34)+"…" : d.name;
+      svg.appendChild(cat);
+      var sig = el("text",{x:gx,y:H-M.bottom+34,class: d.sig==="n.s."?"ns-label":"sig-label","text-anchor":"middle"});
+      sig.textContent = d.sig;
+      svg.appendChild(sig);
+    });
+    var yl = el("text",{x:14,y:M.top+plotH/2,class:"axis-label","text-anchor":"middle",transform:"rotate(-90 14 "+(M.top+plotH/2)+")"});
+    yl.textContent = "예측된 감소폭 (%p)";
+    svg.appendChild(yl);
+  })();
+
+  // Panel B: mid-chain percent-scale vars grouped bars
+  (function(){
+    var svg = document.getElementById("midBars");
+    var data = [
+      {name:"Inputs.qpa_calculation_system_readiness (%)", policy:62.27, reg:67.74, p:"p<.0001"},
+      {name:"Outputs.compliant_notice_provision_rate (%)", policy:50.96, reg:58.26, p:"p=.0015"},
+      {name:"Impact.systemic_oon_billing_prevalence (%)", policy:8.92, reg:6.25, p:"p<.0001"},
+      {name:"Impact.average_health_plan_premium_impact_pct (%)", policy:1.66, reg:1.32, p:"p=.0004"}
+    ];
+    var W=960,H=320,M={top:20,right:24,bottom:60,left:48};
+    var plotW=W-M.left-M.right, plotH=H-M.top-M.bottom;
+    var yMax=75;
+    function ys(v){ return M.top+plotH-(v/yMax)*plotH; }
+    [0,25,50,75].forEach(function(v){
+      svg.appendChild(el("line",{x1:M.left,x2:M.left+plotW,y1:ys(v),y2:ys(v),class:"gridline"}));
+      var t=el("text",{x:M.left-8,y:ys(v)+3,class:"tick-label","text-anchor":"end"}); t.textContent=v; svg.appendChild(t);
+    });
+    svg.appendChild(el("line",{x1:M.left,x2:M.left+plotW,y1:M.top+plotH,y2:M.top+plotH,class:"axis-line"}));
+    var groupW = plotW/data.length;
+    var barW = 40;
+    data.forEach(function(d,i){
+      var gx = M.left + i*groupW + groupW/2;
+      var x1 = gx - barW - 6, x2 = gx + 6;
+      [{x:x1,v:d.policy,color:"var(--series-1)"},{x:x2,v:d.reg,color:"var(--series-2)"}].forEach(function(b){
+        var y0=ys(b.v);
+        svg.appendChild(el("rect",{x:b.x,y:y0,width:barW,height:(M.top+plotH-y0),rx:4,fill:b.color}));
+        var lbl=el("text",{x:b.x+barW/2,y:y0-8,class:"bar-label","text-anchor":"middle"});
+        lbl.textContent=b.v.toFixed(1);
+        svg.appendChild(lbl);
+      });
+      var cat=el("text",{x:gx,y:H-M.bottom+18,class:"cat-label","text-anchor":"middle"});
+      var words = d.name.split(" ")[0];
+      cat.textContent = words;
+      svg.appendChild(cat);
+      var sub=el("text",{x:gx,y:H-M.bottom+32,class:"tick-label","text-anchor":"middle"});
+      sub.textContent = d.name.split(" ").slice(1).join(" ");
+      svg.appendChild(sub);
+      var sig=el("text",{x:gx,y:H-M.bottom+46,class:"sig-label","text-anchor":"middle"});
+      sig.textContent = d.p;
+      svg.appendChild(sig);
+    });
+    var yl = el("text",{x:14,y:M.top+plotH/2,class:"axis-label","text-anchor":"middle",transform:"rotate(-90 14 "+(M.top+plotH/2)+")"});
+    yl.textContent = "%";
+    svg.appendChild(yl);
+  })();
+})();
+</script>

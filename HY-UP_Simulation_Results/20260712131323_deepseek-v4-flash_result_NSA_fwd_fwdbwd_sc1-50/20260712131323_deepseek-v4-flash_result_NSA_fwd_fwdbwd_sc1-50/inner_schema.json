@@ -1,0 +1,179 @@
+{
+  "phases": [
+    {
+      "phase": "Inputs",
+      "prediction_fields": [
+        {
+          "name": "enforcement_budget_usd",
+          "unit": "USD",
+          "type": "float",
+          "description": "Total federal and state budget allocated for No Surprises Act enforcement, including complaint processing and audits."
+        },
+        {
+          "name": "certified_idr_entity_count",
+          "unit": "count",
+          "type": "int",
+          "description": "Number of certified independent dispute resolution entities available to adjudicate payment disputes."
+        },
+        {
+          "name": "qpa_calculation_system_readiness",
+          "unit": "%",
+          "type": "float",
+          "description": "Percentage of health plans with operational systems to accurately calculate the qualifying payment amount."
+        }
+      ],
+      "discussion_points": [
+        "How will the enforcement budget be distributed between federal and state oversight?",
+        "What is the expected capacity and geographic coverage of certified IDR entities?",
+        "Are all health plans equipped to access the necessary contracted rate data for QPA calculation?",
+        "What are the upfront costs for providers and facilities to implement compliant billing systems?"
+      ]
+    },
+    {
+      "phase": "Activities",
+      "prediction_fields": [
+        {
+          "name": "qpa_calculations_performed",
+          "unit": "count",
+          "type": "int",
+          "description": "Number of qualifying payment amount calculations executed by health plans for out-of-network claims."
+        },
+        {
+          "name": "disclosure_notices_sent",
+          "unit": "count",
+          "type": "int",
+          "description": "Total number of mandatory patient protection disclosure notices distributed by plans and providers."
+        },
+        {
+          "name": "initial_payments_made",
+          "unit": "count",
+          "type": "int",
+          "description": "Count of initial payments sent to providers within the 30-day statutory window."
+        },
+        {
+          "name": "idr_cases_initiated",
+          "unit": "count",
+          "type": "int",
+          "description": "Number of payment disputes filed and initiated in the federal IDR process."
+        }
+      ],
+      "discussion_points": [
+        "What barriers do plans face in calculating the QPA for uncommon or highly specialized services?",
+        "How do providers and plans coordinate to ensure timely initial payment?",
+        "What proportion of IDR initiations are for air ambulance services versus emergency and non-emergency services?",
+        "How are uninsured or self-pay patients being handled under the notice-and-consent waiver provisions?"
+      ]
+    },
+    {
+      "phase": "Outputs",
+      "prediction_fields": [
+        {
+          "name": "protected_claims_processed",
+          "unit": "count",
+          "type": "int",
+          "description": "Number of out-of-network claims processed with in-network cost-sharing applied directly to the patient."
+        },
+        {
+          "name": "balance_billing_attempts_blocked",
+          "unit": "count",
+          "type": "int",
+          "description": "Total instances where a provider’s attempt to balance bill a patient was prevented by the plan or regulator."
+        },
+        {
+          "name": "idr_determinations_completed",
+          "unit": "count",
+          "type": "int",
+          "description": "Number of IDR disputes that received a final payment determination within the review period."
+        },
+        {
+          "name": "compliant_notice_provision_rate",
+          "unit": "%",
+          "type": "float",
+          "description": "Percentage of patient encounters where the required disclosure notice was provided correctly."
+        }
+      ],
+      "discussion_points": [
+        "How often are protected claims erroneously processed with out-of-network cost-sharing?",
+        "What is the typical timeline from IDR initiation to final determination, and how does it affect cash flow for providers?",
+        "Are balance billing attempts concentrated in certain specialties or geographic regions?",
+        "To what extent are patients aware of their right to receive the notice and file complaints?"
+      ]
+    },
+    {
+      "phase": "Outcomes",
+      "prediction_fields": [
+        {
+          "name": "reduction_in_prevalence_of_out_of_network_bills_for_non_emergency_services_at_in_network_facilities_in_2022",
+          "unit": "%",
+          "type": "float",
+          "description": "reduction in prevalence of out-of-network bills for non-emergency services at in-network facilities in 2022 (%)"
+        },
+        {
+          "name": "reduction_in_prevalence_of_out_of_network_bills_for_emergency_services_in_2022",
+          "unit": "%",
+          "type": "float",
+          "description": "reduction in prevalence of out-of-network bills for emergency services in 2022 (%)"
+        },
+        {
+          "name": "reduction_emergency_oon_bills_pct",
+          "unit": "%",
+          "type": "float",
+          "description": "Percentage point reduction in the prevalence of out-of-network bills for emergency services (relative to pre-NSA baseline)."
+        },
+        {
+          "name": "reduction_nonemergency_oon_bills_pct",
+          "unit": "%",
+          "type": "float",
+          "description": "Percentage point reduction in the prevalence of out-of-network bills for non-emergency services at in-network facilities."
+        },
+        {
+          "name": "patient_outofpocket_savings_per_claim_usd",
+          "unit": "USD",
+          "type": "float",
+          "description": "Average reduction in patient out-of-pocket payment per protected out-of-network claim."
+        },
+        {
+          "name": "consumer_protection_awareness_pct",
+          "unit": "%",
+          "type": "float",
+          "description": "Percentage of covered individuals who are aware of their surprise billing protections under the No Surprises Act."
+        }
+      ],
+      "discussion_points": [
+        "Has the drop in emergency out-of-network billing been uniform across all types of emergency departments?",
+        "Are there substitution effects, such as more out-of-network elective care, offsetting the reductions?",
+        "Do the savings per claim differ significantly between emergency and non-emergency services?",
+        "How do patient complaint rates correlate with localized enforcement effort and awareness campaigns?"
+      ]
+    },
+    {
+      "phase": "Impact",
+      "prediction_fields": [
+        {
+          "name": "systemic_oon_billing_prevalence",
+          "unit": "%",
+          "type": "float",
+          "description": "Long-term prevalence of out-of-network balance billing for all services, reflecting market equilibrium."
+        },
+        {
+          "name": "network_adequacy_index",
+          "unit": "score",
+          "type": "float",
+          "description": "Composite index measuring the in-network availability of essential healthcare services across plans."
+        },
+        {
+          "name": "average_health_plan_premium_impact_pct",
+          "unit": "%",
+          "type": "float",
+          "description": "Estimated percentage change in health plan premiums attributable to NSA compliance and payment reforms."
+        }
+      ],
+      "discussion_points": [
+        "Will the No Surprises Act accelerate consolidation among providers or health plans as networks adjust?",
+        "Does the policy lead to a durable culture of price transparency and fair billing beyond the letter of the law?",
+        "How does the IDR process influence long-term contracting behavior between plans and providers?",
+        "Are any unintended consequences emerging, such as reduced access to out-of-network specialists in rural areas?"
+      ]
+    }
+  ]
+}

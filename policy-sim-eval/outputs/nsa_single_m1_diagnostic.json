@@ -1,0 +1,483 @@
+{
+  "n_runs": 50,
+  "m1_full": 0.1516166698753044,
+  "n_complete_runs": 49,
+  "n_incomplete_runs": 1,
+  "m1_complete_subset": 0.14922695067603062,
+  "m1_incomplete_subset": 0.26871291063971897,
+  "m1_per_complete_run_stats": {
+    "mean": 0.14922695067603062,
+    "median": 0.12958165360065013,
+    "min": 0.0010502393453404092,
+    "max": 0.3875769229520254,
+    "n": 49
+  },
+  "m1_per_incomplete_run_stats": {
+    "mean": 0.26871291063971897,
+    "median": 0.26871291063971897,
+    "n": 1
+  },
+  "phase_missingness": {
+    "Activities": {
+      "missing": 0,
+      "expected": 1000,
+      "missing_rate": 0.0
+    },
+    "Impact": {
+      "missing": 0,
+      "expected": 750,
+      "missing_rate": 0.0
+    },
+    "Inputs": {
+      "missing": 0,
+      "expected": 750,
+      "missing_rate": 0.0
+    },
+    "Outcomes": {
+      "missing": 0,
+      "expected": 1500,
+      "missing_rate": 0.0
+    },
+    "Outputs": {
+      "missing": 1,
+      "expected": 1000,
+      "missing_rate": 0.001
+    }
+  },
+  "var_level": [
+    {
+      "phase": "Outputs",
+      "var": "compliant_notice_provision_rate",
+      "name_len": 31,
+      "expected": 250,
+      "missing": 1,
+      "missing_rate": 0.004,
+      "recovered_via_alias": 1,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Inputs",
+      "var": "enforcement_budget_usd",
+      "name_len": 22,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Inputs",
+      "var": "certified_idr_entity_count",
+      "name_len": 26,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Inputs",
+      "var": "qpa_calculation_system_readiness",
+      "name_len": 32,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Activities",
+      "var": "qpa_calculations_performed",
+      "name_len": 26,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Activities",
+      "var": "disclosure_notices_sent",
+      "name_len": 23,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Activities",
+      "var": "initial_payments_made",
+      "name_len": 21,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Activities",
+      "var": "idr_cases_initiated",
+      "name_len": 19,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Outputs",
+      "var": "protected_claims_processed",
+      "name_len": 26,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Outputs",
+      "var": "balance_billing_attempts_blocked",
+      "name_len": 32,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Outputs",
+      "var": "idr_determinations_completed",
+      "name_len": 28,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Outcomes",
+      "var": "reduction_in_prevalence_of_out_of_network_bills_for_non_emergency_services_at_in_network_facilities_in_2022",
+      "name_len": 107,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Outcomes",
+      "var": "reduction_in_prevalence_of_out_of_network_bills_for_emergency_services_in_2022",
+      "name_len": 78,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Outcomes",
+      "var": "reduction_emergency_oon_bills_pct",
+      "name_len": 33,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Outcomes",
+      "var": "reduction_nonemergency_oon_bills_pct",
+      "name_len": 36,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Outcomes",
+      "var": "patient_outofpocket_savings_per_claim_usd",
+      "name_len": 41,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Outcomes",
+      "var": "consumer_protection_awareness_pct",
+      "name_len": 33,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Impact",
+      "var": "systemic_oon_billing_prevalence",
+      "name_len": 31,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Impact",
+      "var": "network_adequacy_index",
+      "name_len": 22,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    },
+    {
+      "phase": "Impact",
+      "var": "average_health_plan_premium_impact_pct",
+      "name_len": 38,
+      "expected": 250,
+      "missing": 0,
+      "missing_rate": 0.0,
+      "recovered_via_alias": 0,
+      "truly_missing": 0,
+      "truly_missing_rate": 0.0
+    }
+  ],
+  "correlation_namelen_vs_missingrate": {
+    "pearson_r": -0.0476846432661999,
+    "pearson_p": 0.841766909653866,
+    "spearman_r": 0.0,
+    "spearman_p": 1.0
+  },
+  "correlation_namelen_vs_truly_missing_rate": {
+    "pearson_r": NaN,
+    "pearson_p": NaN,
+    "spearman_r": NaN,
+    "spearman_p": NaN
+  },
+  "run_missing_counts": {
+    "S1_Cynthia_Wesley_Shenithia_Layla_Rupert": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S2_Elizabeth_Carmen_An_Agustina_Patrice": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S3_Yvonne_Paulo_Robert_Kameron_Mary": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S4_Shirley_Augusto_Richard_Shirley-(09d_Gary": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S5_Gerald_Rebeca_Idalia_Nereida_James": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S6_Julie_Gregory_Brent_Dexter_Joan": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S7_Cira_Tomas_Donald_Stephanie_Robert-(bb32": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S8_Joseph_Mary-(2f90fd_Carl_Rebecca_Margareta": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S9_Joan_A_Patricia_Rachel_Denise": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S10_Nicole_Cady_Maria_Karina_Tony": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S11_A-(af9eb1)_Rupert_Agustina_Jan_Eduardo": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S12_Brittany_Beckie_Charles_Jessica_Jan": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S13_Jannelle_Jacqueline_Catherine_Dr._Leticia": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S14_Guillermo_Iris_Thanhphuong_A-(494c9b)_Bobby": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S15_Cameron_Kamran_Clint_Nicholas_Lucian": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S16_Nora_John_Jennifer_Natessa_Jacquelyn": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S17_Sergio_Pedro_Natessa_A-(a60c73)_Tiffany": {
+      "missing": 1,
+      "expected": 100
+    },
+    "S18_Carmen-(2fc2_Kessa_Latoya_Patricia_Julie-(9f64a": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S19_Maria-(23758_Bobby_A-(dba595)_Digna_Michael": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S20_Lazaro_A-(d6fe2e)_Nereida_Nelson_Arjan": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S21_Dr.-(80ad7e)_Phillip_A-(dba595)_Eloise_Denise": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S22_Sylvia_An-(876760)_Victor_Timothy_Shanely": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S23_Noemi_Aaron_Jonathan_Jesenia_Carmen-(f034": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S24_Thomas_Timothy_A-(bc690e)_Anil_Marcus": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S25_Antonio_John-(d5794e_Lao_Jimi_Cira": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S26_Shanna_Victoria_Jennette_Isabel_Caridad": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S27_Cynthia_Joseph-(bde7_Vincent_Jordan_Tai": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S28_Armando_Caridad_Felix_Marsha_Peggy": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S29_Myrna_Richard-(4c2_Isabel_Elbert_Elizabeth-(6": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S30_Robert_A-(314e74)_Joan_Trevor_A-(e04a08)": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S31_Jesenia_Lindsey_Dr.-(e7d973)_Kala_Zachary": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S32_Eugene_Roseline_Santos_Jehu_Tarik": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S33_A-(bc690e)_Justin_Diego_Amanda_April": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S34_Andru_Lashon_Timothy-(8f2_Loan_Bich": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S35_Luis_Vincent_Janella_Victor-(a213_Matthew": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S36_Michael_Carmen-(f034_Marie_Dr._Matthew": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S37_Giselle_Jewel_Edwis_Ronit_Sergio": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S38_Gwyn_Brandon_Eugene_Latisha_Leilani": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S39_Tireon_Chau_An-(b02564)_A-(d0c351)_Carolina": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S40_Mariah_Zachary_Dana_Jade_A-(d562e3)": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S41_Natasha_Natessa_Christopher_John_Jessica-(a20": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S42_Ronald_Cynthia_Rebecca-(2fb_Elaine_Dr.": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S43_Virginia_Tyreese_James-(9bb69_Rishi_Levania": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S44_John-(d652d7_Sasha_A-(78b1a8)_Nathaniel_Kenneth": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S45_Giselle_Michael_Alissa_Dorothy_Jacqueline": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S46_Michael-(658_Maritta_Angie_A-(46fbfb)_Jennifer-(11": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S47_A-(d562e3)_An-(b02564)_Carlos_Cenk_Lilibeth": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S48_Trumella_Jasmine_Charles_A-(d07877)_Juanita": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S49_Jennette_A-(072551)_Nereida_Ronald-(f5ba_Marina": {
+      "missing": 0,
+      "expected": 100
+    },
+    "S50_Litigator_Warren_Khue_Dr.-(80ad7e)_A-(6baccb)": {
+      "missing": 0,
+      "expected": 100
+    }
+  }
+}

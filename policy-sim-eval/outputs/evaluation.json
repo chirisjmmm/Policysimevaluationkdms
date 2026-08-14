@@ -3,7 +3,8 @@
     "cells": [
       "100e_gemini",
       "100e_deepseek",
-      "bk21_deepseek"
+      "bk21_deepseek",
+      "nsa_single_deepseek"
     ],
     "branch_cells": [
       "nsa_deepseek",
@@ -21,7 +22,7 @@
       "method": "cross-policy null distribution (100E narratives vs BK21 KG corpus, and reverse; 800 sentences)"
     },
     "seed": 20260810,
-    "generated_at": "2026-08-10T23:18:26",
+    "generated_at": "2026-08-12T18:20:48",
     "cell_design_correction": "guideline's reference cell table names the third cell 'bk21_gemini'; actual data on disk is DeepSeek-generated (run_log.json). Cells here are 100e_gemini/100e_deepseek/bk21_deepseek -- see configs/cells.yaml header.",
     "load_reports": {
       "100e_gemini": {
@@ -37,6 +38,12 @@
         "n_agg_mismatches": 0
       },
       "bk21_deepseek": {
+        "revise_noop_verified": true,
+        "aggregated_value_matches_mean": true,
+        "n_revise_violations": 0,
+        "n_agg_mismatches": 0
+      },
+      "nsa_single_deepseek": {
         "revise_noop_verified": true,
         "aggregated_value_matches_mean": true,
         "n_revise_violations": 0,
@@ -104,6 +111,12 @@
           "Outcomes.international_research_collaboration_rate_of_bk21_participants_in_2022",
           "Outcomes.graduate_employment_rate_of_bk21_participants_in_2022"
         ]
+      },
+      "nsa_single": {
+        "anchored": 3,
+        "predicted": 20,
+        "unanchored": 0,
+        "headcount_mislabeled": []
       },
       "nsa": {
         "anchored": 0,
@@ -1670,6 +1683,512 @@
           "n_expected": 4500,
           "n_actual": 4500,
           "incomplete_vars": {}
+        }
+      }
+    },
+    "nsa_single_deepseek": {
+      "n_runs": 50,
+      "A1": {
+        "score": 0.8888888888888888,
+        "consistent": 8,
+        "contradiction": 1,
+        "unscored": 315,
+        "by_fact": {
+          "initial_payment_or_denial_deadline_days": {
+            "mentions": 254,
+            "supported": 6,
+            "contradictions": 0,
+            "unscored": 248
+          },
+          "open_negotiation_period_days": {
+            "mentions": 68,
+            "supported": 2,
+            "contradictions": 1,
+            "unscored": 65
+          },
+          "idr_initiation_window_days": {
+            "mentions": 0,
+            "supported": 0,
+            "contradictions": 0,
+            "unscored": 0
+          },
+          "hhs_complaint_response_deadline_days": {
+            "mentions": 0,
+            "supported": 0,
+            "contradictions": 0,
+            "unscored": 0
+          },
+          "abd_appeal_window_days": {
+            "mentions": 2,
+            "supported": 0,
+            "contradictions": 0,
+            "unscored": 2
+          },
+          "erisa_extension_days": {
+            "mentions": 0,
+            "supported": 0,
+            "contradictions": 0,
+            "unscored": 0
+          }
+        }
+      },
+      "A2": {
+        "score": 0.7385876748745375,
+        "by_phase": {
+          "Inputs": {
+            "doc_share": 0.5270607826810991,
+            "kg_share": 0.0,
+            "prior_share": 0.12822647793505412,
+            "none_share": 0.3447127393838468,
+            "n_sentences": 1201
+          },
+          "Activities": {
+            "doc_share": 0.6208384710234278,
+            "kg_share": 0.0,
+            "prior_share": 0.14549938347718866,
+            "none_share": 0.23366214549938347,
+            "n_sentences": 1622
+          },
+          "Outputs": {
+            "doc_share": 0.561711079943899,
+            "kg_share": 0.0,
+            "prior_share": 0.19985974754558206,
+            "none_share": 0.23842917251051893,
+            "n_sentences": 1426
+          },
+          "Outcomes": {
+            "doc_share": 0.5709844559585492,
+            "kg_share": 0.0,
+            "prior_share": 0.17564766839378237,
+            "none_share": 0.2533678756476684,
+            "n_sentences": 1930
+          },
+          "Impact": {
+            "doc_share": 0.6220614828209765,
+            "kg_share": 0.0,
+            "prior_share": 0.1410488245931284,
+            "none_share": 0.23688969258589512,
+            "n_sentences": 1659
+          }
+        }
+      },
+      "M1": {
+        "score": 0.1516166698753044,
+        "trend": 0.31124917114624456,
+        "by_phase": {
+          "Inputs": {
+            "convergence_mean": 0.2049846027896361,
+            "n_runs": 50
+          },
+          "Activities": {
+            "convergence_mean": 0.05290921130316518,
+            "n_runs": 50
+          },
+          "Outputs": {
+            "convergence_mean": 0.04590957172484387,
+            "n_runs": 50
+          },
+          "Outcomes": {
+            "convergence_mean": 0.15040807308241344,
+            "n_runs": 50
+          },
+          "Impact": {
+            "convergence_mean": 0.3038718904764633,
+            "n_runs": 50
+          }
+        }
+      },
+      "M2": {
+        "score": 0.262,
+        "by_phase": {
+          "Inputs": {
+            "hits": 12,
+            "trials": 200,
+            "value_uptake": 0.06
+          },
+          "Activities": {
+            "hits": 5,
+            "trials": 200,
+            "value_uptake": 0.025
+          },
+          "Outputs": {
+            "hits": 79,
+            "trials": 200,
+            "value_uptake": 0.395
+          },
+          "Outcomes": {
+            "hits": 103,
+            "trials": 200,
+            "value_uptake": 0.515
+          },
+          "Impact": {
+            "hits": 63,
+            "trials": 200,
+            "value_uptake": 0.315
+          }
+        }
+      },
+      "D1": {
+        "ICC_role": 0.19186000511482224,
+        "ICC_run": 0.179849570221721,
+        "by_phase": {
+          "Inputs": {
+            "var_within_role_across_runs": 631632333333758.0,
+            "var_between_role_within_run": 172813533333460.84,
+            "var_between_run": 192626261333454.5,
+            "var_total": 997072128000673.6,
+            "ICC_role": 0.17332099502168022,
+            "ICC_run": 0.193191902495267,
+            "n_obs": 750
+          },
+          "Activities": {
+            "var_within_role_across_runs": 1523337057731751.0,
+            "var_between_role_within_run": 418786152844122.75,
+            "var_between_run": 383981138439095.9,
+            "var_total": 2326104349014967.5,
+            "ICC_role": 0.18003756066294516,
+            "ICC_run": 0.16507476915285416,
+            "n_obs": 1000
+          },
+          "Outputs": {
+            "var_within_role_across_runs": 10760895430813.09,
+            "var_between_role_within_run": 4076111381405.0176,
+            "var_between_run": 3213337910970.0195,
+            "var_total": 18050344723188.18,
+            "ICC_role": 0.22581903248466415,
+            "ICC_run": 0.17802086111087062,
+            "n_obs": 999
+          },
+          "Outcomes": {
+            "var_within_role_across_runs": 5504.355202500007,
+            "var_between_role_within_run": 1805.3590415000033,
+            "var_between_run": 1312.662038993334,
+            "var_total": 8622.376282993362,
+            "ICC_role": 0.20938068372878424,
+            "ICC_run": 0.15223901113923868,
+            "n_obs": 1500
+          },
+          "Impact": {
+            "var_within_role_across_runs": 52.14540754444438,
+            "var_between_role_within_run": 14.394287175555565,
+            "var_between_run": 17.764740871466678,
+            "var_total": 84.30443559146667,
+            "ICC_role": 0.17074175367603742,
+            "ICC_run": 0.2107213072103745,
+            "n_obs": 750
+          }
+        }
+      },
+      "D2": {
+        "score": 0.5750716739854504,
+        "by_phase": {
+          "Inputs": {
+            "mean_pairwise_distance": 0.6408917753674853,
+            "distinct_2": 0.8545732185672739,
+            "distinct_3": 0.9417335612084233,
+            "n_run_phase_obs": 50
+          },
+          "Activities": {
+            "mean_pairwise_distance": 0.588147539297984,
+            "distinct_2": 0.8592328757769753,
+            "distinct_3": 0.9549338255716355,
+            "n_run_phase_obs": 50
+          },
+          "Outputs": {
+            "mean_pairwise_distance": 0.5889796859687612,
+            "distinct_2": 0.8530054931438695,
+            "distinct_3": 0.9475141180560094,
+            "n_run_phase_obs": 50
+          },
+          "Outcomes": {
+            "mean_pairwise_distance": 0.5119527487595351,
+            "distinct_2": 0.8344444628319074,
+            "distinct_3": 0.9354017405128258,
+            "n_run_phase_obs": 50
+          },
+          "Impact": {
+            "mean_pairwise_distance": 0.5453866205334869,
+            "distinct_2": 0.8531443792999742,
+            "distinct_3": 0.9492272539996075,
+            "n_run_phase_obs": 50
+          }
+        }
+      },
+      "DM1": {
+        "score": 0.7357938953780765,
+        "topology": {
+          "disconnected": 97,
+          "star": 1,
+          "chain": 35,
+          "complete": 117
+        },
+        "anchor_role_dist": {
+          "PolicyRole": 1
+        }
+      },
+      "_appendix": {
+        "DX2": {
+          "reduction_emergency_oon_bills_pct": {
+            "status": "OK",
+            "entropy": 1.4805570174932905,
+            "entropy_norm": 0.9199217975759677,
+            "bin_counts": {
+              "far_under": 4,
+              "under": 17,
+              "near": 15,
+              "over": 7,
+              "far_over": 7
+            },
+            "n": 50
+          },
+          "reduction_nonemergency_oon_bills_pct": {
+            "status": "OK",
+            "entropy": 1.4750902383802817,
+            "entropy_norm": 0.9165250967335345,
+            "bin_counts": {
+              "far_under": 6,
+              "under": 21,
+              "near": 9,
+              "over": 6,
+              "far_over": 8
+            },
+            "n": 50
+          }
+        },
+        "DX3": {
+          "status": "OK",
+          "k": 2,
+          "silhouette": 0.15781995588047354,
+          "cluster_sizes": {
+            "0": 20,
+            "1": 30
+          },
+          "explained_variance_ratio": [
+            0.2415286773664514,
+            0.14951323896678442,
+            0.12136316615036641
+          ],
+          "n_runs": 50,
+          "n_features": 20
+        }
+      },
+      "X1": {
+        "reduction_emergency_oon_bills_pct": {
+          "status": "OK",
+          "true_value": 15,
+          "source": "direct",
+          "APE_mean": 37.54666666666667,
+          "APE_median": 33.8,
+          "CI95": [
+            30.52906666666667,
+            47.309599999999996
+          ],
+          "n": 50,
+          "gt_source_note": "User-confirmed GT (matches ASPE Report Three, HHS: 'prevalence of out-of-network bills declined 15 percent for emergency services ... relative to 2021'), same GT used for the nsa branch cell. https://aspe.hhs.gov/reports/no-surprises-act-report-three"
+        },
+        "reduction_nonemergency_oon_bills_pct": {
+          "status": "OK",
+          "true_value": 11,
+          "source": "direct",
+          "APE_mean": 45.81636363636364,
+          "APE_median": 40.727272727272734,
+          "CI95": [
+            37.561772727272725,
+            56.273272727272726
+          ],
+          "n": 50,
+          "gt_source_note": "User-confirmed GT (matches ASPE Report Three, HHS: '11 percent for non-emergency services furnished at in-network facilities relative to 2021'), same GT used for the nsa branch cell. https://aspe.hhs.gov/reports/no-surprises-act-report-three"
+        },
+        "reduction_in_prevalence_of_out_of_network_bills_for_emergency_services_in_2022": {
+          "status": "OK",
+          "true_value": 15,
+          "source": "concept_duplicate",
+          "APE_mean": 82.52266666666667,
+          "APE_median": 58.66666666666667,
+          "CI95": [
+            63.34686666666666,
+            101.55313333333334
+          ],
+          "n": 50,
+          "group": "emergency_oon_reduction"
+        },
+        "reduction_in_prevalence_of_out_of_network_bills_for_non_emergency_services_at_in_network_facilities_in_2022": {
+          "status": "OK",
+          "true_value": 11,
+          "source": "concept_duplicate",
+          "APE_mean": 93.44363636363637,
+          "APE_median": 54.54545454545454,
+          "CI95": [
+            72.515,
+            116.26318181818179
+          ],
+          "n": 50,
+          "group": "nonemergency_oon_reduction"
+        }
+      },
+      "X4": {
+        "reduction_emergency_oon_bills_pct": {
+          "status": "OK",
+          "coverage_50": true,
+          "coverage_90": true,
+          "PIT": 0.62,
+          "CRPS": 1.8408320000000011,
+          "n": 50
+        },
+        "reduction_nonemergency_oon_bills_pct": {
+          "status": "OK",
+          "coverage_50": true,
+          "coverage_90": true,
+          "PIT": 0.68,
+          "CRPS": 1.7871560000000004,
+          "n": 50
+        }
+      },
+      "DX1": {
+        "reduction_emergency_oon_bills_pct": {
+          "CV": 0.48859227388346776,
+          "range": 40.7,
+          "iqr": 10.040000000000001,
+          "std": 7.462172080567426,
+          "mean": 15.2728,
+          "min": 6.9,
+          "max": 47.6,
+          "n": 50
+        },
+        "reduction_nonemergency_oon_bills_pct": {
+          "CV": 0.5988049012971371,
+          "range": 33.3,
+          "iqr": 7.4525,
+          "std": 6.407811248780663,
+          "mean": 10.700999999999999,
+          "min": 3.2,
+          "max": 36.5,
+          "n": 50
+        }
+      },
+      "stability_curve": {
+        "reduction_emergency_oon_bills_pct": {
+          "10": {
+            "mean": 38.16434666666667,
+            "std": 9.320023573875766
+          },
+          "20": {
+            "mean": 37.85708,
+            "std": 5.939185915617281
+          },
+          "30": {
+            "mean": 37.394613333333325,
+            "std": 3.846371152538647
+          },
+          "40": {
+            "mean": 37.663286666666664,
+            "std": 2.169980741860269
+          },
+          "50": {
+            "mean": 37.546666666666674,
+            "std": 8.737075716532785e-15
+          }
+        },
+        "reduction_nonemergency_oon_bills_pct": {
+          "10": {
+            "mean": 46.59241818181818,
+            "std": 10.27221790548912
+          },
+          "20": {
+            "mean": 46.176854545454546,
+            "std": 6.603310488830646
+          },
+          "30": {
+            "mean": 45.67227272727273,
+            "std": 4.222073778684334
+          },
+          "40": {
+            "mean": 45.936099999999996,
+            "std": 2.4251049207770086
+          },
+          "50": {
+            "mean": 45.81636363636364,
+            "std": 4.819135301037582e-15
+          }
+        }
+      },
+      "gates": {
+        "G1": {
+          "pass": false,
+          "n_violations": 71,
+          "n_evaluated": 100,
+          "chain": {
+            "n_violations": 0,
+            "n_evaluated": 0,
+            "by_constraint": {}
+          },
+          "concept_duplicate_agreement": {
+            "n_violations": 71,
+            "n_evaluated": 100,
+            "rel_tol": 0.1,
+            "by_group": {
+              "emergency_oon_reduction": {
+                "n_evaluated": 50,
+                "n_violations": 35
+              },
+              "nonemergency_oon_reduction": {
+                "n_evaluated": 50,
+                "n_violations": 36
+              }
+            }
+          }
+        },
+        "G2": {
+          "pass": true,
+          "n_violations": 0,
+          "n_evaluated": 999,
+          "violating_vars": [],
+          "by_var": {
+            "Inputs.qpa_calculation_system_readiness": {
+              "violations": 0,
+              "total": 250
+            },
+            "Outputs.compliant_notice_provision_rate": {
+              "violations": 0,
+              "total": 249
+            },
+            "Outcomes.consumer_protection_awareness_pct": {
+              "violations": 0,
+              "total": 250
+            },
+            "Impact.systemic_oon_billing_prevalence": {
+              "violations": 0,
+              "total": 250
+            }
+          }
+        },
+        "G3": {
+          "pass": false,
+          "completion_rate": 0.8726956521739131,
+          "n_expected": 5750,
+          "n_actual": 5018,
+          "incomplete_vars": {
+            "Outputs.complaint_notice_provision_rate": {
+              "expected": 250,
+              "actual": 1,
+              "completion_rate": 0.004
+            },
+            "Outputs.compliant_notice_provision_rate": {
+              "expected": 250,
+              "actual": 249,
+              "completion_rate": 0.996
+            },
+            "Impact.reduction_in_prevalence_of_out_of_network_bills_for_emergency_services_in_2022": {
+              "expected": 250,
+              "actual": 9,
+              "completion_rate": 0.036
+            },
+            "Impact.reduction_in_prevalence_of_out_of_network_bills_for_non_emergency_services_at_in_network_facilities_in_2022": {
+              "expected": 250,
+              "actual": 9,
+              "completion_rate": 0.036
+            }
+          }
         }
       }
     }
@@ -17980,6 +18499,231 @@
     {
       "fact_id": "initial_payment_or_denial_deadline_days",
       "verdict": "SUPPORTED",
+      "cell_id": "nsa_single_deepseek",
+      "run_id": "S5_Gerald_Rebeca_Idalia_Nereida_James",
+      "phase": "Outputs",
+      "agent_key": "Idalia",
+      "role_slot": "PolicyRole#2",
+      "utterance_text": "30-45 day",
+      "context_text": "or patient complaints, though enforcement gaps allow some to slip through. IDR determinations completed of 70,000 reflects that from 100,000 initiations, an average 30-day open negotiation period and 30-45 day IDR review timeline mean many cases started later in the year won't finish by December 2022; CMS reports indicated a significant backlog, consistent with about 70% completion rate. Compliant notice p",
+      "parsed": {
+        "value": 30.0,
+        "kind": "days",
+        "currency": null,
+        "bound": "range"
+      },
+      "reference": {
+        "id": "initial_payment_or_denial_deadline_days",
+        "value": 30,
+        "kind": "days",
+        "bound": "exact",
+        "evidence": "require plans and issuers to send an initial payment or notice of denial of payment not later than 30 calendar days after a nonparticipating provider or facility submits a bill",
+        "page": 29
+      }
+    },
+    {
+      "fact_id": "open_negotiation_period_days",
+      "verdict": "SUPPORTED",
+      "cell_id": "nsa_single_deepseek",
+      "run_id": "S5_Gerald_Rebeca_Idalia_Nereida_James",
+      "phase": "Outputs",
+      "agent_key": "Idalia",
+      "role_slot": "PolicyRole#2",
+      "utterance_text": "30-45 day",
+      "context_text": "or patient complaints, though enforcement gaps allow some to slip through. IDR determinations completed of 70,000 reflects that from 100,000 initiations, an average 30-day open negotiation period and 30-45 day IDR review timeline mean many cases started later in the year won't finish by December 2022; CMS reports indicated a significant backlog, consistent with about 70% completion rate. Compliant notice p",
+      "parsed": {
+        "value": 30.0,
+        "kind": "days",
+        "currency": null,
+        "bound": "range"
+      },
+      "reference": {
+        "id": "open_negotiation_period_days",
+        "value": 30,
+        "kind": "days",
+        "bound": "exact",
+        "evidence": "initiate a 30-day open negotiation period for purposes of determining the amount of total payment",
+        "page": 24
+      }
+    },
+    {
+      "fact_id": "open_negotiation_period_days",
+      "verdict": "CONTRADICTION",
+      "cell_id": "nsa_single_deepseek",
+      "run_id": "S13_Jannelle_Jacqueline_Catherine_Dr._Leticia",
+      "phase": "Outputs",
+      "agent_key": "Dr.",
+      "role_slot": "PolicyRole#2",
+      "utterance_text": "60-90 days",
+      "context_text": "der noncompliance and uneven oversight. IDR determinations completed are far fewer than the 20,000 cases initiated because the 30-day open negotiation period and IDR entity review timeline (typically 60-90 days) push many resolutions into 2023. Finally, the compliant notice provision rate is low (30%) because smaller facilities in rural areas lack the infrastructure to consistently distribute proper disclos",
+      "parsed": {
+        "value": 60.0,
+        "kind": "days",
+        "currency": null,
+        "bound": "range"
+      },
+      "reference": {
+        "id": "open_negotiation_period_days",
+        "value": 30,
+        "kind": "days",
+        "bound": "exact",
+        "evidence": "initiate a 30-day open negotiation period for purposes of determining the amount of total payment",
+        "page": 24
+      }
+    },
+    {
+      "fact_id": "initial_payment_or_denial_deadline_days",
+      "verdict": "SUPPORTED",
+      "cell_id": "nsa_single_deepseek",
+      "run_id": "S15_Cameron_Kamran_Clint_Nicholas_Lucian",
+      "phase": "Activities",
+      "agent_key": "Cameron",
+      "role_slot": "PolicyRole#1",
+      "utterance_text": "30 days",
+      "context_text": "or uninsured patients may not receive the notice-and-consent form due to workflow gaps in high-volume settings. Initial payments (14M) fall short of the total claims because plans often delay beyond 30 days—our practice saw numerous instances where the 30-day clock was paused by requests for additional information, especially for services requiring QPA clarification. The IDR process sees 200,000 initiat",
+      "parsed": {
+        "value": 30.0,
+        "kind": "days",
+        "currency": null,
+        "bound": "exact"
+      },
+      "reference": {
+        "id": "initial_payment_or_denial_deadline_days",
+        "value": 30,
+        "kind": "days",
+        "bound": "exact",
+        "evidence": "require plans and issuers to send an initial payment or notice of denial of payment not later than 30 calendar days after a nonparticipating provider or facility submits a bill",
+        "page": 29
+      }
+    },
+    {
+      "fact_id": "initial_payment_or_denial_deadline_days",
+      "verdict": "SUPPORTED",
+      "cell_id": "nsa_single_deepseek",
+      "run_id": "S16_Nora_John_Jennifer_Natessa_Jacquelyn",
+      "phase": "Outputs",
+      "agent_key": "Jacquelyn",
+      "role_slot": "PolicyRole#3",
+      "utterance_text": "30 business days",
+      "context_text": "e threat of penalties deters many. IDR determinations completed will be roughly 28,000, because with 45,000 cases initiated, the limited IDR entities and statutory timeline (30-day open negotiation + 30 business days for determination) mean many disputes initiated later in 2022 will not be resolved until 2023. Compliant notice provision rate will be about 72%, as 18 million notices were sent but many lack require",
+      "parsed": {
+        "value": 30.0,
+        "kind": "days",
+        "currency": null,
+        "bound": "exact"
+      },
+      "reference": {
+        "id": "initial_payment_or_denial_deadline_days",
+        "value": 30,
+        "kind": "days",
+        "bound": "exact",
+        "evidence": "require plans and issuers to send an initial payment or notice of denial of payment not later than 30 calendar days after a nonparticipating provider or facility submits a bill",
+        "page": 29
+      }
+    },
+    {
+      "fact_id": "initial_payment_or_denial_deadline_days",
+      "verdict": "SUPPORTED",
+      "cell_id": "nsa_single_deepseek",
+      "run_id": "S17_Sergio_Pedro_Natessa_A-(a60c73)_Tiffany",
+      "phase": "Outputs",
+      "agent_key": "Tiffany",
+      "role_slot": "PolicyRole#2",
+      "utterance_text": "30-60 days",
+      "context_text": "to patients. The IDR system is bottlenecked: with only 60 certified entities and about 75,000 initiations, each entity handles roughly 1,250 cases, but typical timelines (30-day open negotiation plus 30-60 days for determination) mean only about 40,000 determinations are completed by year-end. Disclosure notices are poorly implemented—based on what I hear from colleagues and the low number of notices we est",
+      "parsed": {
+        "value": 30.0,
+        "kind": "days",
+        "currency": null,
+        "bound": "range"
+      },
+      "reference": {
+        "id": "initial_payment_or_denial_deadline_days",
+        "value": 30,
+        "kind": "days",
+        "bound": "exact",
+        "evidence": "require plans and issuers to send an initial payment or notice of denial of payment not later than 30 calendar days after a nonparticipating provider or facility submits a bill",
+        "page": 29
+      }
+    },
+    {
+      "fact_id": "initial_payment_or_denial_deadline_days",
+      "verdict": "SUPPORTED",
+      "cell_id": "nsa_single_deepseek",
+      "run_id": "S32_Eugene_Roseline_Santos_Jehu_Tarik",
+      "phase": "Outputs",
+      "agent_key": "Eugene",
+      "role_slot": "RegulatoryAgency#1",
+      "utterance_text": "30 days",
+      "context_text": "ng about 0.3% of protected claims generating a complaint; with 13 million claims, this yields roughly 39,000 complaints, plus additional audit-based blocks, totaling 50,000. The typical IDR timeline (30 days initial payment, 30-day negotiation, 30-day IDR review) means about 75% of 100,000 initiations are completed within the year, giving 75,000 determinations; the remaining 25,000 carry over. The 65% co",
+      "parsed": {
+        "value": 30.0,
+        "kind": "days",
+        "currency": null,
+        "bound": "exact"
+      },
+      "reference": {
+        "id": "initial_payment_or_denial_deadline_days",
+        "value": 30,
+        "kind": "days",
+        "bound": "exact",
+        "evidence": "require plans and issuers to send an initial payment or notice of denial of payment not later than 30 calendar days after a nonparticipating provider or facility submits a bill",
+        "page": 29
+      }
+    },
+    {
+      "fact_id": "initial_payment_or_denial_deadline_days",
+      "verdict": "SUPPORTED",
+      "cell_id": "nsa_single_deepseek",
+      "run_id": "S48_Trumella_Jasmine_Charles_A-(d07877)_Juanita",
+      "phase": "Outputs",
+      "agent_key": "A (d07877)",
+      "role_slot": "RegulatoryAgency#3",
+      "utterance_text": "30 days",
+      "context_text": "nd plan oversight, only an estimated 25% of the 10 million potential attempts are blocked in the first year. IDR entities, with 100 certified entities and a 30-day open negotiation period followed by 30 days for determination, can complete roughly 50,000 determinations from 60,000 initiations, accounting for settlements and procedural delays. Disclosure notices sent (150 million) cover about 60% of the e",
+      "parsed": {
+        "value": 30.0,
+        "kind": "days",
+        "currency": null,
+        "bound": "exact"
+      },
+      "reference": {
+        "id": "initial_payment_or_denial_deadline_days",
+        "value": 30,
+        "kind": "days",
+        "bound": "exact",
+        "evidence": "require plans and issuers to send an initial payment or notice of denial of payment not later than 30 calendar days after a nonparticipating provider or facility submits a bill",
+        "page": 29
+      }
+    },
+    {
+      "fact_id": "open_negotiation_period_days",
+      "verdict": "SUPPORTED",
+      "cell_id": "nsa_single_deepseek",
+      "run_id": "S48_Trumella_Jasmine_Charles_A-(d07877)_Juanita",
+      "phase": "Outputs",
+      "agent_key": "A (d07877)",
+      "role_slot": "RegulatoryAgency#3",
+      "utterance_text": "30 days",
+      "context_text": "nd plan oversight, only an estimated 25% of the 10 million potential attempts are blocked in the first year. IDR entities, with 100 certified entities and a 30-day open negotiation period followed by 30 days for determination, can complete roughly 50,000 determinations from 60,000 initiations, accounting for settlements and procedural delays. Disclosure notices sent (150 million) cover about 60% of the e",
+      "parsed": {
+        "value": 30.0,
+        "kind": "days",
+        "currency": null,
+        "bound": "exact"
+      },
+      "reference": {
+        "id": "open_negotiation_period_days",
+        "value": 30,
+        "kind": "days",
+        "bound": "exact",
+        "evidence": "initiate a 30-day open negotiation period for purposes of determining the amount of total payment",
+        "page": 24
+      }
+    },
+    {
+      "fact_id": "initial_payment_or_denial_deadline_days",
+      "verdict": "SUPPORTED",
       "cell_id": "nsa_deepseek",
       "run_id": "root/baseline/baseline/baseline/baseline",
       "phase": "Outputs",
@@ -30662,6 +31406,1512 @@
         "EarlyCareerResearcher#1->EducationResearchGroup#1": 0.7,
         "PolicyRole#1->EducationResearchGroup#1": 0.7,
         "GraduateStudent#2->EducationResearchGroup#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S1_Cynthia_Wesley_Shenithia_Layla_Rupert::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S1_Cynthia_Wesley_Shenithia_Layla_Rupert::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S1_Cynthia_Wesley_Shenithia_Layla_Rupert::Outputs": {
+      "edges": {
+        "RegulatoryAgency#3->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S1_Cynthia_Wesley_Shenithia_Layla_Rupert::Outcomes": {
+      "edges": {
+        "PolicyRole#1->PolicyRole#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S1_Cynthia_Wesley_Shenithia_Layla_Rupert::Impact": {
+      "edges": {
+        "RegulatoryAgency#2->RegulatoryAgency#3": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S2_Elizabeth_Carmen_An_Agustina_Patrice::Inputs": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S2_Elizabeth_Carmen_An_Agustina_Patrice::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S2_Elizabeth_Carmen_An_Agustina_Patrice::Outputs": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S2_Elizabeth_Carmen_An_Agustina_Patrice::Outcomes": {
+      "edges": {
+        "PolicyRole#1->PolicyRole#2": 0.5,
+        "PolicyRole#1->PolicyRole#3": 0.5,
+        "PolicyRole#1->RegulatoryAgency#1": 0.5,
+        "PolicyRole#1->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S2_Elizabeth_Carmen_An_Agustina_Patrice::Impact": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S3_Yvonne_Paulo_Robert_Kameron_Mary::Inputs": {
+      "edges": {
+        "RegulatoryAgency#3->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S3_Yvonne_Paulo_Robert_Kameron_Mary::Activities": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S3_Yvonne_Paulo_Robert_Kameron_Mary::Outputs": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#1": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#3": 0.5,
+        "RegulatoryAgency#2->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S3_Yvonne_Paulo_Robert_Kameron_Mary::Outcomes": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#1": 0.5,
+        "PolicyRole#1->RegulatoryAgency#3": 0.5,
+        "PolicyRole#1->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#3": 0.5,
+        "PolicyRole#2->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S3_Yvonne_Paulo_Robert_Kameron_Mary::Impact": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S4_Shirley_Augusto_Richard_Shirley-(09d_Gary::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S4_Shirley_Augusto_Richard_Shirley-(09d_Gary::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S4_Shirley_Augusto_Richard_Shirley-(09d_Gary::Outputs": {
+      "edges": {
+        "PolicyRole#3->RegulatoryAgency#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S4_Shirley_Augusto_Richard_Shirley-(09d_Gary::Outcomes": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#1->PolicyRole#2": 0.5,
+        "PolicyRole#1->RegulatoryAgency#1": 0.5,
+        "PolicyRole#3->PolicyRole#2": 0.5,
+        "PolicyRole#3->RegulatoryAgency#1": 0.5,
+        "PolicyRole#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S4_Shirley_Augusto_Richard_Shirley-(09d_Gary::Impact": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#3": 0.5,
+        "PolicyRole#1->PolicyRole#3": 0.5,
+        "PolicyRole#2->PolicyRole#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S5_Gerald_Rebeca_Idalia_Nereida_James::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S5_Gerald_Rebeca_Idalia_Nereida_James::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S5_Gerald_Rebeca_Idalia_Nereida_James::Outputs": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#1": 0.5,
+        "PolicyRole#3->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#1->PolicyRole#2": 0.5,
+        "RegulatoryAgency#2->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S5_Gerald_Rebeca_Idalia_Nereida_James::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#3->PolicyRole#1": 0.5,
+        "RegulatoryAgency#2->PolicyRole#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S5_Gerald_Rebeca_Idalia_Nereida_James::Impact": {
+      "edges": {
+        "PolicyRole#3->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S6_Julie_Gregory_Brent_Dexter_Joan::Inputs": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#2": 0.5,
+        "PolicyRole#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S6_Julie_Gregory_Brent_Dexter_Joan::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S6_Julie_Gregory_Brent_Dexter_Joan::Outputs": {
+      "edges": {
+        "PolicyRole#2->PolicyRole#3": 0.5,
+        "RegulatoryAgency#2->PolicyRole#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S6_Julie_Gregory_Brent_Dexter_Joan::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#2->PolicyRole#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S6_Julie_Gregory_Brent_Dexter_Joan::Impact": {
+      "edges": {
+        "PolicyRole#3->RegulatoryAgency#2": 0.5,
+        "PolicyRole#3->RegulatoryAgency#1": 0.5,
+        "PolicyRole#3->PolicyRole#2": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S7_Cira_Tomas_Donald_Stephanie_Robert-(bb32::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S7_Cira_Tomas_Donald_Stephanie_Robert-(bb32::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S7_Cira_Tomas_Donald_Stephanie_Robert-(bb32::Outputs": {
+      "edges": {
+        "RegulatoryAgency#4->PolicyRole#1": 0.5,
+        "RegulatoryAgency#4->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#3->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S7_Cira_Tomas_Donald_Stephanie_Robert-(bb32::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#4->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#4->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#3->PolicyRole#1": 0.5,
+        "RegulatoryAgency#3->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#1->PolicyRole#1": 0.5,
+        "PolicyRole#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S7_Cira_Tomas_Donald_Stephanie_Robert-(bb32::Impact": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S8_Joseph_Mary-(2f90fd_Carl_Rebecca_Margareta::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S8_Joseph_Mary-(2f90fd_Carl_Rebecca_Margareta::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S8_Joseph_Mary-(2f90fd_Carl_Rebecca_Margareta::Outputs": {
+      "edges": {
+        "PolicyRole#1->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S8_Joseph_Mary-(2f90fd_Carl_Rebecca_Margareta::Outcomes": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S8_Joseph_Mary-(2f90fd_Carl_Rebecca_Margareta::Impact": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#2->PolicyRole#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S9_Joan_A_Patricia_Rachel_Denise::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S9_Joan_A_Patricia_Rachel_Denise::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S9_Joan_A_Patricia_Rachel_Denise::Outputs": {
+      "edges": {
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#1->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S9_Joan_A_Patricia_Rachel_Denise::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#1->PolicyRole#1": 0.5,
+        "PolicyRole#3->PolicyRole#1": 0.5,
+        "PolicyRole#2->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S9_Joan_A_Patricia_Rachel_Denise::Impact": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S10_Nicole_Cady_Maria_Karina_Tony::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S10_Nicole_Cady_Maria_Karina_Tony::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S10_Nicole_Cady_Maria_Karina_Tony::Outputs": {
+      "edges": {
+        "PolicyRole#2->PolicyRole#3": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S10_Nicole_Cady_Maria_Karina_Tony::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#4": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S10_Nicole_Cady_Maria_Karina_Tony::Impact": {
+      "edges": {
+        "PolicyRole#3->PolicyRole#4": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S11_A-(af9eb1)_Rupert_Agustina_Jan_Eduardo::Inputs": {
+      "edges": {
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S11_A-(af9eb1)_Rupert_Agustina_Jan_Eduardo::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S11_A-(af9eb1)_Rupert_Agustina_Jan_Eduardo::Outputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S11_A-(af9eb1)_Rupert_Agustina_Jan_Eduardo::Outcomes": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#2": 0.5,
+        "PolicyRole#2->RegulatoryAgency#3": 0.5,
+        "RegulatoryAgency#2->PolicyRole#1": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S11_A-(af9eb1)_Rupert_Agustina_Jan_Eduardo::Impact": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S12_Brittany_Beckie_Charles_Jessica_Jan::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S12_Brittany_Beckie_Charles_Jessica_Jan::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S12_Brittany_Beckie_Charles_Jessica_Jan::Outputs": {
+      "edges": {
+        "PolicyRole#3->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S12_Brittany_Beckie_Charles_Jessica_Jan::Outcomes": {
+      "edges": {
+        "PolicyRole#3->RegulatoryAgency#1": 0.5,
+        "PolicyRole#3->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S12_Brittany_Beckie_Charles_Jessica_Jan::Impact": {
+      "edges": {
+        "PolicyRole#2->PolicyRole#3": 0.5,
+        "PolicyRole#2->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S13_Jannelle_Jacqueline_Catherine_Dr._Leticia::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S13_Jannelle_Jacqueline_Catherine_Dr._Leticia::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S13_Jannelle_Jacqueline_Catherine_Dr._Leticia::Outputs": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S13_Jannelle_Jacqueline_Catherine_Dr._Leticia::Outcomes": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S13_Jannelle_Jacqueline_Catherine_Dr._Leticia::Impact": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#3": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S14_Guillermo_Iris_Thanhphuong_A-(494c9b)_Bobby::Inputs": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S14_Guillermo_Iris_Thanhphuong_A-(494c9b)_Bobby::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S14_Guillermo_Iris_Thanhphuong_A-(494c9b)_Bobby::Outputs": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#1": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S14_Guillermo_Iris_Thanhphuong_A-(494c9b)_Bobby::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#3": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#3->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S14_Guillermo_Iris_Thanhphuong_A-(494c9b)_Bobby::Impact": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S15_Cameron_Kamran_Clint_Nicholas_Lucian::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S15_Cameron_Kamran_Clint_Nicholas_Lucian::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S15_Cameron_Kamran_Clint_Nicholas_Lucian::Outputs": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#2": 0.5,
+        "RegulatoryAgency#3->RegulatoryAgency#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S15_Cameron_Kamran_Clint_Nicholas_Lucian::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#3->PolicyRole#1": 0.5,
+        "RegulatoryAgency#3->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#3->PolicyRole#2": 0.5,
+        "RegulatoryAgency#2->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S15_Cameron_Kamran_Clint_Nicholas_Lucian::Impact": {
+      "edges": {
+        "RegulatoryAgency#3->RegulatoryAgency#2": 0.5,
+        "PolicyRole#2->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S16_Nora_John_Jennifer_Natessa_Jacquelyn::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S16_Nora_John_Jennifer_Natessa_Jacquelyn::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S16_Nora_John_Jennifer_Natessa_Jacquelyn::Outputs": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S16_Nora_John_Jennifer_Natessa_Jacquelyn::Outcomes": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#1->PolicyRole#3": 0.5,
+        "PolicyRole#1->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S16_Nora_John_Jennifer_Natessa_Jacquelyn::Impact": {
+      "edges": {
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#1->PolicyRole#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S17_Sergio_Pedro_Natessa_A-(a60c73)_Tiffany::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S17_Sergio_Pedro_Natessa_A-(a60c73)_Tiffany::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S17_Sergio_Pedro_Natessa_A-(a60c73)_Tiffany::Outputs": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S17_Sergio_Pedro_Natessa_A-(a60c73)_Tiffany::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#3": 0.5,
+        "RegulatoryAgency#1->PolicyRole#1": 0.5,
+        "PolicyRole#2->RegulatoryAgency#3": 0.5,
+        "PolicyRole#2->PolicyRole#1": 0.5,
+        "RegulatoryAgency#3->PolicyRole#1": 0.5,
+        "RegulatoryAgency#3->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S17_Sergio_Pedro_Natessa_A-(a60c73)_Tiffany::Impact": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#2": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#3": 0.5,
+        "PolicyRole#1->PolicyRole#2": 0.5,
+        "PolicyRole#1->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S18_Carmen-(2fc2_Kessa_Latoya_Patricia_Julie-(9f64a::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S18_Carmen-(2fc2_Kessa_Latoya_Patricia_Julie-(9f64a::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S18_Carmen-(2fc2_Kessa_Latoya_Patricia_Julie-(9f64a::Outputs": {
+      "edges": {
+        "PolicyRole#3->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S18_Carmen-(2fc2_Kessa_Latoya_Patricia_Julie-(9f64a::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#2": 0.5,
+        "RegulatoryAgency#2->PolicyRole#3": 0.5,
+        "PolicyRole#1->PolicyRole#2": 0.5,
+        "PolicyRole#1->PolicyRole#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S18_Carmen-(2fc2_Kessa_Latoya_Patricia_Julie-(9f64a::Impact": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#2": 0.5,
+        "RegulatoryAgency#1->PolicyRole#3": 0.5,
+        "PolicyRole#2->PolicyRole#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S19_Maria-(23758_Bobby_A-(dba595)_Digna_Michael::Inputs": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S19_Maria-(23758_Bobby_A-(dba595)_Digna_Michael::Activities": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S19_Maria-(23758_Bobby_A-(dba595)_Digna_Michael::Outputs": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#1->PolicyRole#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S19_Maria-(23758_Bobby_A-(dba595)_Digna_Michael::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#1": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S19_Maria-(23758_Bobby_A-(dba595)_Digna_Michael::Impact": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S20_Lazaro_A-(d6fe2e)_Nereida_Nelson_Arjan::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S20_Lazaro_A-(d6fe2e)_Nereida_Nelson_Arjan::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S20_Lazaro_A-(d6fe2e)_Nereida_Nelson_Arjan::Outputs": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S20_Lazaro_A-(d6fe2e)_Nereida_Nelson_Arjan::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#3->PolicyRole#2": 0.5,
+        "RegulatoryAgency#1->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S20_Lazaro_A-(d6fe2e)_Nereida_Nelson_Arjan::Impact": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S21_Dr.-(80ad7e)_Phillip_A-(dba595)_Eloise_Denise::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S21_Dr.-(80ad7e)_Phillip_A-(dba595)_Eloise_Denise::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S21_Dr.-(80ad7e)_Phillip_A-(dba595)_Eloise_Denise::Outputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S21_Dr.-(80ad7e)_Phillip_A-(dba595)_Eloise_Denise::Outcomes": {
+      "edges": {
+        "PolicyRole#2->PolicyRole#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S21_Dr.-(80ad7e)_Phillip_A-(dba595)_Eloise_Denise::Impact": {
+      "edges": {
+        "PolicyRole#2->PolicyRole#1": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S22_Sylvia_An-(876760)_Victor_Timothy_Shanely::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S22_Sylvia_An-(876760)_Victor_Timothy_Shanely::Activities": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S22_Sylvia_An-(876760)_Victor_Timothy_Shanely::Outputs": {
+      "edges": {
+        "RegulatoryAgency#3->PolicyRole#1": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S22_Sylvia_An-(876760)_Victor_Timothy_Shanely::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#3": 0.5,
+        "PolicyRole#2->RegulatoryAgency#3": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S22_Sylvia_An-(876760)_Victor_Timothy_Shanely::Impact": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#3->PolicyRole#1": 0.5,
+        "RegulatoryAgency#2->PolicyRole#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S23_Noemi_Aaron_Jonathan_Jesenia_Carmen-(f034::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S23_Noemi_Aaron_Jonathan_Jesenia_Carmen-(f034::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S23_Noemi_Aaron_Jonathan_Jesenia_Carmen-(f034::Outputs": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#1": 0.5,
+        "PolicyRole#2->PolicyRole#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S23_Noemi_Aaron_Jonathan_Jesenia_Carmen-(f034::Outcomes": {
+      "edges": {
+        "PolicyRole#1->PolicyRole#2": 0.5,
+        "PolicyRole#1->PolicyRole#3": 0.5,
+        "PolicyRole#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S23_Noemi_Aaron_Jonathan_Jesenia_Carmen-(f034::Impact": {
+      "edges": {
+        "PolicyRole#1->PolicyRole#3": 0.5,
+        "RegulatoryAgency#1->PolicyRole#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S24_Thomas_Timothy_A-(bc690e)_Anil_Marcus::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S24_Thomas_Timothy_A-(bc690e)_Anil_Marcus::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S24_Thomas_Timothy_A-(bc690e)_Anil_Marcus::Outputs": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#3->PolicyRole#2": 0.5,
+        "RegulatoryAgency#3->RegulatoryAgency#2": 0.5,
+        "PolicyRole#2->RegulatoryAgency#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S24_Thomas_Timothy_A-(bc690e)_Anil_Marcus::Outcomes": {
+      "edges": {
+        "PolicyRole#1->PolicyRole#2": 0.5,
+        "RegulatoryAgency#2->PolicyRole#2": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S24_Thomas_Timothy_A-(bc690e)_Anil_Marcus::Impact": {
+      "edges": {
+        "PolicyRole#2->PolicyRole#1": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S25_Antonio_John-(d5794e_Lao_Jimi_Cira::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S25_Antonio_John-(d5794e_Lao_Jimi_Cira::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S25_Antonio_John-(d5794e_Lao_Jimi_Cira::Outputs": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#3": 0.5,
+        "PolicyRole#1->PolicyRole#3": 0.5,
+        "RegulatoryAgency#1->PolicyRole#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S25_Antonio_John-(d5794e_Lao_Jimi_Cira::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#3": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#3->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S25_Antonio_John-(d5794e_Lao_Jimi_Cira::Impact": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#1->PolicyRole#2": 0.5,
+        "RegulatoryAgency#1->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S26_Shanna_Victoria_Jennette_Isabel_Caridad::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S26_Shanna_Victoria_Jennette_Isabel_Caridad::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S26_Shanna_Victoria_Jennette_Isabel_Caridad::Outputs": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S26_Shanna_Victoria_Jennette_Isabel_Caridad::Outcomes": {
+      "edges": {
+        "PolicyRole#3->PolicyRole#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S26_Shanna_Victoria_Jennette_Isabel_Caridad::Impact": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S27_Cynthia_Joseph-(bde7_Vincent_Jordan_Tai::Inputs": {
+      "edges": {
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#1->PolicyRole#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S27_Cynthia_Joseph-(bde7_Vincent_Jordan_Tai::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S27_Cynthia_Joseph-(bde7_Vincent_Jordan_Tai::Outputs": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#1": 0.5,
+        "RegulatoryAgency#1->PolicyRole#2": 0.5,
+        "RegulatoryAgency#1->PolicyRole#1": 0.5,
+        "PolicyRole#2->PolicyRole#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S27_Cynthia_Joseph-(bde7_Vincent_Jordan_Tai::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#3": 0.5,
+        "PolicyRole#1->RegulatoryAgency#3": 0.5,
+        "PolicyRole#2->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S27_Cynthia_Joseph-(bde7_Vincent_Jordan_Tai::Impact": {
+      "edges": {
+        "RegulatoryAgency#3->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S28_Armando_Caridad_Felix_Marsha_Peggy::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S28_Armando_Caridad_Felix_Marsha_Peggy::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S28_Armando_Caridad_Felix_Marsha_Peggy::Outputs": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S28_Armando_Caridad_Felix_Marsha_Peggy::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#1": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S28_Armando_Caridad_Felix_Marsha_Peggy::Impact": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S29_Myrna_Richard-(4c2_Isabel_Elbert_Elizabeth-(6::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S29_Myrna_Richard-(4c2_Isabel_Elbert_Elizabeth-(6::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S29_Myrna_Richard-(4c2_Isabel_Elbert_Elizabeth-(6::Outputs": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#1": 0.5,
+        "PolicyRole#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#1->PolicyRole#2": 0.5,
+        "RegulatoryAgency#3->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#1->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S29_Myrna_Richard-(4c2_Isabel_Elbert_Elizabeth-(6::Outcomes": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#1": 0.5,
+        "PolicyRole#1->RegulatoryAgency#3": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#3": 0.5,
+        "RegulatoryAgency#2->PolicyRole#2": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S29_Myrna_Richard-(4c2_Isabel_Elbert_Elizabeth-(6::Impact": {
+      "edges": {
+        "RegulatoryAgency#2->RegulatoryAgency#3": 0.5,
+        "PolicyRole#1->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S30_Robert_A-(314e74)_Joan_Trevor_A-(e04a08)::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S30_Robert_A-(314e74)_Joan_Trevor_A-(e04a08)::Activities": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#3": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S30_Robert_A-(314e74)_Joan_Trevor_A-(e04a08)::Outputs": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#3->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S30_Robert_A-(314e74)_Joan_Trevor_A-(e04a08)::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#3->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#3->PolicyRole#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S30_Robert_A-(314e74)_Joan_Trevor_A-(e04a08)::Impact": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S31_Jesenia_Lindsey_Dr.-(e7d973)_Kala_Zachary::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S31_Jesenia_Lindsey_Dr.-(e7d973)_Kala_Zachary::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S31_Jesenia_Lindsey_Dr.-(e7d973)_Kala_Zachary::Outputs": {
+      "edges": {
+        "PolicyRole#2->PolicyRole#4": 0.5,
+        "PolicyRole#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S31_Jesenia_Lindsey_Dr.-(e7d973)_Kala_Zachary::Outcomes": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#2->PolicyRole#1": 0.5,
+        "RegulatoryAgency#1->PolicyRole#1": 0.5,
+        "PolicyRole#1->PolicyRole#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S31_Jesenia_Lindsey_Dr.-(e7d973)_Kala_Zachary::Impact": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S32_Eugene_Roseline_Santos_Jehu_Tarik::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S32_Eugene_Roseline_Santos_Jehu_Tarik::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S32_Eugene_Roseline_Santos_Jehu_Tarik::Outputs": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#3": 0.5,
+        "PolicyRole#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S32_Eugene_Roseline_Santos_Jehu_Tarik::Outcomes": {
+      "edges": {
+        "PolicyRole#2->PolicyRole#1": 0.5,
+        "PolicyRole#2->RegulatoryAgency#3": 0.5,
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#1->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S32_Eugene_Roseline_Santos_Jehu_Tarik::Impact": {
+      "edges": {
+        "RegulatoryAgency#2->RegulatoryAgency#3": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S33_A-(bc690e)_Justin_Diego_Amanda_April::Inputs": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S33_A-(bc690e)_Justin_Diego_Amanda_April::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S33_A-(bc690e)_Justin_Diego_Amanda_April::Outputs": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#2->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S33_A-(bc690e)_Justin_Diego_Amanda_April::Outcomes": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#2->RegulatoryAgency#2": 0.5,
+        "PolicyRole#2->PolicyRole#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S33_A-(bc690e)_Justin_Diego_Amanda_April::Impact": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S34_Andru_Lashon_Timothy-(8f2_Loan_Bich::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S34_Andru_Lashon_Timothy-(8f2_Loan_Bich::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S34_Andru_Lashon_Timothy-(8f2_Loan_Bich::Outputs": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S34_Andru_Lashon_Timothy-(8f2_Loan_Bich::Outcomes": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S34_Andru_Lashon_Timothy-(8f2_Loan_Bich::Impact": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S35_Luis_Vincent_Janella_Victor-(a213_Matthew::Inputs": {
+      "edges": {
+        "RegulatoryAgency#3->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#3->PolicyRole#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S35_Luis_Vincent_Janella_Victor-(a213_Matthew::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S35_Luis_Vincent_Janella_Victor-(a213_Matthew::Outputs": {
+      "edges": {
+        "RegulatoryAgency#3->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#2->PolicyRole#2": 0.5,
+        "PolicyRole#2->PolicyRole#1": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S35_Luis_Vincent_Janella_Victor-(a213_Matthew::Outcomes": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S35_Luis_Vincent_Janella_Victor-(a213_Matthew::Impact": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#2->PolicyRole#1": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S36_Michael_Carmen-(f034_Marie_Dr._Matthew::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S36_Michael_Carmen-(f034_Marie_Dr._Matthew::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S36_Michael_Carmen-(f034_Marie_Dr._Matthew::Outputs": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#3": 0.5,
+        "RegulatoryAgency#2->PolicyRole#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S36_Michael_Carmen-(f034_Marie_Dr._Matthew::Outcomes": {
+      "edges": {
+        "PolicyRole#2->PolicyRole#3": 0.5,
+        "PolicyRole#2->RegulatoryAgency#2": 0.5,
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#3->RegulatoryAgency#2": 0.5,
+        "PolicyRole#3->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#2->PolicyRole#1": 0.5,
+        "PolicyRole#1->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S36_Michael_Carmen-(f034_Marie_Dr._Matthew::Impact": {
+      "edges": {
+        "PolicyRole#3->PolicyRole#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S37_Giselle_Jewel_Edwis_Ronit_Sergio::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S37_Giselle_Jewel_Edwis_Ronit_Sergio::Activities": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S37_Giselle_Jewel_Edwis_Ronit_Sergio::Outputs": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#3": 0.5,
+        "RegulatoryAgency#1->PolicyRole#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S37_Giselle_Jewel_Edwis_Ronit_Sergio::Outcomes": {
+      "edges": {
+        "PolicyRole#3->RegulatoryAgency#2": 0.5,
+        "PolicyRole#3->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#2->PolicyRole#2": 0.5,
+        "PolicyRole#1->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S37_Giselle_Jewel_Edwis_Ronit_Sergio::Impact": {
+      "edges": {
+        "PolicyRole#3->PolicyRole#2": 0.5,
+        "PolicyRole#1->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S38_Gwyn_Brandon_Eugene_Latisha_Leilani::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S38_Gwyn_Brandon_Eugene_Latisha_Leilani::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S38_Gwyn_Brandon_Eugene_Latisha_Leilani::Outputs": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S38_Gwyn_Brandon_Eugene_Latisha_Leilani::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#1->PolicyRole#1": 0.5,
+        "RegulatoryAgency#1->PolicyRole#2": 0.5,
+        "RegulatoryAgency#2->PolicyRole#2": 0.5,
+        "PolicyRole#3->PolicyRole#2": 0.5,
+        "PolicyRole#1->PolicyRole#2": 0.5
+      },
+      "topology": "star"
+    },
+    "nsa_single_deepseek::S38_Gwyn_Brandon_Eugene_Latisha_Leilani::Impact": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#1": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#1->PolicyRole#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S39_Tireon_Chau_An-(b02564)_A-(d0c351)_Carolina::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S39_Tireon_Chau_An-(b02564)_A-(d0c351)_Carolina::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S39_Tireon_Chau_An-(b02564)_A-(d0c351)_Carolina::Outputs": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S39_Tireon_Chau_An-(b02564)_A-(d0c351)_Carolina::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#2": 0.5,
+        "PolicyRole#3->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S39_Tireon_Chau_An-(b02564)_A-(d0c351)_Carolina::Impact": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S40_Mariah_Zachary_Dana_Jade_A-(d562e3)::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S40_Mariah_Zachary_Dana_Jade_A-(d562e3)::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S40_Mariah_Zachary_Dana_Jade_A-(d562e3)::Outputs": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#2": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#1->PolicyRole#3": 0.5,
+        "PolicyRole#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#1->PolicyRole#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S40_Mariah_Zachary_Dana_Jade_A-(d562e3)::Outcomes": {
+      "edges": {
+        "PolicyRole#3->RegulatoryAgency#2": 0.5,
+        "PolicyRole#2->PolicyRole#1": 0.5,
+        "PolicyRole#2->RegulatoryAgency#2": 0.5,
+        "PolicyRole#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S40_Mariah_Zachary_Dana_Jade_A-(d562e3)::Impact": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#1": 0.5,
+        "PolicyRole#3->PolicyRole#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S41_Natasha_Natessa_Christopher_John_Jessica-(a20::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S41_Natasha_Natessa_Christopher_John_Jessica-(a20::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S41_Natasha_Natessa_Christopher_John_Jessica-(a20::Outputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S41_Natasha_Natessa_Christopher_John_Jessica-(a20::Outcomes": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#1->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S41_Natasha_Natessa_Christopher_John_Jessica-(a20::Impact": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#1": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S42_Ronald_Cynthia_Rebecca-(2fb_Elaine_Dr.::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S42_Ronald_Cynthia_Rebecca-(2fb_Elaine_Dr.::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S42_Ronald_Cynthia_Rebecca-(2fb_Elaine_Dr.::Outputs": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#3": 0.5,
+        "PolicyRole#3->PolicyRole#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S42_Ronald_Cynthia_Rebecca-(2fb_Elaine_Dr.::Outcomes": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#1->RegulatoryAgency#1": 0.5,
+        "PolicyRole#1->PolicyRole#4": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S42_Ronald_Cynthia_Rebecca-(2fb_Elaine_Dr.::Impact": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S43_Virginia_Tyreese_James-(9bb69_Rishi_Levania::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S43_Virginia_Tyreese_James-(9bb69_Rishi_Levania::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S43_Virginia_Tyreese_James-(9bb69_Rishi_Levania::Outputs": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S43_Virginia_Tyreese_James-(9bb69_Rishi_Levania::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#3->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#1->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S43_Virginia_Tyreese_James-(9bb69_Rishi_Levania::Impact": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#3": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S44_John-(d652d7_Sasha_A-(78b1a8)_Nathaniel_Kenneth::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S44_John-(d652d7_Sasha_A-(78b1a8)_Nathaniel_Kenneth::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S44_John-(d652d7_Sasha_A-(78b1a8)_Nathaniel_Kenneth::Outputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S44_John-(d652d7_Sasha_A-(78b1a8)_Nathaniel_Kenneth::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#2": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S44_John-(d652d7_Sasha_A-(78b1a8)_Nathaniel_Kenneth::Impact": {
+      "edges": {
+        "RegulatoryAgency#3->RegulatoryAgency#2": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S45_Giselle_Michael_Alissa_Dorothy_Jacqueline::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S45_Giselle_Michael_Alissa_Dorothy_Jacqueline::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S45_Giselle_Michael_Alissa_Dorothy_Jacqueline::Outputs": {
+      "edges": {
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#1->RegulatoryAgency#1": 0.5,
+        "PolicyRole#3->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S45_Giselle_Michael_Alissa_Dorothy_Jacqueline::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#2": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#2->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S45_Giselle_Michael_Alissa_Dorothy_Jacqueline::Impact": {
+      "edges": {
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#1->PolicyRole#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S46_Michael-(658_Maritta_Angie_A-(46fbfb)_Jennifer-(11::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S46_Michael-(658_Maritta_Angie_A-(46fbfb)_Jennifer-(11::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S46_Michael-(658_Maritta_Angie_A-(46fbfb)_Jennifer-(11::Outputs": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#2->PolicyRole#4": 0.5,
+        "PolicyRole#3->PolicyRole#1": 0.5,
+        "PolicyRole#3->PolicyRole#4": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S46_Michael-(658_Maritta_Angie_A-(46fbfb)_Jennifer-(11::Outcomes": {
+      "edges": {
+        "PolicyRole#2->PolicyRole#1": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S46_Michael-(658_Maritta_Angie_A-(46fbfb)_Jennifer-(11::Impact": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#3->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S47_A-(d562e3)_An-(b02564)_Carlos_Cenk_Lilibeth::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S47_A-(d562e3)_An-(b02564)_Carlos_Cenk_Lilibeth::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S47_A-(d562e3)_An-(b02564)_Carlos_Cenk_Lilibeth::Outputs": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S47_A-(d562e3)_An-(b02564)_Carlos_Cenk_Lilibeth::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5,
+        "PolicyRole#3->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S47_A-(d562e3)_An-(b02564)_Carlos_Cenk_Lilibeth::Impact": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#1": 0.5
+      },
+      "topology": "chain"
+    },
+    "nsa_single_deepseek::S48_Trumella_Jasmine_Charles_A-(d07877)_Juanita::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S48_Trumella_Jasmine_Charles_A-(d07877)_Juanita::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S48_Trumella_Jasmine_Charles_A-(d07877)_Juanita::Outputs": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#1": 0.5,
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S48_Trumella_Jasmine_Charles_A-(d07877)_Juanita::Outcomes": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#1->RegulatoryAgency#1": 0.5,
+        "PolicyRole#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S48_Trumella_Jasmine_Charles_A-(d07877)_Juanita::Impact": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S49_Jennette_A-(072551)_Nereida_Ronald-(f5ba_Marina::Inputs": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S49_Jennette_A-(072551)_Nereida_Ronald-(f5ba_Marina::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S49_Jennette_A-(072551)_Nereida_Ronald-(f5ba_Marina::Outputs": {
+      "edges": {
+        "RegulatoryAgency#1->PolicyRole#1": 0.5,
+        "RegulatoryAgency#1->PolicyRole#2": 0.5,
+        "PolicyRole#1->PolicyRole#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S49_Jennette_A-(072551)_Nereida_Ronald-(f5ba_Marina::Outcomes": {
+      "edges": {
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#3->RegulatoryAgency#2": 0.5,
+        "PolicyRole#2->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S49_Jennette_A-(072551)_Nereida_Ronald-(f5ba_Marina::Impact": {
+      "edges": {
+        "PolicyRole#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#1->PolicyRole#2": 0.5,
+        "PolicyRole#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S50_Litigator_Warren_Khue_Dr.-(80ad7e)_A-(6baccb)::Inputs": {
+      "edges": {
+        "RegulatoryAgency#2->RegulatoryAgency#1": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S50_Litigator_Warren_Khue_Dr.-(80ad7e)_A-(6baccb)::Activities": {
+      "edges": {},
+      "topology": "disconnected"
+    },
+    "nsa_single_deepseek::S50_Litigator_Warren_Khue_Dr.-(80ad7e)_A-(6baccb)::Outputs": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#1": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "PolicyRole#1->RegulatoryAgency#2": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S50_Litigator_Warren_Khue_Dr.-(80ad7e)_A-(6baccb)::Outcomes": {
+      "edges": {
+        "PolicyRole#2->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#2": 0.5,
+        "RegulatoryAgency#1->RegulatoryAgency#3": 0.5
+      },
+      "topology": "complete"
+    },
+    "nsa_single_deepseek::S50_Litigator_Warren_Khue_Dr.-(80ad7e)_A-(6baccb)::Impact": {
+      "edges": {
+        "RegulatoryAgency#2->PolicyRole#2": 0.5
       },
       "topology": "complete"
     },

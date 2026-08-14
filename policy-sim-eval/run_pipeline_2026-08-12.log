@@ -1,0 +1,97 @@
+﻿[16:53:02] loading configs
+[16:53:02] building policy context: 100e
+python : Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate l
+imits and faster downloads.
+At line:2 char:1
++ python -m src.cli 2>&1 | Tee-Object -FilePath "run_pipeline_2026-08-1 ...
++ ~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Warning: You ar...ster downloads.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 199/199 [00:00<00:00, 4738.47it/s]
+[16:53:59] building policy context: bk21
+[16:54:16] building policy context: kpass
+[16:54:16] building policy context: nsa
+[16:54:17] building policy context: nsa_single
+[16:54:17] loading all cells
+[16:54:17]   100e_gemini: 50 runs loaded, revise_noop_verified=True, agg_matches_mean=True
+[16:54:17]   100e_deepseek: 50 runs loaded, revise_noop_verified=True, agg_matches_mean=True
+[16:54:17]   bk21_deepseek: 50 runs loaded, revise_noop_verified=True, agg_matches_mean=True
+[16:54:18]   nsa_single_deepseek: 50 runs loaded, revise_noop_verified=True, agg_matches_mean=True
+[16:54:18] classifying variables per policy (pooled across cells)
+[16:54:18] === computing metrics for cell 100e_gemini (n=50) ===
+[16:54:18]   A1
+[16:54:20]   A2 (slow: per-sentence retrieval)
+[17:08:25]   M1/M2
+C:\Users\moonh\Downloads\Policysimevaluation\policy-sim-eval\src\metrics\acc_meso.py:73: ConstantInputWarning: An input
+ array is constant; the correlation coefficient is not defined.
+  rho, _ = spearmanr(range(len(ordered)), ordered)
+[17:08:26]   D1/D2
+[17:08:27]   DM1/DM2 (influence graphs)
+[17:08:35]   X1/X4/DX1
+[17:08:35]   stability curves (X1 APE)
+[17:08:38]   gates G1/G2/G3
+[17:08:38] === computing metrics for cell 100e_deepseek (n=50) ===
+[17:08:38]   A1
+[17:08:40]   A2 (slow: per-sentence retrieval)
+[17:20:03]   M1/M2
+C:\Users\moonh\Downloads\Policysimevaluation\policy-sim-eval\src\metrics\acc_meso.py:73: ConstantInputWarning: An input
+ array is constant; the correlation coefficient is not defined.
+  rho, _ = spearmanr(range(len(ordered)), ordered)
+[17:20:05]   D1/D2
+[17:20:05]   DM1/DM2 (influence graphs)
+[17:20:12]   X1/X4/DX1
+[17:20:12]   stability curves (X1 APE)
+[17:20:12]   gates G1/G2/G3
+[17:20:12] === computing metrics for cell bk21_deepseek (n=50) ===
+[17:20:12]   A1
+[17:20:13]   A2 (slow: per-sentence retrieval)
+[17:32:04]   M1/M2
+C:\Users\moonh\Downloads\Policysimevaluation\policy-sim-eval\src\metrics\acc_meso.py:73: ConstantInputWarning: An input
+ array is constant; the correlation coefficient is not defined.
+  rho, _ = spearmanr(range(len(ordered)), ordered)
+[17:32:06]   D1/D2
+[17:32:06]   DM1/DM2 (influence graphs)
+[17:32:15]   X1/X4/DX1
+[17:32:15]   stability curves (X1 APE)
+[17:32:15]   gates G1/G2/G3
+[17:32:15] === computing metrics for cell nsa_single_deepseek (n=50) ===
+[17:32:15]   A1
+[17:32:15]   A2 (slow: per-sentence retrieval)
+[17:41:44]   M1/M2
+[17:41:45]   D1/D2
+[17:41:46]   DM1/DM2 (influence graphs)
+[17:41:53]   X1/X4/DX1
+[17:41:53]   stability curves (X1 APE)
+[17:41:54]   gates G1/G2/G3
+[17:41:54] === branch pathway cells ===
+[17:41:54] === computing metrics for branch cell nsa_deepseek ===
+[17:41:54]   nsa_deepseek: 81 leaf runs, 27 outcomes runs, posting_order_fixed=True, extra_top_level_keys=[]
+[17:41:54]   A1
+[17:41:55]   A2 (slow: per-sentence retrieval)
+[18:00:20]   M1/M2
+[18:00:21]   D1/D2
+[18:00:23]   DM1/DM2 (influence graphs)
+[18:00:36]   X1/X4/DX1
+[18:00:36]   stability curves (X1 APE)
+[18:00:36]   gates G1/G2/G3
+[18:00:36]   B1 label fidelity
+[18:00:36] === computing metrics for branch cell kpass_deepseek ===
+[18:00:36]   kpass_deepseek: 81 leaf runs, 27 outcomes runs, posting_order_fixed=True, extra_top_level_keys=['branch_prompt_experiment', 'coverage_level_override', 'expansion_strategy', 'mechanism_planner_enabled', 'mechanism_planner_mode']
+[18:00:36]   A1
+[18:00:37]   A2 (slow: per-sentence retrieval)
+[18:20:20]   M1/M2
+[18:20:21]   D1/D2
+[18:20:23]   DM1/DM2 (influence graphs)
+[18:20:36]   X1/X4/DX1
+[18:20:36]   stability curves (X1 APE)
+[18:20:36]   gates G1/G2/G3
+[18:20:36]   B1 label fidelity
+[18:20:36] computing branch contrasts
+[18:20:36] computing contrasts
+C:\Users\moonh\Downloads\Policysimevaluation\policy-sim-eval\src\metrics\acc_meso.py:73: ConstantInputWarning: An input
+ array is constant; the correlation coefficient is not defined.
+  rho, _ = spearmanr(range(len(ordered)), ordered)
+[18:20:48] wrote C:\Users\moonh\Downloads\Policysimevaluation\policy-sim-eval\outputs\evaluation.json

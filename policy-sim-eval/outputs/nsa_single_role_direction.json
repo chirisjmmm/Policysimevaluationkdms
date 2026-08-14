@@ -1,0 +1,244 @@
+{
+  "roles_present": [
+    "PolicyRole",
+    "RegulatoryAgency"
+  ],
+  "summary_rows": [
+    {
+      "phase": "Activities",
+      "var": "disclosure_notices_sent",
+      "PolicyRole_mean": 63022962.96296296,
+      "PolicyRole_std": 118278732.9061633,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 56295652.17391305,
+      "RegulatoryAgency_std": 58718891.69565425,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Activities",
+      "var": "idr_cases_initiated",
+      "PolicyRole_mean": 111053.33333333333,
+      "PolicyRole_std": 81619.01358003402,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 96447.82608695653,
+      "RegulatoryAgency_std": 90642.30641739765,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Activities",
+      "var": "initial_payments_made",
+      "PolicyRole_mean": 12054814.814814815,
+      "PolicyRole_std": 7699723.116893072,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 14316521.739130436,
+      "RegulatoryAgency_std": 7838954.349465601,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Activities",
+      "var": "qpa_calculations_performed",
+      "PolicyRole_mean": 14762962.962962963,
+      "PolicyRole_std": 8996211.060389407,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 17621739.13043478,
+      "RegulatoryAgency_std": 9926020.11061306,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Impact",
+      "var": "average_health_plan_premium_impact_pct",
+      "PolicyRole_mean": 1.662962962962963,
+      "PolicyRole_std": 0.8467577152042298,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 1.318695652173913,
+      "RegulatoryAgency_std": 0.6490950513085663,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Impact",
+      "var": "network_adequacy_index",
+      "PolicyRole_mean": 64.92459259259259,
+      "PolicyRole_std": 12.659128093722666,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 66.91643478260869,
+      "RegulatoryAgency_std": 17.854040838021703,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Impact",
+      "var": "systemic_oon_billing_prevalence",
+      "PolicyRole_mean": 8.92,
+      "PolicyRole_std": 4.38206445512716,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 6.24695652173913,
+      "RegulatoryAgency_std": 3.6126425770360937,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Inputs",
+      "var": "certified_idr_entity_count",
+      "PolicyRole_mean": 45.355555555555554,
+      "PolicyRole_std": 47.57395282772203,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 29,
+      "RegulatoryAgency_std": 36.868037294017206,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Inputs",
+      "var": "enforcement_budget_usd",
+      "PolicyRole_mean": 94977777.77777778,
+      "PolicyRole_std": 60193449.461089134,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 93495652.17391305,
+      "RegulatoryAgency_std": 47413880.54201987,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Inputs",
+      "var": "qpa_calculation_system_readiness",
+      "PolicyRole_mean": 62.26888888888889,
+      "PolicyRole_std": 11.551299216116208,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 67.73913043478261,
+      "RegulatoryAgency_std": 7.744941638449367,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Outcomes",
+      "var": "consumer_protection_awareness_pct",
+      "PolicyRole_mean": 34.31111111111111,
+      "PolicyRole_std": 9.972901555319734,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 36.93913043478261,
+      "RegulatoryAgency_std": 10.516477304498414,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Outcomes",
+      "var": "patient_outofpocket_savings_per_claim_usd",
+      "PolicyRole_mean": 468.6666666666667,
+      "PolicyRole_std": 220.8998432338528,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 507.5652173913044,
+      "RegulatoryAgency_std": 225.023056999665,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Outcomes",
+      "var": "reduction_emergency_oon_bills_pct",
+      "PolicyRole_mean": 15.154074074074074,
+      "PolicyRole_std": 17.775871132325175,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 15.412173913043478,
+      "RegulatoryAgency_std": 15.419068645115948,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Outcomes",
+      "var": "reduction_in_prevalence_of_out_of_network_bills_for_emergency_services_in_2022",
+      "PolicyRole_mean": 22.354074074074074,
+      "PolicyRole_std": 23.676823369772432,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 26.98608695652174,
+      "RegulatoryAgency_std": 26.85590174619229,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Outcomes",
+      "var": "reduction_in_prevalence_of_out_of_network_bills_for_non_emergency_services_at_in_network_facilities_in_2022",
+      "PolicyRole_mean": 16.68074074074074,
+      "PolicyRole_std": 19.866400058972815,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 20.85217391304348,
+      "RegulatoryAgency_std": 23.98462314584107,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Outcomes",
+      "var": "reduction_nonemergency_oon_bills_pct",
+      "PolicyRole_mean": 10.802962962962964,
+      "PolicyRole_std": 14.7067076696353,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 10.581304347826087,
+      "RegulatoryAgency_std": 14.056534084637997,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Outputs",
+      "var": "balance_billing_attempts_blocked",
+      "PolicyRole_mean": 1097333.3333333333,
+      "PolicyRole_std": 1878719.8320684773,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 1956695.652173913,
+      "RegulatoryAgency_std": 4276169.385293364,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Outputs",
+      "var": "compliant_notice_provision_rate",
+      "PolicyRole_mean": 50.95925925925926,
+      "PolicyRole_std": 18.338590342433616,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 58.25877192982456,
+      "RegulatoryAgency_std": 17.23409926393637,
+      "RegulatoryAgency_n": 114
+    },
+    {
+      "phase": "Outputs",
+      "var": "idr_determinations_completed",
+      "PolicyRole_mean": 58546.666666666664,
+      "PolicyRole_std": 42622.99813915453,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 58343.47826086957,
+      "RegulatoryAgency_std": 54819.62696831473,
+      "RegulatoryAgency_n": 115
+    },
+    {
+      "phase": "Outputs",
+      "var": "protected_claims_processed",
+      "PolicyRole_mean": 11760370.370370371,
+      "PolicyRole_std": 7490047.955877473,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 14400000,
+      "RegulatoryAgency_std": 8021818.074314034,
+      "RegulatoryAgency_n": 115
+    }
+  ],
+  "target_results": {
+    "reduction_emergency_oon_bills_pct": {
+      "GT": 15,
+      "PolicyRole_mean": 15.154074074074074,
+      "PolicyRole_std": 17.775871132325175,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 15.412173913043478,
+      "RegulatoryAgency_std": 15.419068645115948,
+      "RegulatoryAgency_n": 115,
+      "welch_t": -0.1224394448344081,
+      "welch_p": 0.902650197747844,
+      "mannwhitney_u": 6208.0,
+      "mannwhitney_p": 0.006304788994368726,
+      "direction": "RegulatoryAgency(regulator) > PolicyRole(provider)",
+      "diff": -0.2580998389694038
+    },
+    "reduction_nonemergency_oon_bills_pct": {
+      "GT": 11,
+      "PolicyRole_mean": 10.802962962962964,
+      "PolicyRole_std": 14.7067076696353,
+      "PolicyRole_n": 135,
+      "RegulatoryAgency_mean": 10.581304347826087,
+      "RegulatoryAgency_std": 14.056534084637997,
+      "RegulatoryAgency_n": 115,
+      "welch_t": 0.12115394745010356,
+      "welch_p": 0.9036685368990034,
+      "mannwhitney_u": 7029.5,
+      "mannwhitney_p": 0.19784982390568506,
+      "direction": "PolicyRole(provider) > RegulatoryAgency(regulator)",
+      "diff": 0.22165861513687624
+    }
+  },
+  "icc_role_targets": {
+    "reduction_emergency_oon_bills_pct": 5.9095264294517935e-05,
+    "reduction_nonemergency_oon_bills_pct": 5.876120669175847e-05
+  }
+}

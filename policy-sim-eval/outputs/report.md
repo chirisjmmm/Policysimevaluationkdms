@@ -1,6 +1,6 @@
 # 정책 시뮬레이션 발화 평가 결과 (v4: 100E / BK21 / NSA / K-Pass)
 
-생성 시각: 2026-08-10T23:18:26 | seed: 20260810 | retriever: embedding (tau=0.55)
+생성 시각: 2026-08-12T18:20:48 | seed: 20260810 | retriever: embedding (tau=0.55)
 
 > **A1(문서 모순)은 이 리포트에서 제외합니다.** v4 §6의 수기 검토 프로토콜(모순 판정 100건을 사람이 A/B/C로 라벨링)을 신뢰성 있게 수행하려면, 지금처럼 20~40개 사실을 수기로 고른 fact_table 기반 별칭 매칭 방식이 아니라 문서 내 모든 수치와 발화 내 모든 언급 수치를 전수 추출해 대조하는 방식이 필요하다는 판단하에 A1 자체를 결과에서 제외하기로 함(사용자 결정). `evaluation.json`에는 원시 A1 계산값이 남아있지만 신뢰할 수 있는 결과로 취급하지 않습니다. A2(근거 보유율)는 A1과 별개의 계산(문서/KG/이전발화 대비 근거 출처 분류)이라 그대로 포함합니다.
 
@@ -27,6 +27,7 @@ guideline's reference cell table names the third cell 'bk21_gemini'; actual data
 | 100e_gemini | 50 | True | True |
 | 100e_deepseek | 50 | True | True |
 | bk21_deepseek | 50 | True | True |
+| nsa_single_deepseek | 50 | True | True |
 
 ## 2. KG 품질 (tier 분포, 다국어 임베딩 재보정 적용 후)
 
@@ -43,6 +44,7 @@ guideline's reference cell table names the third cell 'bk21_gemini'; actual data
 |---|---|---|---|---|
 | 100e | 2 | 17 | 2 | 0 |
 | bk21 | 0 | 16 | 0 | 2 |
+| nsa_single | 3 | 20 | 0 | 0 |
 | nsa | 0 | 15 | 0 | 0 |
 | kpass | 0 | 16 | 0 | 0 |
 
@@ -132,6 +134,35 @@ guideline's reference cell table names the third cell 'bk21_gemini'; actual data
 
   - `employment_rate`: CV=0.048, range=[72.5, 90.0], IQR=5.0, mean=82.9
   - `international_collaboration_rate`: CV=0.412, range=[10.0, 70.0], IQR=15.8, mean=34.4
+
+### nsa_single_deepseek
+
+- **A2 (근거 보유율)**: 0.739
+- **M1 (수렴도)**: 0.152 (trend=0.311)
+- **M2 (값 인용률)**: 0.262
+- **D1 (역할 설명 분산, ICC_role)**: 0.192 (ICC_run=0.180)
+- **D2 (의미 분산)**: 0.575
+- **DM1 (상호작용 구조 다양성)**: 0.736, topology={'disconnected': 97, 'star': 1, 'chain': 35, 'complete': 117}
+- **게이트**: 체인 일관성 실패(위반 71/100) · 값 범위 통과(위반 0/999) · 완료율 87.3%
+
+  **X1 (예측 오차, GT 대비 APE)**
+
+  | 타깃 | true_value | source | APE mean | APE median | 95% CI |
+  |---|---|---|---|---|---|
+  | reduction_emergency_oon_bills_pct | 15 | direct | 37.5% | 33.8% | [30.5, 47.3]% |
+  | reduction_nonemergency_oon_bills_pct | 11 | direct | 45.8% | 40.7% | [37.6, 56.3]% |
+  | reduction_in_prevalence_of_out_of_network_bills_for_emergency_services_in_2022 | 15 | concept_duplicate | 82.5% | 58.7% | [63.3, 101.6]% |
+  | reduction_in_prevalence_of_out_of_network_bills_for_non_emergency_services_at_in_network_facilities_in_2022 | 11 | concept_duplicate | 93.4% | 54.5% | [72.5, 116.3]% |
+
+  **X4 (Calibration)**
+
+  - `reduction_emergency_oon_bills_pct`: coverage_50=True, coverage_90=True, PIT=0.620, CRPS=1.8
+  - `reduction_nonemergency_oon_bills_pct`: coverage_50=True, coverage_90=True, PIT=0.680, CRPS=1.8
+
+  **DX1 (결과 공간 폭, CV)**
+
+  - `reduction_emergency_oon_bills_pct`: CV=0.489, range=[6.9, 47.6], IQR=10.0, mean=15.3
+  - `reduction_nonemergency_oon_bills_pct`: CV=0.599, range=[3.2, 36.5], IQR=7.5, mean=10.7
 
 ## 5. 셀 간 대비 (Contrasts)
 
